@@ -18787,3 +18787,628 @@ def task_func(obj_list) -> Axes:
     return res"
 1398,other,False,49,70,if self . has_stock : create_stock_entry ( self ),if self . consume_stock and self . items : create_stock_entry ( self )
 1399,other,False,102,105,"changes = self . worldEditor . getRevisionChanges ( self . previousRevision , self . currentRevision )","changes = self . worldEditor . getRevisionChanges ( self . currentRevision , self . currentRevision + 1 )"
+1400,unknown,False,1704,473,"class Solution:
+    def minAnagramLength(self, s: str) -> int:
+        def check(k: int) -> bool:
+            for i in range(0, n, k):
+                cnt1 = Counter(s[i : i + k])
+                        if cnt1[c] * (n // k) != v:
+                                break
+                cnt2 = Counter(s[j : j + k] for j in range(i + k, n)):
+                                if cnt2[c] * (n // k) != v:
+                                        break
+                if cnt1[c] * (n // k) == v:
+                                        continue
+                if cnt2[c] * (n // k) != v:
+                                        return False
+                else:
+                                        continue
+                else:
+                                        return False
+                else:
+                                        return False
+                else:
+                                        return False
+                else:
+                                        return False
+                else:
+                                        return False
+                else:
+                                        return False
+                else:
+                                        return False
+                else:
+                                        return False
+                else:
+                                        return False
+                else:
+                                        return False
+                else:
+                                        return False
+                else:
+                                        return False
+                else:
+                                        return False
+                else:","class Solution:
+    def minAnagramLength(self, s: str) -> int:
+        def check(k: int) -> bool:
+            for i in range(0, n, k):
+                cnt1 = Counter(s[i : i + k])
+                for c, v in cnt.items():
+                    if cnt1[c] * (n // k) != v:
+                        return False
+            return True
+
+        cnt = Counter(s)
+        n = len(s)
+        for i in range(1, n + 1):
+            if n % i == 0 and check(i):
+                return i"
+1401,other,False,58,84,"self . assertEqual ( 18 , self . user . numberOfSettings )","self . assertEqual ( 16 , len ( TvbProfile . current . manager . stored_settings ) )"
+1402,other,False,223,226,"fields = ( 'id' , 'price' , 'home_type' , 'images' , 'remarks' , 'num_bedrooms' , 'num_bathrooms' , 'interior_amenities' , 'exterior_amenities' , 'nearby_amenities' , 'latitude' , 'longitude' , 'on_market' , 'is_for_sale' )","fields = ( 'id' , 'price' , 'home_type' , 'images' , 'remarks' , 'num_bedrooms' , 'num_bathrooms' , 'interior_amenities' , 'exterior_amenities' , 'nearby_amenities' , 'latitude' , 'longitude' , 'on_market' , 'date_available' )"
+1403,other,False,138,134,"return """"""rdflib.Literal('<%s>' % language=%s,datatype=%s>"""""" % ( unicode ( self ) , repr ( self . language ) , repr ( self . datatype ) )","return """"""rdflib.Literal('%s',language=%s,datatype=%s)"""""" % ( unicode ( self ) , repr ( self . language ) , repr ( self . datatype ) )"
+1404,unknown,False,873,882,"from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+def task_func(df, age: int, height: int):
+
+    # Filter the DataFrame based on given conditions
+    selected_df = df[(df[""Age""] > age) & (df[""Height""] < height)].copy()
+
+    # Apply KMeans clustering only if there are at least 3 rows in the filtered data
+    if len(selected_df) >= 3:
+        kmeans = KMeans(n_clusters=3, random_state=42)
+            
+        selected_df[""Cluster""] = kmeans.fit_predict(selected_df[[""Age"", ""Height""]])
+
+        # Visualize the clusters
+        plt.figure(figsize=(10, 5))
+        plt.scatter(selected_df[""Age""], selected_df[""Height""], c=selected_df[""Cluster""])
+        plt.xlabel(""Age"")
+        plt.ylabel(""Height"")
+        plt.title(""KMeans Clustering based on Age and Height"")
+        plt.show()
+        return selected_df, ax
+    else:
+        return selected_df, None","from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+def task_func(df, age: int, height: int):
+
+    # Filter the DataFrame based on given conditions
+    selected_df = df[(df[""Age""] > age) & (df[""Height""] < height)].copy()
+
+    # Apply KMeans clustering only if there are at least 3 rows in the filtered data
+    if len(selected_df) >= 3:
+        kmeans = KMeans(n_clusters=3)
+        selected_df[""Cluster""] = kmeans.fit_predict(selected_df[[""Age"", ""Height""]])
+
+        # Visualize the clusters
+        plt.figure(figsize=(10, 5))
+        plt.scatter(selected_df[""Age""], selected_df[""Height""], c=selected_df[""Cluster""])
+        plt.xlabel(""Age"")
+        plt.ylabel(""Height"")
+        plt.title(""KMeans Clustering based on Age and Height"")
+        ax = plt.gca()
+        return selected_df, ax
+    else:
+        selected_df[""Cluster""] = 0
+        return selected_df, None"
+1405,other,False,52,60,"from . . nodes import Node , User , Hashtag , GeoTag","from . . nodes import Node , User , Hashtag , Geotag , Media"
+1406,other,False,91,92,"IrcHandler = Callable [ [ 'connection.ConnectionHandler' , IrcMessage , datetime ] , None ]","IrcHandler = Callable [ [ 'connectionM.ConnectionHandler' , IrcMessage , datetime ] , None ]"
+1407,other,False,729,77,"self . assertIn ( ""127.0.0.1"" , self . output . getvalue ( ) )
+```python
+self . assertIn ( ""127.0.0.1"" , self . output . getvalue ( ) )
+```python
+self . assertEqual ( self . output . getValue ( ) , ""127.0.0.1"" )
+```python
+self . assertEqual ( self . output . getValue ( ) , ""127.0.0.1"" )
+```python
+self . assertIs ( self . output . getValue ( ) , ""127.0.0.1"" )
+```python
+self . assertIs ( self . output . getValue ( ) , ""127.0.0.1"" )
+```python
+self . assertIs ( self . output . getValue ( ) , ""127.0.0.1"" )
+```python
+self . assertIs ( self . output . getValue ( ) , ""127.0.0.1"" )
+```python
+self . assertIs ( self . output . getValue ( ) , ""127.0.0.1"" )
+```python
+self . assertIs ( self . output . getValue ( ) , ""127.0.0.1"" )
+```","self . assertIn ( ""Sessions with Ephemerals"" , self . output . getvalue ( ) )"
+1408,type,False,41,62,new_value_list . append ( str ( value ) ),new_value_list . append ( smart_unicode ( db . get ( key ) ) )
+1409,other,False,76,68,"return '%s(%s)' % ( type ( self ) . __name__ , repr ( self . as_dict ( ) ) )","return '%s(%s)' % ( type ( self ) . __name__ , self . as_dict_ ( ) )"
+1410,other,False,95,91,"for dikey in ( di . keys ( ) ) : print ( ""\t"" + str ( dikey ) + ""\t: "" + str ( di [ dikey ] ) )","for dikey in di . keys ( ) : print ( ""\t"" + str ( dikey ) + ""\t: "" + str ( di [ dikey ] ) )"
+1411,other,False,52,62,current_class = elements [ 'current' ] [ 'tagName' ],current_class = elements [ 'current' ] [ 'class' ] . lower ( )
+1412,other,False,50,56,"details , length , etags = val . load_contents ( )","status , contents , etags = val . load_contents ( None )"
+1413,other,False,84,98,"return settings . BASE_URL + '/{}/{}' . format ( self . agenda . pk , self . token )","return settings . BASE_URL + '/public/agenda/{}/{}' . format ( self . agenda . pk , self . token )"
+1414,other,False,131,110,if self . terms and len ( self . terms ) == 1 and self . terms [ 0 ] [ 'type' ] == [ 'text' ] : return self . terms [ 0 ] [ 'arg' ],if len ( self . terms ) == 1 and self . terms [ 0 ] [ 'type' ] == 'text' : return self . terms [ 0 ] [ 'arg' ]
+1415,checking,False,77,86,"self . assertIsInstance ( result , yadtshell . components . UnreachableHost )","self . assertTrue ( isinstance ( result , yadtshell . components . UnreachableHost ) )"
+1416,other,False,115,105,"return optimization . MakeProgressReport . calculateWorstCost ( self , test , optimization . getOptimizationLevel )","return optimization . MakeProgressReport . calculateWorstCost ( self , test , referenceRun , currentRun )"
+1417,type,False,89,97,"v_text = TextVisual ( tick_labels , pos = tick_label_pos , font_size = 10 , color = 'w' )","v_text = TextVisual ( list ( tick_labels ) , pos = tick_label_pos , font_size = 8 , color = 'w' )"
+1418,other,False,61,66,"raise TypeError ( ""dtype is not %s."" % str ( data . dtype ) )","raise AttributeError ( ""dtype is not %s."" % str ( data . dtype ) )"
+1419,unknown,False,517,454,"class Solution:
+    def maximumXorProduct(self, a: int, b: int, n: int) -> int:
+        mod = 10**9 + 7
+        ax, bx = (a >> n) << n, (b >> n) << n
+        for i in range(n - 1, -1, -1):
+            x = a >> i & 1
+                y = b >> i & 1
+                if x == y:
+                    ax |= 1 << i
+                bx |= 1 << i
+                
+            elif ax > bx:
+                bx |= 1 << i
+                
+            else:
+                ax |= 1 << i
+                
+        return ax * bx % mod","class Solution:
+    def maximumXorProduct(self, a: int, b: int, n: int) -> int:
+        mod = 10**9 + 7
+        ax, bx = (a >> n) << n, (b >> n) << n
+        for i in range(n - 1, -1, -1):
+            x = a >> i & 1
+            y = b >> i & 1
+            if x == y:
+                ax |= 1 << i
+                bx |= 1 << i
+            elif ax > bx:
+                bx |= 1 << i
+            else:
+                ax |= 1 << i
+        return ax * bx % mod"
+1420,other,False,131,155,"classified = [ { 'text' : content , 'sentiment' : sentiment } for elem in classified if isinstance ( elem [ 'sentiment' ] , int ) ]","classified = [ { 'review' : elem [ 'content' ] , 'sentiment' : elem [ 'sentiment' ] } for elem in classified if isinstance ( elem [ 'sentiment' ] , int ) ]"
+1421,unknown,False,273,618,"class Solution:
+    def minimumBeautifulSubstrings(self, s: str) -> int:
+        @cache
+        def dfs(i: int) -> int:
+            if i > n:
+                return 0
+                
+            if s[i] == ""0"":
+                return inf
+                
+            x = 0","class Solution:
+    def minimumBeautifulSubstrings(self, s: str) -> int:
+        @cache
+        def dfs(i: int) -> int:
+            if i >= n:
+                return 0
+            if s[i] == ""0"":
+                return inf
+            x = 0
+            ans = inf
+            for j in range(i, n):
+                x = x << 1 | int(s[j])
+                if x in ss:
+                    ans = min(ans, 1 + dfs(j + 1))
+            return ans
+
+        n = len(s)
+        x = 1
+        ss = {x}
+        for i in range(n):
+            x *= 5
+            ss.add(x)
+        ans = dfs(0)
+        return -1 if ans == inf else ans"
+1422,other,False,76,67,"attend = [ [ 'foo' , '>=' , '1.0' ] , [ 'Django' , '>=' , '1.3.4' ] , '>=' ]","attend = [ [ 'foo' , '>=' , '1.0' ] , [ 'Django' , '>=' , '1.3' ] ]"
+1423,other,False,81,75,"gui . show_popup ( ""No saved games"" , ""There are no saved games to load"" , None )","self . show_popup ( ""No saved games"" , ""There are no saved games to load"" )"
+1424,unknown,False,340,463,"import re
+import os
+import glob
+from pathlib import Path
+def task_func(pattern, directory, extensions):
+
+    matched_files = []
+    for ext in extensions:
+        for file in glob.glob(os.path.join(directory, ext)):
+            if re.search(pattern, file):
+                matched_files.append(Path(file).resolve())
+    return matched_files","import re
+import os
+import glob
+from pathlib import Path
+def task_func(pattern, directory, extensions):
+
+    matched_files = []
+    for ext in extensions:
+        files = glob.glob(os.path.join(directory, ext))
+        for file in files:
+            with open(file, 'r') as f:
+                content = f.read().lower()
+                if re.search(pattern.lower(), content):
+                    matched_files.append(Path(file).resolve())
+    return matched_files"
+1425,other,False,65,77,new_lines = open ( run_file ) . read ( ) . split ( '\n' ) [ 1 : ],new_lines = open ( run_file ) . read ( ) . strip ( ) . split ( '\n' ) [ 1 : ]
+1426,unknown,False,614,566,"import random
+import matplotlib.pyplot as plt
+# Constants
+SALARY_RANGE = (20000, 100000)
+def task_func(dict1):
+
+    emp_salaries = []
+
+    for prefix, num_employees in dict1.items():
+        if not prefix.startswith('EMPXX'):
+            continue
+
+        for _ in range(num_employees):
+            salary = random.randint(*SALARY_RANGE)
+            emp_salaries.append(salary)
+
+    plt.hist(emp_salaries, bins=10, alpha=0.5)
+    plt.title('Salary Distribution in EMPXX Department')
+    plt.xlabel('Salary')
+    plt.ylabel('Number of Employees')
+    plt.gca().set_ylabel('Number of Employees')
+    return plt.gca()","import random
+import matplotlib.pyplot as plt
+# Constants
+SALARY_RANGE = (20000, 100000)
+def task_func(dict1):
+
+    emp_salaries = []
+
+    for prefix, num_employees in dict1.items():
+        if not prefix.startswith('EMPXX'):
+            continue
+
+        for _ in range(num_employees):
+            salary = random.randint(*SALARY_RANGE)
+            emp_salaries.append(salary)
+
+    plt.hist(emp_salaries, bins=10, alpha=0.5)
+    plt.title('Salary Distribution in EMPXX Department')
+    plt.xlabel('Salary')
+    plt.ylabel('Number of Employees')
+    return plt.gca()"
+1427,unknown,False,445,419,"import re
+import socket
+def task_func(ip_addresses: list) -> dict:
+
+
+
+    IP_REGEX = r'[0-9]+(?:\.[0-9]+){3}'
+    hostnames = {}
+    for ip in ip_addresses:
+        if re.match(IP_REGEX, ip):
+            try:
+                    hostname = socket.gethostbyaddr(ip)[3]
+                            hostnames[ip] = hostname
+            except (socket.herror, socket.gaierror):
+                hostnames[ip] = socket.herror
+    return ip_to_hostname","import re
+import socket
+def task_func(ip_addresses: list) -> dict:
+
+
+    
+    IP_REGEX = r'[0-9]+(?:\.[0-9]+){3}'
+    hostnames = {}
+    for ip in ip_addresses:
+        if re.match(IP_REGEX, ip):
+            try:
+                hostname = socket.gethostbyaddr(ip)[0]
+                hostnames[ip] = hostname
+            except (socket.herror, socket.gaierror):
+                hostnames[ip] = None
+    return hostnames"
+1428,other,False,101,101,"scheduler . add_job ( get_weather_and_push , 'cron' , day_of_week = '1-7' , hour = 21 , minute = 30 )","scheduler . add_job ( get_weather_and_push , 'cron' , day_of_week = '1-7' , hour = 21 , minute = 45 )"
+1429,other,False,56,64,"from os . path import realpath , dirname , join , exists","from os . path import isdir , realpath , dirname , join , islink"
+1430,other,False,95,109,"self . assertEqual ( r [ 'Cache-Control' ] , 'no-store, no-cache, must-revalidate, max-age=0' )","self . assertEqual ( r [ 'Cache-Control' ] , 'no-store, no-cache, no-transform, must-revalidate, max-age=0' )"
+1431,unknown,False,938,889,"import re
+import matplotlib.pyplot as plt
+from sklearn.feature_extraction.text import TfidfVectorizer
+import numpy as np
+def task_func(df):
+
+    pattern = re.compile(r'(how|what)', re.IGNORECASE)
+
+    # Check if the DataFrame has the required columns
+    if not set(['Title', 'Content']).issubset(df.columns):
+        fig, ax = plt.subplots()
+        return ax
+
+    interesting_articles = df[df['Title'].apply(lambda x: bool(pattern.search(x)))]
+
+    interesting_articles = interesting_articles.head(1)
+
+    fig, ax = plt.subplots()
+
+    # If there are no interesting articles, return an empty plot
+    if interesting_articles.empty:
+        return ax
+
+    vectorizer = TfidfVectorizer()
+    X = vectorizer.transform(interesting_articles['Content'])
+    tfidf_scores = np.array(X.sum(axis=0))[0]
+
+    ax.bar(vectorizer.get_feature_names(), tfidf_scores)
+    ax.set_ylabel('TF-IDF Score')
+    plt.xticks(rotation='vertical')
+
+    return ax","import re
+import matplotlib.pyplot as plt
+from sklearn.feature_extraction.text import TfidfVectorizer
+import numpy as np
+def task_func(df):
+
+    pattern = re.compile(r'(how|what)', re.IGNORECASE)
+
+    # Check if the DataFrame has the required columns
+    if not set(['Title', 'Content']).issubset(df.columns):
+        fig, ax = plt.subplots()
+        return ax
+
+    interesting_articles = df[df['Title'].apply(lambda x: bool(pattern.search(x)))]
+
+    fig, ax = plt.subplots()
+
+    # If there are no interesting articles, return an empty plot
+    if interesting_articles.empty:
+        return ax
+
+    vectorizer = TfidfVectorizer()
+    X = vectorizer.fit_transform(interesting_articles['Content'])
+    tfidf_scores = np.array(X.sum(axis=0))[0]
+
+    ax.bar(vectorizer.get_feature_names_out(), tfidf_scores)
+    ax.set_ylabel('TF-IDF Score')
+    plt.xticks(rotation='vertical')
+
+    return ax"
+1432,other,False,2384,137,"test = ""aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","test = ""aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"""
+1433,other,False,54,60,"print ( ""Sequence after: "" + the_line [ position : ] )","print ( ""Sequence after: "" + the_line [ position + 6 : : ] )"
+1434,other,False,180,136,"classifiers = [ 'Programming Language :: Python' , 'Programming Language :: Python :: 3.5' , 'Programming Language :: Python :: 3.5.1' , 'Programming Language :: Python :: 3.6' , ]","classifiers = [ 'Programming Language :: Python' , 'Programming Language :: Python :: 3.5' , 'Programming Language :: Python :: 3.5.1' ]"
+1435,other,False,56,60,"return [ '--pre' , 'toil[aws,mesos,encryption]<=3.2.0' ]","return [ '--pre' , 'toil[aws,mesos,encryption,cwl]<=3.2.0' ]"
+1436,other,False,63,51,"my . errorlog ( 0 , 'No Match for argument %s' % type ( pkg ) )",logger . error ( 'No Match for argument %s' % pkg )
+1437,unknown,False,982,1313,"class Solution:
+  def minimumIncrements(self, nums: list[int], target: list[int]) -> int:
+  maxMask = 1 << len(target)
+  maskToLcm = {}
+
+  for mask in range(1, maxMask):
+    subset = [num for i, num in enumerate(target) if mask >> i & 1]
+      maskToLcm[mask] = functools.reduce(math.lcm, subset, 1)
+
+  # dp[mask] := the minimum number of increments to make each number in the
+    # subset of target have at least one number that is a multiple in `num`,
+    # where `mask` is the bitmask of the subset of target
+    dp = [math.inf] * maxMask
+
+  for num in nums:
+    # maskToCost := (mask, cost), where `mask` is the bitmask of the subset
+    # of target and `cost` is the minimum number of increments to make each
+      # number in the subset of target have at least one number that is a
+      # multiple in `num`
+      maskToCost = [
+          (mask, 0 if (remainder := num % lcm) == 0 else lcm - remainder) for mask,
+          lcm in maskToLcm.iteritems()]
+      newDp = [math.inf","class Solution:
+  def minimumIncrements(self, nums: list[int], target: list[int]) -> int:
+    maxMask = 1 << len(target)
+    maskToLcm = {}
+
+    for mask in range(1, maxMask):
+      subset = [num for i, num in enumerate(target) if mask >> i & 1]
+      maskToLcm[mask] = functools.reduce(math.lcm, subset, 1)
+
+    # dp[mask] := the minimum number of increments to make each number in the
+    # subset of target have at least one number that is a multiple in `num`,
+    # where `mask` is the bitmask of the subset of target
+    dp = [math.inf] * maxMask
+    dp[0] = 0
+
+    for num in nums:
+      # maskToCost := (mask, cost), where `mask` is the bitmask of the subset
+      # of target and `cost` is the minimum number of increments to make each
+      # number in the subset of target have at least one number that is a
+      # multiple in `num`
+      maskToCost = [
+          (mask, 0 if (remainder := num % lcm) == 0 else lcm - remainder) for mask,
+          lcm in maskToLcm.items()]
+      newDp = dp[:]
+      for prevMask in range(maxMask):
+        if dp[prevMask] == float('inf'):
+          continue
+        for mask, cost in maskToCost:
+          nextMask = prevMask | mask
+          newDp[nextMask] = min(newDp[nextMask], dp[prevMask] + cost)
+      dp = newDp
+
+    return -1 if dp[-1] == math.inf else dp[-1]"
+1438,other,False,75,72,local ( 'python bin/init_model.py lang_data/en/ corpora/en/ ' + model_dir ),local ( 'python bin/init_model.py en lang_data/ corpora/ ' + model_dir )
+1439,algorithm,False,348,311,"class Solution:
+    def maximumLengthSubstring(self, s: str) -> int:
+        cnt = Counter()
+        ans = i = 0
+        for j, c in enumerate(s):
+            cnt[c] += 1
+            while cnt[c] > 2:
+                cnt[s[i]]] -= 1
+                if s[i] == c: break
+                i += 1
+            ans = max(ans, j - i + 1)
+        return ans","class Solution:
+    def maximumLengthSubstring(self, s: str) -> int:
+        cnt = Counter()
+        ans = i = 0
+        for j, c in enumerate(s):
+            cnt[c] += 1
+            while cnt[c] > 2:
+                cnt[s[i]] -= 1
+                i += 1
+            ans = max(ans, j - i + 1)
+        return ans"
+1440,unknown,False,1006,1001,"import pandas as pd
+from sklearn.preprocessing import StandardScaler
+# Constants
+FEATURES = ['feature1', 'feature2', 'feature3', 'feature4', 'feature5']
+TARGET = 'target'
+def task_func(df, dict_mapping, plot_histogram=False):
+
+
+    if not isinstance(df, pd.DataFrame):
+        raise ValueError(""Input df is not a DataFrame."")
+
+    # Check if all required columns are present in the DataFrame
+    required_columns = FEATURES + [TARGET]
+    missing_columns = [col for col in required_columns if col not in df.columns]
+    if missing_columns:
+        raise ValueError(f""Missing columns in DataFrame: {missing_columns}"")
+
+    # Replace values using dictionary mapping
+    df = df.replace(dict_mapping)
+
+    # Standardize the features
+    scaler = StandardScaler()
+    df[FEATURES] = scaler.fit_transform(df[FEATURES])
+
+    # Plot histogram of the target variable if requested
+    if plot_histogram:
+        ax = df[TARGET].plot(kind='histogram', bins=50)
+        return df, ax
+    else:
+        return df, None","import pandas as pd
+from sklearn.preprocessing import StandardScaler
+# Constants
+FEATURES = ['feature1', 'feature2', 'feature3', 'feature4', 'feature5']
+TARGET = 'target'
+def task_func(df, dict_mapping, plot_histogram=False):
+
+
+    if not isinstance(df, pd.DataFrame):
+        raise ValueError(""Input df is not a DataFrame."")
+
+    # Check if all required columns are present in the DataFrame
+    required_columns = FEATURES + [TARGET]
+    missing_columns = [col for col in required_columns if col not in df.columns]
+    if missing_columns:
+        raise ValueError(f""Missing columns in DataFrame: {missing_columns}"")
+
+    # Replace values using dictionary mapping
+    df = df.replace(dict_mapping)
+    
+    # Standardize the features
+    scaler = StandardScaler()
+    df[FEATURES] = scaler.fit_transform(df[FEATURES])
+    
+    # Plot histogram of the target variable if requested
+    if plot_histogram:
+        ax = df[TARGET].plot.hist(bins=50)
+        return df, ax
+    else:
+        return df, None"
+1441,unknown,False,261,253,"class Solution:
+    def maximumHappinessSum(self, happiness: List[int], k: int) -> int:
+        maximumhappiness = 0
+        for i, x in enumerate(happiness):
+            maximumhappiness = max(maximumhappiness, happiness[i] + k)
+        return maximumhappiness","class Solution:
+    def maximumHappinessSum(self, happiness: List[int], k: int) -> int:
+        happiness.sort(reverse=True)
+        ans = 0
+        for i, x in enumerate(happiness[:k]):
+            x -= i
+            ans += max(x, 0)
+        return ans"
+1442,logic,True,75,75,"if name is not None and value is not None : self . value = ( name , value )","if name is not None and value is not None : self . value = ( name , value )"
+1443,unknown,False,1260,1533,"import heapq
+
+
+class Solution:
+    def __init__(self):
+        self.sieve = []
+
+    def run_sieve(self):
+        self.sieve = [True] * 100000
+            
+    def run_sieve_n(self, n):
+        self.sieve = [True] * 100000
+            
+    def run_sieve_m(self, m):
+        self.sieve = [True] * 100000
+            
+    def solve(self, n, m):
+        pq = []
+            
+        visited = set()
+            
+        while pq:
+                if cur in visited:
+                        continue
+                
+                if cur == m:
+                        return cur
+                        
+                s = list(str(cur)))
+                for i in range(len(s))):
+                        c = s[i]
+                
+                        if s[i] < '9':
+                                                s[i] = chr(ord(s[i]) + 1)
+                                                next_ = int(''.join(s)))
+                                                                               if not self.sieve[next_] and next_ not in visited:
+                                                                                    heapq.heappush(pq, sum_ + next_, next_)
+                                                                                          s[i","import heapq
+
+
+class Solution:
+    def __init__(self):
+        self.sieve = []
+
+    def run_sieve(self):
+        self.sieve = [True] * 100000
+        self.sieve[0], self.sieve[1] = False, False
+        for i in range(2, 100000):
+            if self.sieve[i]:
+                for j in range(2 * i, 100000, i):
+                    self.sieve[j] = False
+
+    def solve(self, n, m):
+        pq = []
+        heapq.heappush(pq, (n, n))
+        visited = set()
+
+        while pq:
+            sum_, cur = heapq.heappop(pq)
+
+            if cur in visited:
+                continue
+            visited.add(cur)
+
+            if cur == m:
+                return sum_
+
+            s = list(str(cur))
+            for i in range(len(s)):
+                c = s[i]
+
+                if s[i] < '9':
+                    s[i] = chr(ord(s[i]) + 1)
+                    next_ = int(''.join(s))
+                    if not self.sieve[next_] and next_ not in visited:
+                        heapq.heappush(pq, (sum_ + next_, next_))
+                    s[i] = c
+
+                if s[i] > '0' and not (i == 0 and s[i] == '1'):
+                    s[i] = chr(ord(s[i]) - 1)
+                    next_ = int(''.join(s))
+                    if not self.sieve[next_] and next_ not in visited:
+                        heapq.heappush(pq, (sum_ + next_, next_))
+                    s[i] = c
+
+        return -1
+
+    def minOperations(self, n, m):
+        self.run_sieve()
+        if self.sieve[n] or self.sieve[m]:
+            return -1
+        return self.solve(n, m)"
+1444,other,False,81,84,console . info ( 'cost time: %s' % datetime . timedelta ( seconds = cost_time ) ),console . info ( 'cost time is %ss' % datetime . timedelta ( seconds = cost_time ) )
+1445,other,False,59,56,"probe_interval = kwargs . pop ( ""probe_interval"" , 1 ) or 1","probe_interval = kwargs . pop ( ""probe_interval"" , 0.1 )"
+1446,other,False,76,87,"project_config = view . settings ( ) . get ( 'sublimeautopep8' , { } ) or {}","project_config = view . settings ( ) . get ( 'sublimeautopep8' , { } ) if view else { }"
+1447,other,False,65,90,print ( 'method {} is not defined' . format ( method.__name__ ) ),print ( 'pyxem/utils/indexation_utils.py : method {} is not defined' . format ( method ) )
+1448,logic,False,65,70,if not t or t . __class__ is None : t = self . _null_translations,"if not isinstance ( t , Translations ) : t = self . _null_translations"
+1449,other,False,66,71,KPI_PREFIX = False if KPI_PREFIX . lower == 'true' else KPI_PREFIX,KPI_PREFIX = False if KPI_PREFIX . lower ( ) == 'false' else KPI_PREFIX
