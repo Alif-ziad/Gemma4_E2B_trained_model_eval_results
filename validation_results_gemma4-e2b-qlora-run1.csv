@@ -2717,3 +2717,586 @@ rv = ( bs ** e ) . series ( x ) . subs ( _c , O ( 1 ) ) . getO ( ) . get ( 0 )
 ```python
 r = requests . get ( url , data = params , auth = HTTPBasicAuth ( settings . KTJ_PRINT_USERNAME , settings . KTJ_PRINT_PASSWORD ) , stream = True )
 ```","r = requests . get ( url , params = params , auth = HTTPBasicAuth ( settings . KTJ_PRINT_USERNAME , settings . KTJ_PRINT_PASSWORD ) , stream = True )"
+200,unknown,False,371,344,"import csv
+import re
+from collections import Counter
+def task_func(file_path, regex_pattern=r'\(.+?\)|\w+|[\W_]+'):
+
+    with open(file_path, 'r', encoding='utf-8') as file:
+        reader = csv.reader(file)
+            
+    text = ' '.join(row[0] for row in reader)
+        matches = re.findall(regex_pattern, text)
+
+    counts = Counter(matches)
+    return dict(counts)","import csv
+import re
+from collections import Counter
+def task_func(file_path, regex_pattern=r'\(.+?\)|\w+|[\W_]+'):
+
+    with open(file_path, 'r') as file:
+        reader = csv.reader(file)
+        text = ' '.join(row[0] for row in reader)
+        matches = re.findall(regex_pattern, text)
+
+    counts = Counter(matches)
+    return dict(counts)"
+201,other,False,81,99,"endpoint = b""http://{}/annex/{}/sparql/query?"" . format ( host , Svc . DATABASE )","endpoint = b""http://{}/annex/{}/sparql/query?"" . format ( host , Svr . settings [ St . database ] )"
+202,algorithm,False,704,618,"class Solution:
+    def minimumBeautifulSubstrings(self, s: str) -> int:
+        @cache
+        def dfs(i: int) -> int:
+            if i >= n:
+                return 0
+            if s[i] == ""0"":
+                return inf
+                
+            x = 0
+                ans = inf
+                for j in range(i, n):
+                        x = (x << 1) | int(s[j])
+                        ans = min(ans, dfs(j + 1))
+            return ans
+
+                
+        n = len(s)
+            
+        x = 1
+            ss = {x}
+            for i in range(n):
+                    x *= 5
+                            ss.add(x)
+                
+        ans = dfs(0)
+        return -1 if ans == inf else ans","class Solution:
+    def minimumBeautifulSubstrings(self, s: str) -> int:
+        @cache
+        def dfs(i: int) -> int:
+            if i >= n:
+                return 0
+            if s[i] == ""0"":
+                return inf
+            x = 0
+            ans = inf
+            for j in range(i, n):
+                x = x << 1 | int(s[j])
+                if x in ss:
+                    ans = min(ans, 1 + dfs(j + 1))
+            return ans
+
+        n = len(s)
+        x = 1
+        ss = {x}
+        for i in range(n):
+            x *= 5
+            ss.add(x)
+        ans = dfs(0)
+        return -1 if ans == inf else ans"
+203,unknown,False,794,802,"class Solution:
+    def countWinningSequences(self, s: str) -> int:
+        def calc(x: int, y: int) -> int:
+            if x == y:
+                return 0
+                
+            if x < y:
+                    return 1 if x == 0 and y == 2 else -1
+            return 1 if x == 2 and y == 0 else 1
+
+                
+        @lru_cache
+        def dfs(i: int, j: int, k: int) -> int:
+            if len(s) - i <= j:
+                    return 0
+                
+            if i >= len(s):
+                        return int(j >= 0)
+                
+                res = 0
+                for l in range(3):
+                        if l == k:
+                                continue
+                                
+                res = (res + dfs(i + 1, j + calc(d[s[i]], l), k))) % mod","class Solution:
+    def countWinningSequences(self, s: str) -> int:
+        def calc(x: int, y: int) -> int:
+            if x == y:
+                return 0
+            if x < y:
+                return 1 if x == 0 and y == 2 else -1
+            return -1 if x == 2 and y == 0 else 1
+
+        @cache
+        def dfs(i: int, j: int, k: int) -> int:
+            if len(s) - i <= j:
+                return 0
+            if i >= len(s):
+                return int(j < 0)
+            res = 0
+            for l in range(3):
+                if l == k:
+                    continue
+                res = (res + dfs(i + 1, j + calc(d[s[i]], l), l)) % mod
+            return res
+
+        mod = 10**9 + 7
+        d = {""F"": 0, ""W"": 1, ""E"": 2}
+        ans = dfs(0, 0, -1)
+        dfs.cache_clear()
+        return ans"
+204,other,False,76,81,from picrust . predict_metagenomes import partition_metagenome_contributions,from picrust . metagenome_contributions import partition_metagenome_contributions
+205,other,False,140,104,"optim = meta_optimizers . MlpNormHistory ( problem_batches , path = io_path , args = config . mlp_norm_history ( ) , return_history = True )","optim = meta_optimizers . AUGOptims ( problem_batches , path = io_path , args = config . aug_optim ( ) )"
+206,unknown,False,645,518,"class Solution:
+    def minOperations(self, s1: str, s2: str, x: int) -> int:
+        @lru_cache
+        def dfs(i: int, j: int) -> int:
+            if i > j:
+                return 0
+                
+            a = dfs(i + 1, j - 1) + x
+            b = dfs(i + 2, j) + idx[i + 1] - idx[j]
+                
+            c = dfs(i, j - 2) + idx[j] - idx[j - 1]
+                
+                return min(a, b, c)
+        
+        n = len(s1)
+            
+        idx = [i for i in range(n) if s1[i] == s2[i]]
+            
+        m = len(idx)
+            
+        if m & 1:
+                return -1
+                
+        return dfs(0, m - 1)","class Solution:
+    def minOperations(self, s1: str, s2: str, x: int) -> int:
+        @cache
+        def dfs(i: int, j: int) -> int:
+            if i > j:
+                return 0
+            a = dfs(i + 1, j - 1) + x
+            b = dfs(i + 2, j) + idx[i + 1] - idx[i]
+            c = dfs(i, j - 2) + idx[j] - idx[j - 1]
+            return min(a, b, c)
+
+        n = len(s1)
+        idx = [i for i in range(n) if s1[i] != s2[i]]
+        m = len(idx)
+        if m & 1:
+            return -1
+        return dfs(0, m - 1)"
+207,other,False,65,71,children = tuple ( child for child in ids if parent in childmap ),parents = tuple ( [ parent for parent in ids if parent in parentmap ] )
+208,other,False,58,56,dst_remote_qmp . test . error ( 'migration status Error' ),dst_remote_qmp . test_error ( 'migration status Error' )
+209,other,False,185,199,"unsigned_tx = self . call ( 'get' , 'prepare_send_buls' , 200 , 'can not prepare send' , source [ 'pubkey' ] , to_pubkey = target [ 'pubkey' ] , amount_buls = amount ) [ 'transaction' ]","unsigned_tx = self . call ( 'get' , 'prepare_send_buls' , 200 , 'can not prepare send' , from_pubkey = source [ 'pubkey' ] , to_pubkey = target [ 'pubkey' ] , amount_buls = amount ) [ 'transaction' ]"
+210,unknown,False,428,320,"class Solution:
+    def maximumSum(self, nums: List[int]) -> int:
+        n = len(nums)
+            ans = 0
+            for k in range(1, n + 1):
+                    t = 0
+                        j = 2
+                            while k * j * j <= n:
+                                    t += nums[k * j * j - 1]
+                                    ans = max(ans, t)
+                                    j += 1
+        return ans","class Solution:
+    def maximumSum(self, nums: List[int]) -> int:
+        n = len(nums)
+        ans = 0
+        for k in range(1, n + 1):
+            t = 0
+            j = 1
+            while k * j * j <= n:
+                t += nums[k * j * j - 1]
+                j += 1
+            ans = max(ans, t)
+        return ans"
+211,other,False,193,131,"if byte_string ( prefix ) != '<?xml' and body . startswith ( prefix ) and ( body . startswith ( '<?' ) or body . startswith ( ' ' ) ) : return body . decode ( encoding ) , encoding , ""text/xml""","if prefix != encode_string ( '<?xml' ) and body . startswith ( prefix ) : return body . decode ( encoding ) , encoding , ""text/xml"""
+212,other,False,60,76,job . set_status ( 'Waiting Standby Controller to reboot.' ),"job . set_progress ( None , 'Waiting on the Standby Controller to reboot.' )"
+213,unknown,False,487,444,"class Solution:
+    def canMakeSquare(self, grid: List[List[str]]) -> bool:
+        for i in range(0.0, 2):
+            for j in range(0, 2):
+                    cnt1 = cnt2 = 0
+                            for a, b in pairwise.send((0, 0, 1, 1, 0)):
+                                    if grid[i][j] == ""W"": cnt1 += 1
+                                    if grid[i + a][j + b] == ""B"": cnt2 += 1
+                    if cnt1 != cnt2:
+                        return True
+        return False","class Solution:
+    def canMakeSquare(self, grid: List[List[str]]) -> bool:
+        for i in range(0, 2):
+            for j in range(0, 2):
+                cnt1 = cnt2 = 0
+                for a, b in pairwise((0, 0, 1, 1, 0)):
+                    x, y = i + a, j + b
+                    cnt1 += grid[x][y] == ""W""
+                    cnt2 += grid[x][y] == ""B""
+                if cnt1 != cnt2:
+                    return True
+        return False"
+214,other,False,87,96,raise exceptions . Warning ( _ ( 'VAT prorate percent must be between 0.01 and 100' ) ),raise exceptions . ValidationError ( _ ( 'VAT prorrate percent must be between 0.01 and 100' ) )
+215,unknown,False,886,700,"class Solution:
+    def findSafeWalk(self, grid: List[List[int]], health: int) -> bool:
+        m, n = len(grid), len(grid[0]))
+        dist = [[inf] * n for _ in range(m)]
+            
+        q = deque([(0, 0)])
+            
+        dirs = (-1, 0, 1, 0, -1)
+                
+        while q:
+                x, y = q.popleft()
+                        
+                for a, b in pairwise(dirs):
+                        nx, ny = x + a, y + b
+                                
+                                if (
+                                                    0 <= nx < m
+                                                     0 <= ny < n
+                                                     and dist[nx][ny] < dist[x][y] + grid[nx][ny]
+                                               ):
+                                                       dist[nx][ny] = dist[x][y] + grid[nx][ny]","class Solution:
+    def findSafeWalk(self, grid: List[List[int]], health: int) -> bool:
+        m, n = len(grid), len(grid[0])
+        dist = [[inf] * n for _ in range(m)]
+        dist[0][0] = grid[0][0]
+        q = deque([(0, 0)])
+        dirs = (-1, 0, 1, 0, -1)
+        while q:
+            x, y = q.popleft()
+            for a, b in pairwise(dirs):
+                nx, ny = x + a, y + b
+                if (
+                    0 <= nx < m
+                    and 0 <= ny < n
+                    and dist[nx][ny] > dist[x][y] + grid[nx][ny]
+                ):
+                    dist[nx][ny] = dist[x][y] + grid[nx][ny]
+                    q.append((nx, ny))
+        return dist[-1][-1] < health"
+216,other,False,110,106,"from_user = dict ( [ ( 'email' , email ) , ( 'first_name' , 'Friendly' ) , ( 'last_name' , 'Purchaser' ) , ] )","from_user = dict ( [ ( 'email' , email ) , ( 'first_name' , 'Friendly' ) , ( 'last_name' , 'Human' ) , ] )"
+217,other,False,56,59,m1events = os . path . abspath ( './rpcdata/m1evts.ds' ),m1events = os . path . abspath ( '../rpcdata/m1events.ds' )
+218,type,False,60,90,"CACHE_TIME = getattr ( local_settings , ""CACHE_TIME"" , 300 )","CACHE_TIME = getattr ( local_settings , ""CACHE_TIME"" , int ( 60 * 60 * 24 * 365 * 1000 ) )"
+219,other,False,71,101,"self . uniqueInstance = ""%s_%s"" % ( self . name , self . pciDbdf . id )","self . uniqueInstance = ""pci_dev_at_domain_0x%04x_bus_0x%02x_dev_0x%02x_func_0x%01x"" % self . pciDbdf"
+220,other,False,226,227,"if not options . dir and not options . video and not options . histogram and not options . file : parser . error ( ""A video, Directory of images or histograms file needs to be provided.\n\n"" ""Use -h to see available options"" )","if not options . check and not options . dir and not options . video and not options . histogram : parser . error ( ""A video, Directory of images or histograms file needs to be provided.\n\n"" ""Use -h to see available options"" )"
+221,other,False,131,131,"'/store/group/lpcfpix/TTbar_14TeV_921_OT613_200_IT4025_opt8s3l/step3_trackingOnly_PU200/170609_082344/0000/step1_inDQM_1000.root' ,","'/store/group/lpcfpix/TTbar_14TeV_921_OT613_200_IT4025_opt8s3l/step3_trackingOnly_PU200/170609_082344/0001/step3_inDQM_1000.root' ,"
+222,other,False,181,63,"self . _request . ws_stream = StreamHixie75 ( self . _request , True , self . _on_stream_close )
+```python
+self . _request . ws_stream = StreamHixie75 ( self . _request , True )
+```",self . _request . ws_stream = StreamHixie75 ( self . _request )
+223,unknown,False,983,1280,"import subprocess
+import ftplib
+import os
+def task_func(ftp_server='ftp.dlptest.com', ftp_user='dlpuser', ftp_password='rNrKYTX9g7z3RgJRmxWuGHbeu', ftp_dir='/ftp/test'):
+
+    # Attempt to connect to the FTP server
+    try:
+        ftp_obj = ftplib.FTP.connect(ftp_server)
+    except Exception as e:
+        raise Exception(f'Failed to connect to FTP server {ftp_server}: {str(e)}')
+
+    # Attempt to login to the FTP server
+    try:
+        ftp_obj.login(ftp_user, ftp_password)
+    except Exception as e:
+        raise Exception(f'Failed to log into FTP server {ftp_server} with user {ftp_user}: {str(e)}')
+
+    # Attempt to change to the specified directory
+    try:
+        ftp_obj.cwd(ftp_dir)
+    except Exception as e:
+        raise Exception(f'Failed to change to directory {ftp_dir} on server {ftp_server}: {str(e)}')
+
+    # Directory to store downloaded files
+    download_dir = os.path.join(ftp_dir, 'downloads')
+    if not os.path.exists(download_dir):
+        os.makedirs","import subprocess
+import ftplib
+import os
+def task_func(ftp_server='ftp.dlptest.com', ftp_user='dlpuser', ftp_password='rNrKYTX9g7z3RgJRmxWuGHbeu', ftp_dir='/ftp/test'):
+
+    # Attempt to connect to the FTP server
+    try:
+        ftp_obj = ftplib.FTP(ftp_server)
+    except Exception as e:
+        raise Exception(f'Failed to connect to FTP server {ftp_server}: {str(e)}')
+
+    # Attempt to login to the FTP server
+    try:
+        ftp_obj.login(ftp_user, ftp_password)
+    except Exception as e:
+        raise Exception(f'Failed to log into FTP server {ftp_server} with user {ftp_user}: {str(e)}')
+
+    # Attempt to change to the specified directory
+    try:
+        ftp_obj.cwd(ftp_dir)
+    except Exception as e:
+        raise Exception(f'Failed to change to directory {ftp_dir} on server {ftp_server}: {str(e)}')
+
+    # Directory to store downloaded files
+    download_dir = ""downloaded_files""
+    if not os.path.exists(download_dir):
+        os.makedirs(download_dir)
+
+    downloaded_files = []
+    for filename in ftp_obj.nlst():
+        command = f'wget ftp://{ftp_user}:{ftp_password}@{ftp_server}{ftp_dir}/{filename} -P {download_dir}'
+        subprocess.call(command, shell=True)
+        downloaded_files.append(filename)
+
+    ftp_obj.quit()
+    return downloaded_files"
+224,other,False,99,81,"quantities_dict [ ""Quantities"" ] += quantities_dict . syncQuantities ( )
+    return quantities_dict","quantities_dict [ ""Quantities"" ] += quantities_dict . syncQuantities ( nickname )"
+225,other,False,151,60,"self . data . bind ( backgroundRedraw = self . updateGcode )
+```python
+self . updateGcode = self . data . bind ( backgroundRedraw = self . update )
+```",self . data . bind ( backgroundRedraw = self . reloadGcode )
+226,other,False,110,105,"values = Dataset ( name = ""Byte"" , dataset = DatasetMetadata ( type = ""Byte"" , size = [ 1 ] ) , values = ""0"" )","values = Dataset ( name = """" , dataset = DatasetMetadata ( type = ""Byte"" , size = [ 1 ] ) , values = """" )"
+227,logic,False,955,116,"if time . time ( ) - self . projects [ project_name ] [ 'load_time' ] < self . RELOAD_PROJECT_INTERVAL : return True
+```python
+if time . time ( ) - self . projects [ project_name ] [ 'load_time' ] < self . RELOAD_PROJECT_INTERVAL : return True
+```python
+if time . time ( ) - self . projects [ project_name ] [ 'load_time' ] < self . RELOAD_PROJECT_INTERVAL : return True
+```python
+if time . time ( ) - self . projects [ project_name ] [ 'load_time' ] < self . RELOAD_PROJECT_INTERVAL : return True
+```python
+if time . time ( ) - self . projects [ project_name ] [ 'load_time' ] < self . RELOAD_PROJECT_INTERVAL : return True
+```python
+if time . time ( ) - self . projects [ project_name ] [ 'load_time' ] < self . RELOAD_PROJECT_INTERVAL : return True
+```python
+if time . time ( ) - self . projects [ project_name ] [ 'load_time' ] < self . RELOAD_PROJECT_INTERVAL : return True
+```python
+if time . time ( ) - self . projects [ project_name ] [ 'load_time",if time . time ( ) - self . projects [ project_name ] [ 'load_time' ] > self . RELOAD_PROJECT_INTERVAL : return True
+228,other,False,80,80,"fs_map = { 'mt' : 'muTau' , 'et' : 'eleTau' , 'em' : 'eMu' , 'tt' : 'tauTau' , }","fs_map = { 'mt' : 'muTau' , 'et' : 'eleTau' , 'em' : 'emu' , 'tt' : 'tauTau' , }"
+229,other,False,824,143,"cls . _error_messages . update ( { 'delete_purchase_invoice_line' : ( 'You can not delete ' 'invoice lines that comes from a purchase!' ) , } )
+```python
+@transaction.atomic
+ def delete_invoice_line( invoice_id: int, line_number: int):
+     raise PermissionError('You can not delete ' 'invoice lines that comes from a purchase!' )
+```python
+ class InvoiceManager:
+     def update_invoice_line(self, invoice: Invoice, line_number: int):
+       raise PermissionError('You can not delete ' 'invoice lines that comes from a purchase!' )
+   def delete_invoice_line(self, invoice: Invoice, line_number: int):
+     raise PermissionError('You can not delete ' 'invoice lines that comes from a purchase!' )
+```python
+ class Invoice:
+   def __init__(self, invoice: Invoice):
+   def delete_invoice_line(self, line_number: int):
+   pass","cls . _error_messages . update ( { 'delete_purchase_invoice_line' : ( 'You can not delete ' 'invoice lines that comes from a purchase.' ) , } )"
+230,assignment,False,55,119,kb . data . cachedUsersPrivileges [ user ] . extend ( ),kb . data . cachedUsersPrivileges [ user ] = list ( privileges . union ( kb . data . cachedUsersPrivileges [ user ] ) )
+231,unknown,False,528,511,"class Solution:
+    def maxRemovals(self, source: str, pattern: str, targetIndices: List[int]) -> int:
+        m, n = len(source), len(pattern)
+            
+        f = [[0] * (n + 1) for _ in range(m + 1)]
+            
+        for i in range(m + 1):
+                for j in range(n + 1):
+                        f[i][j] = f[i - 1][j] + int((i - 1) in s)
+                if j and c == pattern[j - 1]:
+                                    f[i][j] = f[i - 1][j - 1] + 1
+                f[i][0] = f[i - 1][0]
+        return f[m][n]","class Solution:
+    def maxRemovals(self, source: str, pattern: str, targetIndices: List[int]) -> int:
+        m, n = len(source), len(pattern)
+        f = [[-inf] * (n + 1) for _ in range(m + 1)]
+        f[0][0] = 0
+        s = set(targetIndices)
+        for i, c in enumerate(source, 1):
+            for j in range(n + 1):
+                f[i][j] = f[i - 1][j] + int((i - 1) in s)
+                if j and c == pattern[j - 1]:
+                    f[i][j] = max(f[i][j], f[i - 1][j - 1])
+        return f[m][n]"
+232,type,False,76,88,"instant_defaults [ 'system_headers' ] = [ ""numpy/arrayobject.h"" , ""math.h"" ]","instant_kwargs [ 'system_headers' ] = [ ""numpy/arrayobject.h"" , ""math.h"" , ""complex.h"" ]"
+233,unknown,False,1004,560,"import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+def task_func(elements, seed=0):
+
+    np.random.seed(seed)
+    if not all(isinstance(elements, int) for element in elements) or any(element < 0 for element in elements):
+        raise ValueError(""Element must be a positive integer."")
+
+    steps = np.random.choice([-1, 1], size=elements)
+    walk = np.cumsum(steps)
+    descriptive_stats = pd.Series(walk).describe(percentiles=[.05, .25, .5, .75, .95]).to_dict()
+
+    plt.figure(figsize=(10, 6))
+    plt.plot(walk)
+    plt.title('Random Walk')
+    return descriptive_stats, plt.gca()
+```
+**Reasoning for the fix:**
+
+1.  **Type Hinting/Checking:** The original code checked `isinstance(elements, int)` for *all* elements, which is too strict for a list/tuple of mixed types (though the prompt implies they should be ints). The fix uses `all()` with `isinstance` to ensure *every* element is an `int`.
+2.  **`np.random.seed(seed)`:** This is correctly placed at the beginning to ensure","import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+def task_func(elements, seed=0):
+
+    np.random.seed(seed)
+    if not isinstance(elements, int) or elements <= 0:
+        raise ValueError(""Element must be a positive integer."")
+        
+    steps = np.random.choice([-1, 1], size=elements)
+    walk = np.cumsum(steps)
+    descriptive_stats = pd.Series(walk).describe(percentiles=[.05, .25, .5, .75, .95]).to_dict()
+    
+    plt.figure(figsize=(10, 6))
+    plt.plot(walk)
+    plt.title('Random Walk')
+    return descriptive_stats, plt.gca()"
+234,other,False,213,85,"bug_type: other
+Language: python
+
+Buggy Code:
+```python
+expected_command = 'ssh -A -n -o StrictHostKeyChecking=no %s sudo paasta_serviceinit -h' % master
+```
+```python
+fixed_code = 'sudo paasta_serviceinit -h'
+```",expected_command = 'ssh -A -n -o StrictHostKeyChecking=no %s sudo /bin/true' % master
+235,other,True,65,65,if bay_dict . get ( 'name' ) is None : bay_dict [ 'name' ] = None,if bay_dict . get ( 'name' ) is None : bay_dict [ 'name' ] = None
+236,type,False,162,133,filtered_desc = [ str ( word . lower ( ) ) for word in member_tag . text . split ( ) if word . lower ( ) not in stop and word . isalpha ( ) and len ( word ) > 1 ],filtered_desc = [ word . lower ( ) for word in member_tag . text . split ( ) if word . lower ( ) not in stop and word . isalpha ( ) ]
+237,other,False,244,248,"context = { 'region_name' : request . user . services_region , 'regions' : sorted ( request . user . available_services_regions , key = lambda x : x . lower ( ) ) , 'page_url' : request . horizon . get ( 'panel' ) . get_absolute_url ( ) or '' }","context = { 'region_name' : request . user . services_region , 'regions' : sorted ( request . user . available_services_regions , key = lambda x : ( x or '' ) . lower ( ) ) , 'page_url' : request . horizon . get ( 'panel' ) . get_absolute_url ( ) }"
+238,other,False,56,67,"_LOGGER . error ( ""No BL-Net reached at %s"" , resource )","_LOGGER . error ( ""No BL-Net reached at {}"" . format ( resource ) )"
+239,unknown,False,562,564,"class Solution:
+    def minimumCost(
+        self, m: int, n: int, horizontalCut: List[int], verticalCut: List[int]
+    ) -> int:
+        horizontalCut.sort(reverse=True)
+        verticalCut.sort(reverse=True)
+        ans = i = j = 0
+        h = v = 1
+        while i < m - 1 or j < n - 1:
+            if i < m - 1 and j < n - 1 and horizontalCut[i] > verticalCut[j]:
+                ans += horizontalCut[i] * v
+                h, i = h + 1, i + 1
+            else:
+                ans += verticalCut[j] * h
+                v, j = v + 1, j + 1
+        return ans","class Solution:
+    def minimumCost(
+        self, m: int, n: int, horizontalCut: List[int], verticalCut: List[int]
+    ) -> int:
+        horizontalCut.sort(reverse=True)
+        verticalCut.sort(reverse=True)
+        ans = i = j = 0
+        h = v = 1
+        while i < m - 1 or j < n - 1:
+            if j == n - 1 or (i < m - 1 and horizontalCut[i] > verticalCut[j]):
+                ans += horizontalCut[i] * v
+                h, i = h + 1, i + 1
+            else:
+                ans += verticalCut[j] * h
+                v, j = v + 1, j + 1
+        return ans"
+240,other,False,213,239,"self . dbObj . newTransaction ( self . currentTransaction . getID ( ) , self . __currEmployee . getId ( ) , self . currentTransaction . getCurrentTotal ( ) , self . currentTransaction . getCurrentPaymentType ( ) )","self . dbObj . newTransaction ( self . currentTransaction , self . __currEmployee . getId ( ) , self . currentTransaction . getType ( ) , self . currentTransaction . getCurrentTotal ( ) , self . currentTransaction . payment . getType ( ) )"
+241,other,False,78,74,"shutil . copy2 ( 'python.log' , 'c://AV_PROM/prices/profdisplay/' + csvFName )","shutil . copy2 ( csvFName , 'c://AV_PROM/prices/profdisplay/' + csvFName )"
+242,type,False,76,84,"request_properties = self . properties_cache . get ( properties_key , None )","request_properties = dict ( self . properties_cache . get ( properties_key , { } ) )"
+243,checking,False,524,485,"class Solution:
+    def maxLength(self, nums: List[int]) -> int:
+        n = len(nums)
+        ans = 0
+        max_p = 0
+        for i in range(n):
+            p, g, l = 1, 0, 1
+                for j in range(i, n):
+                        p *= nums[j]
+                        g = gcd(g, nums[j])
+                            l = lcm(l, nums[j])
+                        if p >= g * l:
+                                ans = max(ans, j - i + 1)
+                if p > max_p:
+                        max_p = p
+        return ans","class Solution:
+    def maxLength(self, nums: List[int]) -> int:
+        n = len(nums)
+        ans = 0
+        max_p = lcm(*nums) * max(nums)
+        for i in range(n):
+            p, g, l = 1, 0, 1
+            for j in range(i, n):
+                p *= nums[j]
+                g = gcd(g, nums[j])
+                l = lcm(l, nums[j])
+                if p == g * l:
+                    ans = max(ans, j - i + 1)
+                if p > max_p:
+                    break
+        return ans"
+244,other,False,167,165,"with open ( os . path . join ( os . path . dirname ( __file__ ) , 'honeypot_dns_attacks.txt' ) ) as handle : DNS_ATTACK_FILE = handle . read ( ) . decode ( 'latin-1' )","with open ( os . path . join ( os . path . dirname ( __file__ ) , 'honeypot_dns_attacks.txt' ) , encoding = 'utf-8' ) as handle : DNS_ATTACK_FILE = handle . read ( )"
+245,other,False,139,56,"stats = stats [ StatSummaryType . ranked_fives ] . stats . to_dict()
+```python
+stats = stats [ StatSummaryType . ranked_fives ] . stats
+```",stats = stats [ StatSummaryType . normal_fives ] . stats
+246,build_package_merge,False,443,400,"class Solution:
+    def countMatchingSubarrays(self, nums: List[int], pattern: List[int]) -> int:
+        def f(a: int, b: int) -> int:
+            return 0 if a == b else (1 if a < b else -1)
+
+        ans = 0
+        for i in range(len(nums) - len(pattern) + 1):
+            for k in range(len(nums) - i + 1):
+                if f(nums[i + k], nums[i + k + 1]) == p for p in enumerate(pattern):
+                    ans += 1
+        return ans","class Solution:
+    def countMatchingSubarrays(self, nums: List[int], pattern: List[int]) -> int:
+        def f(a: int, b: int) -> int:
+            return 0 if a == b else (1 if a < b else -1)
+
+        ans = 0
+        for i in range(len(nums) - len(pattern)):
+            ans += all(
+                f(nums[i + k], nums[i + k + 1]) == p for k, p in enumerate(pattern)
+            )
+        return ans"
+247,other,False,181,163,"dihedral_values = np . array ( [ measure_dihedrals ( molecule , self . dihedrals , check_linear = self . check_linear , check_bonded = self . check_bonded ) ] ) . reshape ( 3, 1, 1)","dihedral_values = np . array ( self . measure_dihedrals ( molecule , self . dihedrals , check_linear = self . check_linear , check_bonded = self . check_bonded ) )"
+248,other,False,885,132,"await self . bot . say ( ""Overwatch stats for {}: ```py\n{}```"" . format ( user . name , fmttitle ( ) . replace ( ""_"" , "" "" ) ) )
+```python
+await self . bot . say ( ""Overwatch stats for {}: ```py\n{}```"" . format ( user . name , fmttitle ( ) . replace ( ""_"" , "" "" ) ) )
+```python
+await self . bot . say ( ""Overwatch stats for {}: ```py\n{}```"" . format ( user . name , fmttitle ( ) . replace ( ""_"" , "" "" ) ) )
+```python
+await self . bot . say ( ""Overwatch stats for {}: ```py\n{}```"" . format ( user . name , fmttitle ( ) . replace ( ""_"" , "" "" ) ) )
+```python
+await self . bot . say ( ""Overwatch stats for {}: ```py\n{}```"" . format ( user . name , fmttitle ( ) . replace ( ""_"" , "" "" ) ) )
+```python
+await self . bot . say ( ""Overwatch stats for {}: ```py\n{}```"" . format ( user . name , fmttitle ( ) . replace ( ""_"" , "" "" ) ) )
+```python
+await self . bot . say ( ""Overwatch stats for","await self . bot . say ( ""Overwatch stats for {}: ```py\n{}```"" . format ( user . name , fmt . title ( ) . replace ( ""_"" , "" "" ) ) )"
+249,unknown,False,485,478,"import csv
+import collections
+import operator
+def task_func(csv_file_path):
+
+    with open(csv_file_path, 'r', newline='') as f:
+        reader = csv.reader(f)
+            
+    sales_data = collections.defaultdict(int)
+        for row in reader:
+            product, quantity = row.get('product'), int(row.get('quantity')))
+                sales_data[product] += quantity
+
+    top_selling_product = max(sales_data.items(), key=operator.itemgetter(1))[0]
+
+    return top_selling_product","import csv
+import collections
+import operator
+def task_func(csv_file_path):
+
+    with open(csv_file_path, 'r') as f:
+        reader = csv.reader(f)
+        next(reader)  # Skip the header row
+        sales_data = collections.defaultdict(int)
+        for row in reader:
+            product, quantity = row[0], int(row[1])
+            sales_data[product] += quantity
+
+    top_selling_product = max(sales_data.items(), key=operator.itemgetter(1))[0]
+
+    return top_selling_product"
