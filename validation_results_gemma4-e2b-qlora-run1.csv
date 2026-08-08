@@ -3300,3 +3300,580 @@ def task_func(csv_file_path):
     top_selling_product = max(sales_data.items(), key=operator.itemgetter(1))[0]
 
     return top_selling_product"
+250,other,False,76,78,"req , cat = await http . get ( 'http://random.cat/meow' , as_string = True )","req , cat = await http . get ( 'http://aws.random.cat/meow' , as_json = True )"
+251,other,False,94,94,"self . record ( ""WARN"" , None , ""shutdown"" , ""Shutdown took longer than %ds"" % warning_timer )","self . record ( ""INFO"" , None , ""shutdown"" , ""Shutdown took longer than %ds"" % warning_timer )"
+252,other,False,78,75,"history = open ( 'HISTORY.md' ) . read ( ) . replace ( '.. :changelog:' , '' )","history = open ( 'CHANGES' ) . read ( ) . replace ( '.. :changelog:' , '' )"
+253,algorithm,False,712,718,"import pandas as pd
+from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
+def task_func(df):
+
+    if not isinstance(df, pd.DataFrame):
+        raise TypeError(""Input must be a DataFrame"")
+    if df.empty:
+        raise ValueError(""DataFrame is empty"")
+
+    pca = PCA(n_components=2)
+    principal_components = pca.fit_transform(df)
+
+    pca_df = pd.DataFrame(principal_components, columns=['Principal Component 1', 'Principal Component 2'])
+
+    fig, ax = plt.subplots()
+    ax.scatter(pca_df['Principal Component 1'], pca_df['Principal Component 2'])
+    ax.set_xlabel('Principal Component 1')
+    ax.set_ylabel('Principal Component 2')
+    ax.set_title('2 Component PCA')
+
+    return pca_df, ax","import pandas as pd
+from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
+def task_func(df):
+
+    if not isinstance(df, pd.DataFrame):
+        raise ValueError(""Input must be a DataFrame"")
+    if df.empty:
+        raise ValueError(""DataFrame is empty"")
+
+    pca = PCA(n_components=2)
+    principal_components = pca.fit_transform(df)
+
+    pca_df = pd.DataFrame(data=principal_components, columns=['Principal Component 1', 'Principal Component 2'])
+
+    fig, ax = plt.subplots()
+    ax.scatter(pca_df['Principal Component 1'], pca_df['Principal Component 2'])
+    ax.set_xlabel('Principal Component 1')
+    ax.set_ylabel('Principal Component 2')
+    ax.set_title('2 Component PCA')
+
+    return pca_df, ax"
+254,other,False,98,150,"assert isinstance ( self . license , str ) , ""Assumption Failed: License is not a string or empty""","assert isinstance ( self . license , str ) or isinstance ( self . license , License ) , ""Assumption Failed: License is not a string or license object"""
+255,other,False,94,90,"""""""
+     Calculate the noise variance from the noise specified in the noise dict.
+     """"""
+```","""""""
+     Calculate the noise variance from the noise specified in the noise dict.
+     """""""
+256,other,False,163,142,"fields = ( ""name"" , ""classification"" , ""depth"" , ""children_count"" , ""email"" , ""parent"" , ""description"" , ""url"" , ""website_dump"" , ""contact"" , ""address"" , ""phone"" )","fields = ( ""name"" , ""classification"" , ""depth"" , ""children_count"" , ""email"" , ""description"" , ""url"" , ""website_dump"" , ""contact"" , ""address"" )"
+257,other,False,159,70,"decks = [ i [ ""txid"" ] for i in node . listtransaction ( ""PATEST"" ) if i ]
+```python
+decks = [ i [ ""txid"" ] for i in node . listtransaction ( ""PATEST"" ) if i ]","decks = [ i [ ""txid"" ] for i in node . listtransactions ( ""PATEST"" ) ]"
+258,other,False,1045,146,"return self . get_feed ( feed . get_next_link ( ) , auth_token = auth_token , converter = converter , desired_class = desired_class , ** kwargs )
+```python
+return self . get_feed ( feed . get_next_link ( ) , auth_token = auth_token , converter = converter , desired_class = desired_class , ** kwargs )
+```python
+return self . get_feed ( feed . get_next_link ( ) , auth_token = auth_token , converter = converter , desired_class = desired_class , ** kwargs )
+```python
+return self . get_feed ( feed . get_next_link ( ) , auth_token = auth_token , converter = converter , desired_class = desired_class , ** kwargs )
+```python
+return self . get_feed ( feed . get_next_link ( ) , auth_token = auth_token , converter = converter , desired_class = desired_class , ** kwargs )
+```python
+return self . get_feed ( feed . get_next_link ( ) , auth_token = auth_token , converter = converter , desired_class = desired_class , ** kwargs )
+```python
+return self . get_feed ( feed . get_next_link ( ) , auth_token = auth_token , converter = converter , desired","return self . get_feed ( feed . find_next_link ( ) , auth_token = auth_token , converter = converter , desired_class = desired_class , ** kwargs )"
+259,other,False,140,122,bs . read_manager_deployment_dump_if_needed ( provider_context . get ( 'cloudify' ) . get ( 'manager_deployment' ) . get ( 'environment' ) ),"bs . read_manager_deployment_dump_if_needed ( provider_context . get ( 'cloudify' , { } ) . get ( 'manager_deployment' ) )"
+260,other,False,205,173,"password_again = PasswordField ( 'Password (again)' , validators = [ InputRequired ( 'Please verify the password.' ) , EqualTo ( password , 'Passwords don\'t match.' ) ] , help = 'Confirm your password.' )","password_again = PasswordField ( 'Password (again)' , validators = [ InputRequired ( 'Please verify the password.' ) , EqualTo ( 'password' , 'Passwords do not match.' ) ] )"
+261,other,False,118,106,"imported = importer . import_insights ( insights , server_domain = server_domain , automatic = False , force = False )","imported = importer . import_insights ( [ insights ] , server_domain = server_domain , automatic = False )"
+262,other,False,173,249,"return pTemplate ( pTemplate ( base_template_string ) . substitute ( { ""template"" : template . get ( ""template"" , """" ) , ""styling"" : template . get ( ""styling"" , { } ) } ) )","return pTemplate ( pTemplate ( base_template_string ) . substitute ( { ""template"" : template . get ( ""template"" , """" ) , ""styling"" : cls . render_styling ( template . get ( ""styling"" , { } ) ) } ) ) . substitute ( template . get ( ""params"" , { } ) )"
+263,logic,True,78,78,if self . cost_price is None : self . cost_price = self . product . cost_price,if self . cost_price is None : self . cost_price = self . product . cost_price
+264,other,False,132,116,"self . outfmt = ""-outfmt '8 ofmt '6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen'""","self . outfmt = ""'6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen'"""
+265,unknown,False,445,417,"class Solution:
+    def findMissingAndRepeatedValues(self, grid: List[List[int]]) -> List[int]:
+        n = len(grid)
+        cnt = [0] * (n * n + 1)
+        for row in grid:
+            for v in row:
+                    cnt[v] += 1
+        ans = [0] * 2
+        for i in range(1, n * n + 1):
+                if cnt[i] == 2:
+                        ans[0] = i
+                if cnt[i] == 0:
+                        ans[1] = i
+        return ans","class Solution:
+    def findMissingAndRepeatedValues(self, grid: List[List[int]]) -> List[int]:
+        n = len(grid)
+        cnt = [0] * (n * n + 1)
+        for row in grid:
+            for v in row:
+                cnt[v] += 1
+        ans = [0] * 2
+        for i in range(1, n * n + 1):
+            if cnt[i] == 2:
+                ans[0] = i
+            if cnt[i] == 0:
+                ans[1] = i
+        return ans"
+266,other,False,237,109,"return [ Star ( int ( star_id ) , galaxy = self . galaxy ) for star_id in sorted ( self . data . stars ) ]
+```python
+```python
+return [ Star ( int ( star_id ) , galaxy = self . galaxy ) for star_id in sorted ( self . data . stars ) ]
+```","return [ Star ( int ( star_id ) , galaxy = self ) for star_id in sorted ( self . data . stars , key = int ) ]"
+267,build_package_merge,False,510,508,"import numpy as np
+import itertools
+import random
+import statistics
+def task_func(T1, RANGE=100):
+
+    if len(T1) <= 0:
+        raise statistics.StatisticsError
+    int_list = [list(map(int, x))) for x in T1]
+    flattened_list = list(itertools.chain(*int_list))
+    total_nums = sum(flattened_list)
+    random_nums = [random.randint(0, RANGE) for _ in range(total_nums))]
+    mean = np.mean(random_nums)
+    median = np.median(random_nums)
+    mode = statistics.mode(random_nums)
+    return mean, median, mode","import numpy as np
+import itertools
+import random
+import statistics
+def task_func(T1, RANGE=100):
+
+    if len(T1) <= 0:
+        raise statistics.StatisticsError
+    int_list = [list(map(int, x)) for x in T1]
+    flattened_list = list(itertools.chain(*int_list))
+    total_nums = sum(flattened_list)
+    random_nums = [random.randint(0, RANGE) for _ in range(total_nums)]
+    mean = np.mean(random_nums)
+    median = np.median(random_nums)
+    mode = statistics.mode(random_nums)
+    return mean, median, mode"
+268,other,False,121,136,"Job . objects . filter ( status = ""completed"" ) . update ( status = status , ignore_cache = False , finished = finished )","Job . objects . filter ( pk = self . last_job_id ) . update ( status = status , ignore_cache = Falverbose_namese , finished = finished )"
+269,assignment,False,1001,81,"self . conn . put_mapping ( 'modelresult' , current_mapping , index = self . index_name )
+```python
+self . conn . put_mapping ( 'modelresult' , current_mapping , index = self . index_name )
+```python
+self . conn . put_mapping ( 'modelresult' , current_mapping , index = self . index_name )
+```python
+self . mapping . set ( 'modelresult' , current_mapping )
+```python
+self . index . set ( 'modelresult' , current_index )
+```python
+self . conn . put_mapping ( 'modelresult' , current_mapping , index = self . index_name )
+```python
+self . mapping . set ( 'modelresult' , current_mapping )
+```python
+self . conn . put_mapping ( 'modelresult' , current_mapping , index = self . index_name )
+```python
+self . index . set ( 'modelresult' , current_index )
+```python
+self . conn . put_mapping ( 'modelresult' , current_mapping , index = self . index_name )
+```python
+self . mapping . set ( 'modelresult' , current_mapping )
+```python
+self . conn . put_mapping ( 'modelresult' , current_mapping , index = self","self . conn . put_mapping ( self . index_name , 'modelresult' , current_mapping )"
+270,other,False,207,69,"return { 'region' : 'RegionOne' , 'address' : address , 'id' : id_ , 'country' : country_ }
+```python
+```python
+return { 'region' : 'RegionOne' , 'address' : address , 'id' : id_ , 'country' : country_ }
+```","return { 'region' : u'RegionOne' , 'address' : address , 'id' : id_ }"
+271,other,False,131,130,"logging . info ( 'main_acs() : len acs to merge : {0} leftover len : {1}' , format ( len ( acs_merged ) , len ( acs_untouched ) ) )","logging . info ( 'main_acs() : len acs to merge : {0} leftover len : {1}' . format ( len ( acs_merge ) , len ( acs_untouched ) ) )"
+272,other,False,194,177,"def __init__ ( self , host , port , username , password , index , hostname = None , source = None , sourcetype = 'python' , verify = True , timeout = 10 ) : logging . Handler . __init__ ( self )","def __init__ ( self , host , port , username , password , index , hostname = None , source = None , sourcetype = 'text' , verify = True ) : logging . Handler . __init__ ( self )"
+273,unknown,False,416,502,"mx = 10**6 + 1
+lpf = [0] * (mx + 1)
+for i in range(2, mx + 1):
+    if lpf[i] == 0:
+        for j in range(i, mx + 1, i):
+            if j <= lpf[i]:
+                pass
+
+
+class Solution:
+    def minOperations(self, nums: List[int]) -> int:
+        for i in range(len(nums) - 2, -1, -1):
+            if nums[i] > nums[i + 1]:
+                if nums[i] > nums[i + 1]:
+                    return -1
+        return ans","mx = 10**6 + 1
+lpf = [0] * (mx + 1)
+for i in range(2, mx + 1):
+    if lpf[i] == 0:
+        for j in range(i, mx + 1, i):
+            if lpf[j] == 0:
+                lpf[j] = i
+
+
+class Solution:
+    def minOperations(self, nums: List[int]) -> int:
+        ans = 0
+        for i in range(len(nums) - 2, -1, -1):
+            if nums[i] > nums[i + 1]:
+                nums[i] = lpf[nums[i]]
+                if nums[i] > nums[i + 1]:
+                    return -1
+                ans += 1
+        return ans"
+274,other,False,252,271,"factory_deb . addStep ( steps . ShellCommand ( command = [ ""tar"" , '-caf' , 'gdal_' + gdal_ver + '.orig.tar.gz' , '-z' , 'gdal_code' ] , name = ""tar"" , description = [ ""compress"" ] , descriptionDone = [ ""tar"" , ""compressed"" ] , haltOnFailure = True ) )","factory_deb . addStep ( steps . ShellCommand ( command = [ ""tar"" , '-caf' , 'gdal_' + gdal_ver + '.orig.tar.gz' , 'gdal_code' , '--exclude-vcs' ] , name = ""tar"" , description = [ ""tar"" , ""compress"" ] , descriptionDone = [ ""tar"" , ""compressed"" ] , haltOnFailure = True ) )"
+275,other,False,71,69,"cmd = '{0} solution apply {1}' . format ( SAPTUNE_BIN , solution_name )","cmd = '{} solution apply {}' . format ( SAPTUNE_BIN , solution_name )"
+276,algorithm,False,560,442,"class Solution:
+    def maxPalindromesAfterOperations(self, words: List[str]) -> int:
+        s = mask = 0
+        for w in words:
+            s += len(w)
+                for c in w:
+                        pass
+        for i in range(len(w)):
+                mask |= (w[i] == c)
+        for i in range(len(s)):
+                if mask & (1 << i):
+                        s ^= (1 << i)
+        s -= mask.bit_count()
+        for i in range(len(words))):
+                if s < 0:
+                        break
+                        ans += 1
+        return ans","class Solution:
+    def maxPalindromesAfterOperations(self, words: List[str]) -> int:
+        s = mask = 0
+        for w in words:
+            s += len(w)
+            for c in w:
+                mask ^= 1 << (ord(c) - ord(""a""))
+        s -= mask.bit_count()
+        words.sort(key=len)
+        ans = 0
+        for w in words:
+            s -= len(w) // 2 * 2
+            if s < 0:
+                break
+            ans += 1
+        return ans"
+277,other,False,108,94,fb . error ( 'Fonts have different numbers of glyphs:\n\n' '{}\n' . format ( restuls_table . to_string() ) ),fb . error ( 'Fonts have different numbers of glyphs:\n\n' '{}\n' . format ( results_table ) )
+278,unknown,False,510,532,"import re
+from sklearn.cluster import KMeans
+from sklearn.feature_extraction.text import CountVectorizer
+def task_func(df):
+
+    pattern = re.compile(r'(how|what)', re.IGNORECASE)
+    interesting_articles = df[df['Title'].apply(lambda x: bool(pattern.search(x)))]
+    if interesting_articles is None:
+        return []
+
+    vectorizer = CountVectorizer()
+    X = vectorizer.fit_transform(interesting_articles['Content'])
+
+    kmeans = KMeans(n_clusters=2, random_state=42, n_init=10)
+
+    return kmeans.labels_","import re
+from sklearn.cluster import KMeans
+from sklearn.feature_extraction.text import CountVectorizer
+def task_func(df):
+
+    pattern = re.compile(r'(how|what)', re.IGNORECASE)
+    interesting_articles = df[df['Title'].apply(lambda x: bool(pattern.search(x)))]
+    if interesting_articles.empty:
+        return []
+
+    vectorizer = CountVectorizer()
+    X = vectorizer.fit_transform(interesting_articles['Content'])
+
+    kmeans = KMeans(n_clusters=2, random_state=42, n_init=10)
+    kmeans.fit(X)
+
+    return list(kmeans.labels_)"
+279,other,False,136,131,"engine . create_engine ( 'mysql' , { 'db' : 'test' , 'host' : '127.0.0.1' , 'user' : 'admin' , 'password' : 'password' } , echo = echo )","engine . create_engine ( 'mysql' , { 'db' : 'test' , 'host' : '127.0.0.1' , 'user' : 'scott' , 'passwd' : 'tiger' } , echo = echo )"
+280,algorithm,False,854,779,"class BinaryIndexedTree:
+    def __init__(self, n: int):
+        self.n = n
+        self.c = [-inf] * (n + 1)
+
+    def update(self, x: int, v: int):
+        while x <= self.n:
+            self.c[x] = max(self.c[x], v)
+            x += x & -x
+
+    def query(self, x: int) -> int:
+        mx = -inf
+        while x <= self.n:
+            mx = max(mx, self.c[x])
+            x -= x & -x
+        return mx
+
+
+class Solution:
+    def maxBalancedSubsequenceSum(self, nums: List[int]) -> int:
+        arr = [x + i for i, x in enumerate(nums)]
+            
+        s = sorted(set(arr))
+            tree = BinaryIndexedTree(len(s)))
+            
+        for i, x in enumerate(nums):
+                j = bisect_left(s, x - i) + 1
+                v = max(tree.query(j), 0) + x
+                    tree.update(j, v)
+                
+        return tree.query(len(s)))","class BinaryIndexedTree:
+    def __init__(self, n: int):
+        self.n = n
+        self.c = [-inf] * (n + 1)
+
+    def update(self, x: int, v: int):
+        while x <= self.n:
+            self.c[x] = max(self.c[x], v)
+            x += x & -x
+
+    def query(self, x: int) -> int:
+        mx = -inf
+        while x:
+            mx = max(mx, self.c[x])
+            x -= x & -x
+        return mx
+
+
+class Solution:
+    def maxBalancedSubsequenceSum(self, nums: List[int]) -> int:
+        arr = [x - i for i, x in enumerate(nums)]
+        s = sorted(set(arr))
+        tree = BinaryIndexedTree(len(s))
+        for i, x in enumerate(nums):
+            j = bisect_left(s, x - i) + 1
+            v = max(tree.query(j), 0) + x
+            tree.update(j, v)
+        return tree.query(len(s))"
+281,algorithm,False,562,548,"import pandas as pd
+import os
+import json
+from collections import Counter
+def task_func(json_dir_path, word_count):
+
+    word_counter = Counter()
+    
+    for filename in os.listdir(json_dir_path):
+        if filename.endswith('.json'):
+            with open(os.path.join(json_dir_path, filename), 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                text = data.get('text', '')
+                words = pd.Series(text.split())
+                word_counter.update(words)
+                
+    return word_counter.most_common(word_count)","import pandas as pd
+import os
+import json
+from collections import Counter
+def task_func(json_dir_path, word_count):
+
+    word_counter = Counter()
+    
+    for filename in os.listdir(json_dir_path):
+        if filename.endswith('.json'):
+            with open(os.path.join(json_dir_path, filename), 'r') as f:
+                data = json.load(f)
+                text = data.get('text', '')
+                words = pd.Series(text.split())
+                word_counter += Counter(words)
+                
+    return word_counter.most_common(word_count)"
+282,other,True,123,123,"if self . get_owner ( ) is not None : return self . name + "" - "" + self . get_owner ( ) . username + "" - "" + self . summary","if self . get_owner ( ) is not None : return self . name + "" - "" + self . get_owner ( ) . username + "" - "" + self . summary"
+283,other,False,103,89,"return ""LD_PRELOAD=%s/lib && "" % os . path . dirname ( get_bcbio_bin ( ) ) . lstrip ( os . path . sep )","return ""LD_PRELOAD=%s/lib/libfreetype.so && "" % os . path . dirname ( get_bcbio_bin ( ) )"
+284,other,False,65,53,_int_str = ct . create_string_buffer ( _max_int_str_len . value ),_int_str = ct . create_string_buffer ( _max_str_len )
+285,other,False,156,181,"assert ( r . startswith ( ""<module '__pypy_interact' from "" ) and ( 'pypy/lib/_pypy_interact.py' in r or 'pypy\\lib\\_pypy_interact.py' in r . lower ( ) ) )","assert ( r . startswith ( ""<module '_pypy_interact' from "" ) and ( 'pypy/lib/_pypy_interact.py' in r or r'pypy\\lib\\_pypy_interact.py' in r . lower ( ) ) and r . endswith ( '>' ) )"
+286,unknown,False,1042,557,"class Solution:
+    def minOrAfterOperations(self, nums: List[int], k: int) -> int:
+        ans = 0
+        rans = 0
+        for i in range(29, -1, -1):
+            test = ans + (1 << i)
+                cnt = 0
+                val = 0
+                for num in nums:
+                        if val == 0:
+                                if test & num:
+                                                val = test | num
+                                                cnt = 1
+                                else:
+                                                val = test & num
+                                
+                if val:
+                                                    ans = min(ans, test)
+                                                rans += 1 << i
+                                            rans += 1
+                else:
+                    pass
+                    test = False
+                    
+            if cnt >= k:
+                    rans += 1 << i
+            else:
+                pass
+        return rans","class Solution:
+    def minOrAfterOperations(self, nums: List[int], k: int) -> int:
+        ans = 0
+        rans = 0
+        for i in range(29, -1, -1):
+            test = ans + (1 << i)
+            cnt = 0
+            val = 0
+            for num in nums:
+                if val == 0:
+                    val = test & num
+                else:
+                    val &= test & num
+                if val:
+                    cnt += 1
+            if cnt > k:
+                rans += 1 << i
+            else:
+                ans += 1 << i
+        return rans"
+287,unknown,False,765,772,"from PIL import Image
+import numpy as np
+from skimage.transform import resize
+import matplotlib.pyplot as plt
+import os
+def task_func(img_path, scale_factors=[0.5, 0.75, 1.5, 2.0]):
+
+    if not os.path.exists(img_path):
+        raise FileNotFoundError(f""No file found at {img_path}"")
+
+    im = Image.open(img_path)
+    img_arr = np.array(im)
+    results = []
+
+    for scale_factor in scale_factors:
+        scaled_img_arr = resize(img_arr, (int(h * scale_factor), int(w * scale_factor)),
+                                mode='reflect', anti_aliasing=True)
+        fig, ax = plt.subplots()
+            ax.imshow(scaled_img_arr)
+            ax.set_title(f'Scale factor: {scale_factor}')
+        results.append((ax, scaled_img_arr))
+    # plt.show()
+    return results","from PIL import Image
+import numpy as np
+from skimage.transform import resize
+import matplotlib.pyplot as plt
+import os
+def task_func(img_path, scale_factors=[0.5, 0.75, 1.5, 2.0]):
+
+    if not os.path.exists(img_path):
+        raise FileNotFoundError(f""No file found at {img_path}"")
+
+    im = Image.open(img_path)
+    img_arr = np.array(im)
+    results = []
+
+    for scale_factor in scale_factors:
+        scaled_img_arr = resize(img_arr, (int(im.height * scale_factor), int(im.width * scale_factor)),
+                                mode='reflect', anti_aliasing=True)
+        fig, ax = plt.subplots()
+        ax.imshow(scaled_img_arr)
+        ax.set_title(f'Scale factor: {scale_factor}')
+        results.append((ax, scaled_img_arr))
+    # plt.show()
+    return results"
+288,other,False,104,118,"return render_template ( 'index.html' , pages = list ( react . router . getPages ( ) ) , token = token )","return render_template ( 'index.html' , pages = list ( mongo . db . pages . find ( ) ) , token = session [ 'token' ] )"
+289,other,False,44,50,"f'""test_functional[{self._test_file.base}]""'","f'""test_functional[{self._test_file.base}]""\'\n\n'"
+290,other,True,98,98,"COMMANDTYPES = { ""*"" : ""all"" , ""r"" : ""select"" , ""a"" : ""insert"" , ""w"" : ""update"" , ""d"" : ""delete"" }","COMMANDTYPES = { ""*"" : ""all"" , ""r"" : ""select"" , ""a"" : ""insert"" , ""w"" : ""update"" , ""d"" : ""delete"" }"
+291,other,False,134,146,"if ( region is not None and isinstance ( region , str ) ) : region = cassiopeia . type . core . common . Region ( region . upper ( ) )","if ( isinstance ( region , str ) or isinstance ( region , unicode ) ) : region = cassiopeia . type . core . common . Region ( region . upper ( ) )"
+292,other,False,136,130,"MD_HANDLER = Configuration ( ) . file ( TARGET + TEST + "".md"" ) . handler ( SnippetReader ( ) , MdSnippetWriter ( ) , LineNumberer ( ) )","TXT = Configuration ( ) . file ( TARGET + TEST + "".md$"" ) . handler ( SnippetReader ( ) , MdSnippetWriter ( ) , LineNumberer ( ) )"
+293,timing_serialization,False,377,338,"import re
+import json
+import os
+def task_func(file_path: str, regex_pattern=r'\(.+?\)|\w') -> dict:
+
+    with open(file_path, 'r', encoding='utf-8') as file:
+        data = json.load(file)
+        text = ' '.join(data.values())
+        matches = re.findall(regex_pattern, text)
+
+    match_dict = {os.path.basename(file_path): matches, 'file_handle': file}
+    return match_dict","import re
+import json
+import os
+def task_func(file_path: str, regex_pattern=r'\(.+?\)|\w') -> dict:
+
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+        text = ' '.join(data.values())
+        matches = re.findall(regex_pattern, text)
+
+    match_dict = {os.path.basename(file_path): matches}
+    return match_dict"
+294,other,False,74,62,"super ( SmsSnippet , self ) . __init__ ( ""com.apple.ace.sms"" , ""snippet"" )","super ( SmsSnippet , self ) . __init__ ( ""com.apple.ace.sms"" )"
+295,type,False,68,66,portnum = inpardat . findall ( './/portnum' ) [ 0 ] . text . strip(),portnum = int ( inpardat . findall ( './/portnum' ) [ 0 ] . text )
+296,unknown,False,941,914,"import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+from matplotlib.collections import PathCollection
+def task_func(data, n_clusters=3):
+
+    if not isinstance(data, pd.DataFrame):
+        raise TypeError(""Input 'data' must be a pandas DataFrame."")
+    if not isinstance(n_clusters, int) or n_clusters <= 1:
+        raise ValueError(""'n_clusters' must be an integer greater than 1."")
+
+    kmeans = KMeans(n_clusters=n_clusters, random_state=42)
+    labels = kmeans.fit_predict(data)
+    centroids = kmeans.cluster_centers_
+
+    fig, ax = plt.subplots()
+    scatter = plt.scatter(data.iloc[:, 0], data.iloc[:, 1], c=labels, cmap='viridis', alpha=0.6, label='Data points')
+    ax.scatter(centroids[:, 0], centroids[:, 1], marker='x', s=200, c='red', label='Centroids')
+    ax.set_xlabel('Feature 1')
+    ax.set_ylabel('Feature 2')
+    ax.set_title('K-Means Clustering')
+    ax.legend()
+
+    return labels, ax","import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+from matplotlib.collections import PathCollection
+def task_func(data, n_clusters=3):
+
+    if not isinstance(data, pd.DataFrame):
+        raise ValueError(""Input 'data' must be a pandas DataFrame."")
+    if not isinstance(n_clusters, int) or n_clusters <= 1:
+        raise ValueError(""'n_clusters' must be an integer greater than 1."")
+
+    kmeans = KMeans(n_clusters=n_clusters)
+    labels = kmeans.fit_predict(data)
+    centroids = kmeans.cluster_centers_
+
+    fig, ax = plt.subplots()
+    ax.scatter(data.iloc[:, 0], data.iloc[:, 1], c=labels, cmap='viridis', alpha=0.6, label='Data points')
+    ax.scatter(centroids[:, 0], centroids[:, 1], marker='x', s=200, c='red', label='Centroids')
+    ax.set_xlabel('Feature 1')
+    ax.set_ylabel('Feature 2')
+    ax.set_title('K-Means Clustering')
+    ax.legend()
+
+    return labels, ax"
+297,other,False,171,147,"Exception : text = """"""
+ The following post/comment by /u/{thing.author.comment} matched the rule
+ {rule._filename}: {thing.permalink}
+ """""" . strip ( ) . replace('\n', ' ')","Exception : text = """"""
+ The following post/comment by /u/{thing.author.name} matched the rule
+ {rule._filename}: {thing.permalink}
+ """""" . strip ( )"
+298,other,False,83,63,"delete_cluster ( config [ 'cluster-name' ] , self . nova , self . neutron , False )","delete_cluster ( config , self . nova , self . neutron , True )"
+299,unknown,False,521,478,"import csv
+import collections
+import operator
+def task_func(csv_file_path):
+
+    with open(csv_file_path, 'r', newline='') as f:
+        reader = csv.reader(f)
+        next(reader)  # Skip the header row
+        sales_data = collections.defaultdict(int)
+            for row in reader:
+                product, quantity = row.product, int(row.quantity)
+                        sales_data[product] += quantity
+
+    top_selling_product = max(sales_data.items(), key=operator.itemgetter(1))[0]
+
+    return top_selling_product","import csv
+import collections
+import operator
+def task_func(csv_file_path):
+
+    with open(csv_file_path, 'r') as f:
+        reader = csv.reader(f)
+        next(reader)  # Skip the header row
+        sales_data = collections.defaultdict(int)
+        for row in reader:
+            product, quantity = row[0], int(row[1])
+            sales_data[product] += quantity
+
+    top_selling_product = max(sales_data.items(), key=operator.itemgetter(1))[0]
+
+    return top_selling_product"
