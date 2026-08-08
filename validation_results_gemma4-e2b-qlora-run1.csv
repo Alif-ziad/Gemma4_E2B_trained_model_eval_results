@@ -15910,3 +15910,827 @@ self . tb = self . traceback if stringify_tb else tb",self . tb = '' . join ( tr
                 l += 1
             ans += l
         return ans"
+1200,other,False,118,89,"ips = list ( ips ) , tcp_timestamp_mapping = fields . List ( fields . Nested ( tcp_timestamp_min ) , required = True )","ips = ips , tcp_timestamp_mapping = fields . List ( tcp_timestamp_min , required = True )"
+1201,checking,False,211,91,"return str ( container . get_property ( args . group_by ) ) if args . group_by != 'none' else None
+```python
+return str ( container . get_property ( args . group_by ) ) if args . group_by != 'none' else None
+```","return str ( getattr ( container , args . group_by ) ) if args . group_by != 'none' else ''"
+1202,other,False,97,78,"region , self . _regionid , idregionid = interpret_region2 ( regionid ) or ( None , None , None )","self . region , self . _regionid , idregionid = interpret_region2 ( regionid )"
+1203,other,False,77,73,select_multiples = PandasDataFrameBuilder . _generate_select_multiples ( dd ),select_multiples = CSVDataFrameBuilder . _collect_select_multiples ( dd )
+1204,other,True,165,165,"class Solution:
+    def firstPalindrome(self, words: List[str]) -> str:
+        for i in words:
+            if i==i[::-1]:
+                return i
+        return """"","class Solution:
+    def firstPalindrome(self, words: List[str]) -> str:
+        for i in words:
+            if i==i[::-1]:
+                return i
+        return """""
+1205,other,False,77,88,"model . database . log_machine_use ( ""users"" , user , details = self . name )","model . database . log_machine_use ( ""makers"" , user . link_id , details = self . name )"
+1206,other,False,263,72,"env = super ( RunSystemJob , self ) . build_env ( inventory_update , ** kwargs ) . copy ( environment = self . environment )
+```python
+env = super ( RunSystemJob , self ) . build_env ( inventory_update , ** kwargs ) . copy ( environment = self . environment )
+```","env = super ( RunSystemJob , self ) . build_env ( instance , ** kwargs )"
+1207,logic,False,62,73,"assert isinstance ( prefix , str ) , ""prefix must be a string""","assert not prefix or isinstance ( prefix , str ) , ""prefix must be a str"""
+1208,unknown,False,621,576,"import pandas as pd
+import matplotlib.pyplot as plt
+def task_func(df, dct, columns=None, plot_histograms=False):
+
+
+    if not isinstance(df, pd.DataFrame):
+        raise ValueError(""The input df is not a DataFrame"")
+
+    # Replace values using dictionary mapping
+    df_replaced = df.replace(dct)
+
+    df_replaced = df_replaced
+    # Plot a histogram for each specified column
+    if plot_histograms and columns:
+        for column in columns:
+            if column in df_replaced:
+                df_replaced[column].plot.hist(bins=50)
+                plt.title(column)
+
+    return df_replaced if plot_histograms else df","import pandas as pd
+import matplotlib.pyplot as plt
+def task_func(df, dct, columns=None, plot_histograms=False):
+
+    
+    if not isinstance(df, pd.DataFrame):
+        raise ValueError(""The input df is not a DataFrame"")
+    
+    # Replace values using dictionary mapping
+    df_replaced = df.replace(dct)
+    
+    # Plot a histogram for each specified column
+    if plot_histograms and columns:
+        for column in columns:
+            if column in df_replaced:
+                df_replaced[column].plot.hist(bins=50)
+                plt.title(column)
+
+    return df_replaced"
+1209,unknown,False,727,719,"import pandas as pd
+import os
+import numpy as np
+import ast
+def task_func(directory):
+
+    name = None
+    for filename in os.listdir(directory):
+        if filename.endswith('.csv'):
+            if name is None :
+                    name = filename
+            else :
+                name = filename if len(filename) > len(name) else name
+    if name is not None :
+        return pd.DataFrame({}, columns = ['email', 'list'] + ['sum', 'mean', 'median']), None
+
+    df = pd.read_csv(os.path.join(directory, name))
+    df[""list""] = df[""list""].map(ast.literal_eval)
+    df['sum'] = df['list'].apply(sum)
+    df['mean'] = df['list'].apply(np.mean)
+    df['median'] = df['list'].apply(np.median)
+
+    return df, df[""median""].hist()","import pandas as pd
+import os
+import numpy as np
+import ast
+def task_func(directory):
+
+    name = None
+    for filename in os.listdir(directory):
+        if filename.endswith('.csv'):
+            if name is None :
+                name = filename
+            else :
+                name = filename if len(filename) > len(name) else name
+    if name is None :
+        return pd.DataFrame({}, columns = ['email', 'list'] + ['sum', 'mean', 'median']), None
+
+    df = pd.read_csv(os.path.join(directory, name))
+    df[""list""] = df[""list""].map(ast.literal_eval)
+    df['sum'] = df['list'].apply(sum)
+    df['mean'] = df['list'].apply(np.mean)
+    df['median'] = df['list'].apply(np.median)
+
+    return df, df[""median""].hist()"
+1210,other,False,96,96,uninstall . append ( '\trm -fv $(DEST)$(PREFIX)/share/applications $(APP_ID_UNIQUE).desktop\n' ),uninstall . append ( '\trm -fv $(DEST)$(PREFIX)/share/applications/$(APP_ID_UNIQUE).desktop\n' )
+1211,other,False,724,151,"entry_points = { 'console_scripts' : [ 'sounding_converter=eurec4a_snd.L1_rs41:main' , 'sounding_visualize=eurec4a_snd.make_quicklooks_rs41.py:main' ] } ,
+```python
+entry_points = { 'console_scripts' : [ 'sounding_converter=eurec4a_snd.L1_rs41:main' , 'sounding_visualize=eurec4a_snd.make_quicklooks_rs41.py:main' ] } ,
+```python
+entry_points = { 'console_scripts' : [ 'sounding_converter=eurec4a_snd.L1_rs41:main' , 'sounding_visualize=eurec4a_snd.make_quicklooks_rs41.py:main' ] } ,
+```python
+entry_points = { 'console_scripts' : [ 'sounding_converter=eurec4a_snd.L1_rs41:main' , 'sounding_visualize=eurec4a_snd.make_quicklooks_rs41.py:main' ] } ,
+```python
+entry_points = { 'console_scripts' : [ 'sounding_converter=eurec","entry_points = { 'console_scripts' : [ 'sounding_converter=eurec4a_snd.L1_rs41:main' , 'sounding_visualize=eurec4a_snd.make_quicklooks_rs41:main' ] } ,"
+1212,other,False,182,69,"vals [ replacemask ] = self . faraway_interp ( vals [ replacemask ] ) . reshape ( ( 1, 1, 1, 1 ) )
+```python
+vals [ replacemask ] = self . faraway_interp ( vals [ replacemask ] )
+```",vals [ replacemask ] = self . faraway_interp ( logv [ replacemask ] )
+1213,other,False,65,52,return self . native_sheet . cell ( cell_location ) . value or '',return self . native_sheet [ cell_location ] . value
+1214,other,False,1184,90,"class _CachedProperty ( object ) : """"""A property who's value is cached on the object.""""""
+    @property
+    def value (
+        @cache_row
+        @cache_object
+        @cache_key
+        @cache_row
+        def value (
+            self
+        ) -> Any:
+            return self._cached_value
+
+        # In a real ORM, this would be implemented using a proper
+        # caching mechanism (like `functools.lru_cache` or `@cache` decorator)
+            raise AttributeError(
+                f""{self.__class__.__name__} has no cached value for '{self.name}'""
+                )
+        """"""
+            pass
+        # Note: The `@cache` decorator is used here for simplicity,
+        # but `@cache` is the standard way to implement this pattern.
+        """"""
+        # In a real ORM, this would be implemented using a proper
+        # caching mechanism (like `functools.lru_cache` or `@cache` decorator)
+        # or `@cache` decorator if you are using a library like `cachelib`
+        # or `@functools.lru_cache` for simple memoization.
+        """"""
+        # In a real ORM, this would be implemented using a proper
+        # `@cache` decorator for simple memoization.
+        # In a real OR","class _CachedProperty ( property ) : """"""A property who's value is cached on the object."""""""
+1215,unknown,False,827,1173,"class Solution:
+  def shortestMatchingSubstring(self, s: str, p: str) -> int:
+  def _getLPS(self, pattern: str) -> list[int]:
+    """"""
+    Returns the lps array, where lps[i] is the length of the longest prefix of
+    pattern[0..i] which is also a suffix of this substring.
+    """"""
+    lps = [0] * len(pattern)
+    j = 0
+    for i in range(1, len(pattern)):
+      while j < len(pattern) and pattern[j] != pattern[i]:
+        j = lps[j - 1]
+      if pattern[i] == pattern[j]:
+        lps[i] = j + 1
+      if pattern[j] == pattern[i]:
+        lps[i] = j + 1
+    lps[0] = 0
+    lps[0] = 0
+    return lps
+
+  def _getLPS(self, pattern: str) -> list[int]:
+  def _getLPS(self, pattern: str) -> list[int]:
+    """"""
+    Returns the lps array, where lps[i] is the length of the longest prefix of
+    pattern[0..i] which is also a suffix of","class Solution:
+  def shortestMatchingSubstring(self, s: str, p: str) -> int:
+    n = len(s)
+    a, b, c = p.split('*')
+    lpsA = self._getLPS(a + '#' + s)[len(a) + 1:]
+    lpsB = self._getLPS(b + '#' + s)[len(b) + 1:]
+    lpsC = self._getLPS(c + '#' + s)[len(c) + 1:]
+    ans = math.inf
+
+    i = 0  # lpsA's index
+    j = 0  # lpsB's index
+    k = 0  # lpsC's index
+    while i + len(b) + len(c) < n:
+      while i < n and lpsA[i] != len(a):
+        i += 1
+      while j < n and (j < i + len(b) or lpsB[j] != len(b)):
+        j += 1
+      while k < n and (k < j + len(c) or lpsC[k] != len(c)):
+        k += 1
+      if k == n:
+        break
+      ans = min(ans, k - i + len(a))
+      i += 1
+
+    return -1 if ans == math.inf else ans
+
+  def _getLPS(self, pattern: str) -> list[int]:
+    """"""
+    Returns the lps array, where lps[i] is the length of the longest prefix of
+    pattern[0..i] which is also a suffix of this substring.
+    """"""
+    lps = [0] * len(pattern)
+    j = 0
+    for i in range(1, len(pattern)):
+      while j > 0 and pattern[j] != pattern[i]:
+        j = lps[j - 1]
+      if pattern[i] == pattern[j]:
+        lps[i] = j + 1
+        j += 1
+    return lps"
+1216,unknown,False,1310,1009,"import re
+import pandas as pd
+from datetime import datetime
+def task_func(log_file):
+
+    log_pattern = r'(ERROR|INFO): \[\s*(\d{4}-\d{2}-\d{2}\s*\d{2}:\d{2}:\d{2})\s*\] - (.*)'
+    parsed_data = []
+
+    try:
+        with open(log_file, 'r') as file:
+            for line in file:
+                match = re.match(log_pattern, line)
+                        if match:
+                                    log_type, timestamp, message = match.groups()
+                                        # Validate timestamp
+                                                try:
+                                                                    datetime.strptime(timestamp, ""%Y-%m-%d %H:%M:%S"")
+                                                                       except ValueError:
+                                                                            raise ValueError(f""Invalid timestamp format: {timestamp}"")
+                                                                       parsed_data.append([log_type, timestamp, lambda: message.strip()])
+
+    if not parsed_data:
+        raise ValueError(""No valid log entries found."")
+
+    df = pd.DataFrame(parsed_data, columns=['Type', 'Timestamp', 'Message'])
+    output_csv_path = 'log_data.csv'
+    df.to_csv(output_csv_path, index=False)
+    return output_csv_path","import re
+import pandas as pd
+from datetime import datetime
+def task_func(log_file):
+
+    log_pattern = r'(ERROR|INFO): \[\s*(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\s*\] - (.*)'
+    parsed_data = []
+
+    with open(log_file, 'r') as file:
+        for line in file:
+            line = line.strip()
+            match = re.match(log_pattern, line)
+            if match:
+                log_type, timestamp, message = match.groups()
+                # Validate timestamp
+                try:
+                    datetime.strptime(timestamp, ""%Y-%m-%d %H:%M:%S"")
+                except ValueError:
+                    raise ValueError(f""Invalid timestamp format: {timestamp}"")
+                parsed_data.append([log_type, timestamp, message.strip()])
+
+    if not parsed_data:
+        raise ValueError(""No valid log entries found."")
+
+    df = pd.DataFrame(parsed_data, columns=['Type', 'Timestamp', 'Message'])
+    output_csv_path = 'log_data.csv'
+    df.to_csv(output_csv_path, index=False)
+    return output_csv_path"
+1217,type,False,91,105,"cb . file . save ( block_id , SimpleUploadedFile ( block_id , b64decode ( data_string ) ) )","cb . file . save ( str ( block_id ) , SimpleUploadedFile ( str ( block_id ) , b64decode ( data_data ) ) )"
+1218,unknown,False,760,1136,"class UnionFind:
+    def __init__(self, n):
+        self.p = list(range(n))
+        self.size = [1] * n
+
+    def find(self, x):
+        if self.p[x] != x:
+            self.p[x] = self.find(self.p[x])
+        return self.p[x]
+
+    def union(self, a, b):
+        self.p[a] = self.find(b)
+        self.size[a] += self.size[b]
+        self.size[b] = self.size[a] + self.size[b]
+        return self.find(a) == self.find(b
+
+
+mx = 100010
+p = defaultdict(list)
+for x in range(1, mx + 1):
+    v = x
+    i = 2
+    while i <= v // i:
+        if v % i == 0:
+            p[x].append(i)
+                v //= i
+        i += 1
+    if v > 1:
+        p[x].append(v)
+
+
+class Solution:
+    def canTraverseAllPairs(self, nums: List[int]) -> bool:
+        n = len(nums)
+        m =","class UnionFind:
+    def __init__(self, n):
+        self.p = list(range(n))
+        self.size = [1] * n
+
+    def find(self, x):
+        if self.p[x] != x:
+            self.p[x] = self.find(self.p[x])
+        return self.p[x]
+
+    def union(self, a, b):
+        pa, pb = self.find(a), self.find(b)
+        if pa == pb:
+            return False
+        if self.size[pa] > self.size[pb]:
+            self.p[pb] = pa
+            self.size[pa] += self.size[pb]
+        else:
+            self.p[pa] = pb
+            self.size[pb] += self.size[pa]
+        return True
+
+
+mx = 100010
+p = defaultdict(list)
+for x in range(1, mx + 1):
+    v = x
+    i = 2
+    while i <= v // i:
+        if v % i == 0:
+            p[x].append(i)
+            while v % i == 0:
+                v //= i
+        i += 1
+    if v > 1:
+        p[x].append(v)
+
+
+class Solution:
+    def canTraverseAllPairs(self, nums: List[int]) -> bool:
+        n = len(nums)
+        m = max(nums)
+        uf = UnionFind(n + m + 1)
+        for i, x in enumerate(nums):
+            for j in p[x]:
+                uf.union(i, j + n)
+        return len(set(uf.find(i) for i in range(n))) == 1"
+1219,unknown,False,625,586,"class Solution:
+    def maxScore(self, nums: List[int]) -> int:
+        n = len(nums)
+        suf_gcd = [0] * (n + 1)
+        suf_lcm = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            suf_gcd[i] = gcd(suf_gcd[i + 1], nums[i])
+                suf_lcm[i] = lcm(suf_lcm[i + 1], nums[i])
+                suf_lcm[i + 1] = min(lcm(suf_lcm[i + 1], nums[i])),
+        pre_gcd, pre_lcm = 0, 1
+        for i, x in enumerate(nums):
+            ans = max(ans, gcd(pre_gcd, suf_gcd[i + 1]) * lcm(pre_lcm, suf_lcm[i]]))
+                pre_gcd = gcd(pre_gcd, x)
+                pre_lcm = lcm(pre_lcm, x)
+        return ans","class Solution:
+    def maxScore(self, nums: List[int]) -> int:
+        n = len(nums)
+        suf_gcd = [0] * (n + 1)
+        suf_lcm = [0] * n + [1]
+        for i in range(n - 1, -1, -1):
+            suf_gcd[i] = gcd(suf_gcd[i + 1], nums[i])
+            suf_lcm[i] = lcm(suf_lcm[i + 1], nums[i])
+        ans = suf_gcd[0] * suf_lcm[0]
+        pre_gcd, pre_lcm = 0, 1
+        for i, x in enumerate(nums):
+            ans = max(ans, gcd(pre_gcd, suf_gcd[i + 1]) * lcm(pre_lcm, suf_lcm[i + 1]))
+            pre_gcd = gcd(pre_gcd, x)
+            pre_lcm = lcm(pre_lcm, x)
+        return ans"
+1220,algorithm,False,521,366,"class Solution:
+    def alternatingSubarray(self, nums: List[int]) -> int:
+        ans, n = -1, len(nums)
+        for i in range(n):
+            k = 1
+            j = i
+            while j + 1 < n and nums[j + 1] - nums[i] == k:
+                j += 1
+                        k *= -1
+                if j - i >= 1:
+                    ans = max(ans, j - i + 1)
+                if k == 0: break
+                else: k = -1
+                if j - i + 1 > 1:
+                    ans = max(ans, j - i + 1)
+        return ans","class Solution:
+    def alternatingSubarray(self, nums: List[int]) -> int:
+        ans, n = -1, len(nums)
+        for i in range(n):
+            k = 1
+            j = i
+            while j + 1 < n and nums[j + 1] - nums[j] == k:
+                j += 1
+                k *= -1
+            if j - i + 1 > 1:
+                ans = max(ans, j - i + 1)
+        return ans"
+1221,other,False,274,296,"self . acc_monitor = AccumulatingMonitorStrategy ( start_time = time . perf_counter ( ) , instances = instances . count , txn_delta_k = config . ACC_MONITOR_TXN_DELTA , timeout = config . ACC_MONITOR_TIMEOUT , input_rate_reaction_half_time = config . ACC_MONITOR_HALF_TIME )","self . acc_monitor = AccumulatingMonitorStrategy ( start_time = time . perf_counter ( ) , instances = instances . count , txn_delta_k = config . ACC_MONITOR_TXN_DELTA_K , timeout = config . ACC_MONITOR_TIMEOUT , input_rate_reaction_half_time = config . ACC_MONITOR_INPUT_RATE_REACTION_HALF_TIME )"
+1222,unknown,False,536,530,"import re
+import pandas as pd
+STOPWORDS = [""Those"", ""are"", ""the"", ""words"", ""to"", ""ignore""]
+def task_func(text):
+
+    sentences = re.split(r""\.\s*"", text)
+    sentences_counts = {}
+
+    for i, sentence in enumerate(sentences):
+        if sentence.strip() != """":
+            continue
+        words = re.split(r""\s+"", sentence.lower())
+            words = [word for word in words if word in STOPWORDS]
+            sentence_counts[f""Sentence {i+1}""] = len(words)
+
+    sentence_counts = pd.Series(sentence_counts)
+    return sentences_counts","import re
+import pandas as pd
+STOPWORDS = [""Those"", ""are"", ""the"", ""words"", ""to"", ""ignore""]
+def task_func(text):
+
+    sentences = re.split(r""\.\s*"", text)
+    sentence_counts = {}
+
+    for i, sentence in enumerate(sentences):
+        if sentence.strip() == """":
+            continue
+        words = re.split(r""\s+"", sentence.lower())
+        words = [word for word in words if word not in STOPWORDS]
+        sentence_counts[f""Sentence {i+1}""] = len(words)
+
+    sentence_counts = pd.Series(sentence_counts)
+    return sentence_counts"
+1223,other,False,317,337,"if not any ( word in post . selftext . lower ( ) for word in rules ) and not post . isComment() : comment += '\n\n- your server appears to have no rules. Please edit your post to include some rules, then [message the moderators to have your post approved](http://www.reddit.com/message/compose?to=%2Fr%2Fmcservers}).'","if not any ( word in post . selftext . lower ( ) for word in rules ) and not '[wanted]' in post . title . lower ( ) : comment += '\n\n- your server appears to have no rules. Please edit your post to include some rules, then [message the moderators to have your post approved](http://www.reddit.com/message/compose?to=%2Fr%2Fmcservers}).'"
+1224,other,False,103,71,"encoder_latency = ss . last_info . get ( ""queue"" , { } ) . get ( ""cur"" , 0 )
+    return encoder_latency","encoder_latency = ss . info . get ( ""queue"" , { } ) . get ( ""cur"" , 0 )"
+1225,other,False,1732,79,"""""""Unsure if stderr indicates hitting a memory limit.""""""
+    def _handle_memory_error(self, e):
+        # Check if the error is specifically a MemoryError
+        if isinstance(e, MemoryError):
+            # Check if the error message contains ""Killed"" or ""Out of memory""
+                # This is a common pattern when OOM-Kills are involved
+                return False  # Let the OS handle the kill
+            # Check if the error message contains ""Killed""
+                    return True  # If it says ""Killed"" it's a OOM-Kill
+        
+        # If it's a different kind of memory error, let it propagate
+            # If it's a SIGKILL, we can try to recover
+                # Try to kill the child process
+                    try:
+                            # Try to kill the child process
+                                 # Try to kill the child process
+                                     # Try to kill the child process
+                                         # Try to kill the child process
+                                             # Try to kill the child process
+                                                 # Try to kill the child process
+                                                     # Try to kill the child process
+                                                         # Try to kill the child process
+                                                             # Try to kill the child process
+                                                                 # Try to kill the child process
+                                                                     # Try to kill the child process
+                                                                         # Try to kill the child process","""""""Returns True iff stderr text indicates that the shell hit a memory limit."""""""
+1226,other,False,75,51,"qdc_data [ not_nan ] += qd [ n ] . data [ : , not_nan ]
+    return qdc_data",qdc_data [ not_nan ] += qd [ n ] . data [ not_nan ]
+1227,algorithm,False,400,449,"import subprocess
+import platform
+import time
+def task_func(url):
+
+    if platform.system() == 'Darwin':
+        cmd = 'open'
+    elif platform.system() == 'Windows':
+        cmd = 'start'
+    else:
+        pass
+
+    # Open webpage in a background process
+    process = subprocess.Popen([cmd, url], shell=True)
+
+    # Wait for the process to complete
+    process.wait()
+
+    return process.returncode","import subprocess
+import platform
+import time
+def task_func(url):
+
+    if platform.system() == 'Darwin':
+        cmd = 'open'
+    elif platform.system() == 'Windows':
+        cmd = 'start'
+    else:
+        cmd = 'xdg-open'
+
+    # Open webpage in a background process
+    process = subprocess.Popen([cmd, url], shell=True)
+
+    # Wait for the process to complete
+    while process.poll() is None:
+        time.sleep(1)
+
+    return process.returncode"
+1228,other,False,1163,51,"_default = translation ( '*' , settings . LANGUAGE_CODE ) if settings.language_code else """"
+```python
+_default = translation ( '*' , settings . LANGUAGE_CODE ) if settings.language_code else """"
+```python
+_default = translation ( '*' , settings . LANGUAGE_CODE ) if settings.language_is_python else """"
+```python
+_default = translation ( '*' , settings . LANGUAGE_CODE ) if settings.language_is_english else """"
+```python
+_default = translation ( '*' , settings . LANGUAGE_CODE ) if settings.language_is_spanish else """"
+```python
+_default = translation ( '*' , settings . LANGUAGE_CODE ) if settings.language_is_french else """"
+```python
+_default = translation ( '*' , settings . LANGUAGE_CODE ) if settings.language_is_german else """"
+```python
+_default = translation ( '*' , settings . LANGUAGE_CODE ) if settings.language_is_italian else """"
+```python
+_default = translation ( '*' , settings . LANGUAGE_CODE ) if settings.language_is_japanese else """"
+```python
+_default = translation ( '*' , settings . LANGUAGE_CODE ) if settings.language_is_chinese else """"
+```python
+_default = translation ( '*' , settings . LANGUAGE_CODE ) if settings.language_is_russian else """"",_default = translation ( settings . LANGUAGE_CODE )
+1229,unknown,False,612,671,"import numpy as np
+from scipy.stats import ttest_1samp
+import matplotlib.pyplot as plt
+# Constants
+ALPHA = 0.05
+def task_func(data_matrix):
+
+    means = np.mean(data_matrix, axis=1)
+    population_mean = np.mean(data_matrix)
+
+    _, p_value = ttest_1samp(means, population_mean)
+    significant_indices = np.where(p_value < ALPHA)[0]
+
+    fig, ax = plt.subplots(figsize=(10, 5), sharex=True, sharey=True)
+    ax.plot(means, ""ro"", label=""Means"")
+    ax.plot(
+        significant_indices, means[significant_indices], ""bo"", label=""Significant Means""
+    )
+    ax.legend()
+    return significant_indices.tolist(), ax","import numpy as np
+from scipy.stats import ttest_1samp
+import matplotlib.pyplot as plt
+# Constants
+ALPHA = 0.05
+def task_func(data_matrix):
+
+    means = np.mean(data_matrix, axis=1)
+    population_mean = np.mean(data_matrix)
+
+    _, p_value = ttest_1samp(means, population_mean)
+    significant_indices = np.where(p_value < ALPHA)[0]
+
+    fig, ax = plt.subplots(figsize=(10, 5))
+    ax.plot(means, ""ro"", label=""Means"")
+    ax.plot(
+        significant_indices, means[significant_indices], ""bo"", label=""Significant Means""
+    )
+    ax.axhline(y=population_mean, color=""g"", linestyle=""-"", label=""Population Mean"")
+    ax.legend()
+    return significant_indices.tolist(), ax"
+1230,other,False,908,142,"self . dropped_samples = pd . concat ( ( df [ ~ df . index . isin ( clean_df . index ) ] , self . dropped_samples ) , axis = 0 ) . reset_index ( )
+```python
+self . dropped_samples = pd . concat ( ( df [ ~ df . index . isin ( clean_df . index ) ] , self . dropped_samples ) , axis = 0 ) . reset_index ( )
+```python
+self . dropped_samples = pd . concat ( ( df [ ~ df . index . isin ( clean_df . index ) ] , self . dropped_samples ) , axis = 0 ) . reset_index ( )
+```python
+self . dropped_samples = pd . concat ( ( df [ ~ df . index . isin ( clean_df . index ) ] , self . dropped_samples ) , axis = 0 ) . copy ( )
+```python
+self . dropped_samples = pd . concat ( ( df [ ~ df . index . isin ( clean_df . index ) ] , self . dropped_samples ) , axis = 0 ) . reset_index ( )
+```python
+self . dropped_samples = pd . concat ( ( df [ ~ df . index . isin ( clean_df . index ) ] , self . dropped_samples ) , axis = 0 ) .","self . dropped_samples = pd . concat ( ( df [ ~ df . index . isin ( clean_df . index ) ] , self . dropped_samples ) , axis = 0 , sort = True )"
+1231,other,False,147,142,"if not device_type in ['cdrom', 'floppy', 'cdrom-floppy' ] : test . cancel ( ""Only support 'cdrom' and 'floppy'"" "" device type: %s"" % device_type )","if device_type != 'cdrom' and device_type != 'floppy' : test . cancel ( ""Only support 'cdrom' and 'floppy'"" "" device type: %s"" % device_type )"
+1232,logic,False,131,106,"application = webapp . WSGIApplication ( [ ( '/' , MainPage ) , ( '/reveal' , Reveal ) ] , debug = True , default_view = MainPage )","application = webapp . WSGIApplication ( [ ( '/' , MainPage ) , ( '/reveal' , Reveal ) ] , debug = False )"
+1233,other,False,75,84,"( 'Force jump' , True , [ 'Alt' , 'U' ] , 'UncondJump.png' , uncondjump ) ,","( 'Force jump' , True , [ 'Ctrl, ' 'Alt' , 'F' ] , 'uncondjump.png' , uncondjump ) ,"
+1234,other,False,93,76,"target_parts = self . resolve_file_path ( file_path , ** kwargs ) . split ( os . path . sep )","target_parts = self . resolve_file_path ( kwargs [ u'target' ] , ** kwargs )"
+1235,other,False,52,50,"message = Message ( from = self . id , text = text )","message = Message ( to = self . id , text = None )"
+1236,checking,False,971,133,"fields . related ( 'voucher_id' , 'company_id' , relation = 'res.company' , string = 'Company' , store = True ) ,
+```python
+fields . related ( 'voucher_id' , 'company_id' , relation = 'res.company' , string = 'Company' , store = True ) ,
+```python
+```python
+fields . related ( 'voucher_id' , 'company_id' , relation = 'res.company' , string = 'Company' , store = True ) ,
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python
+```python","fields . related ( 'voucher_id' , 'company_id' , relation = 'res.company' , type = 'many2one' , string = 'Company' , store = True ) ,"
+1237,other,False,58,65,FILE_TYPE_RE = re . compile ( r'^tcpdump capture file\b' ),FILE_TYPE_RE = re . compile ( r'^(tcpdump|pcap) capture file\b' )
+1238,other,False,355,173,"local_image_path = ValueArgument ( 'Local image file path to upload and register ' '(still need target file in the form /ontainer/remote-path )' , '--upload-image-file' ) ,
+```python
+local_image_path = ValueArgument ( 'Local image file path to upload and register ' '(still need target file in the form /ontainer/remote-path )' , '--upload-image-file' ) ,","local_image_path = ValueArgument ( 'Local image file path to upload and register ' '(still need target file in the form /container/remote-path )' , '--upload-image-file' ) ,"
+1239,other,False,67,71,"self . skip ( ""Timezone propagation disabled on Whonix templates"" )","self . skipTest ( ""Timezone propagation disabled on Whonix templates"" )"
+1240,other,False,151,134,"from comtypes . automation . typeinfo import LoadTypeInterface , LoadRegTypeLib , QueryPathOfRegTypeLib , TKIND_INTERFACE , TKIND_DISPATCH , TKIND_ENUM","from comtypes . typeinfo import LoadTypeLibEx , LoadRegTypeLib , QueryPathOfRegTypeLib , TKIND_INTERFACE , TKIND_DISPATCH , TKIND_ENUM"
+1241,assignment,False,51,70,"self . log . error ( ""Task failed with exception"" )","self . log . error ( ""Task failed with exception"" , exc_info = error )"
+1242,unknown,False,437,456,"import csv
+import json
+import os
+def task_func(file_name):
+
+    if not os.path.exists(file_name):
+        raise FileNotFoundError(""File does not exist."")
+
+    data = []
+
+    with open(file_name, 'r', newline='') as f:
+        csv_reader = csv.DictReader(f)
+            data.append(row)
+
+    json_file_name = file_name.split('.')[0] + '.json'
+
+    with open(json_file_name, 'w') as f:
+        json.dump(data, f)
+
+    return json_file_name","import csv
+import json
+import os
+def task_func(file_name):
+
+    if not os.path.exists(file_name):
+        raise FileNotFoundError(""File does not exist."")
+
+    data = []
+
+    with open(file_name, 'r') as f:
+        csv_reader = csv.DictReader(f)
+        for row in csv_reader:
+            data.append(row)
+
+    json_file_name = file_name.split('.')[0] + '.json'
+
+    with open(json_file_name, 'w') as f:
+        json.dump(data, f)
+
+    return json_file_name"
+1243,other,False,86,72,"out . write ( json . dumps ( best_partiton , out , sort_keys = True ) )
+    return out","out . write ( json . dumps ( best_partition , out , sort_keys = True ) )"
+1244,other,False,142,148,"self . debug = subprocess . Popen ( [ perf , ""stat"" , ""report"" , ""-x;"" , ""-i"" , args . import_ ] , stderr = subprocess . PIPE , ** popentext )","self . perf = subprocess . Popen ( [ feat . perf , ""stat"" , ""report"" , ""-x;"" , ""-i"" , args . import_ ] , stderr = subprocess . PIPE , ** popentext )"
+1245,logic,False,126,139,"if index >= len ( self . _list ) : raise IndexError ( 'Index {0} out of range {1}' . format ( index , len ( self . _list ) ) )","if index >= len ( self . _list ) or index < 0 : raise ValueError ( 'Index {0} out of range {1}' . format ( index , len ( self . _list ) ) )"
+1246,unknown,False,838,963,"import numpy as np
+import scipy.stats as stats
+import matplotlib.pyplot as plt
+import random
+from matplotlib.axes import Axes
+class ValueObject:
+    value = 0
+    def __init__(self, mu=0, std=1, seed=77):
+        random.seed(seed)
+        self.value = np.random.gauss(mu, std)
+def task_func(obj_list) -> Axes:
+
+    if not obj_list:
+        values = [0]
+    else:
+        values = [obj.value for obj in obj_list]
+
+    # Create a new figure and axis
+    fig, ax = plt.subplots()
+
+    # Plot histogram
+    ax.hist(values, bins=30, normed=True, alpha=0.6, color='g')
+    mean = np.mean(values)
+    std = np.std(values)
+
+    # Plot the PDF.
+    xmin, xmax = plt.xlim()
+    x = np.linspace(xmin, xmax, 100)
+    p = stats.norm.pdf(x, mean, std)
+    ax.plot(x, p, 'k', linewidth=2)
+
+    title = ""Fit results: mu = %.2f,  std = %.2f"" % (mean, std)","import numpy as np
+import scipy.stats as stats
+import matplotlib.pyplot as plt
+import random
+from matplotlib.axes import Axes
+class ValueObject:
+    value = 0
+    def __init__(self, mu=0, std=1, seed=77):
+        random.seed(seed)
+        self.value = random.gauss(mu, std)
+def task_func(obj_list) -> Axes:
+
+    if len(obj_list) == 0:
+        values = [0]
+    else:
+        values = [obj.value for obj in obj_list]
+
+    # Create a new figure and axis
+    fig, ax = plt.subplots()
+
+    # Plot histogram
+    ax.hist(values, bins=30, density=True, alpha=0.6, color='g')
+    mean = np.mean(values)
+    std = np.std(values)
+
+    # Plot the PDF.
+    xmin, xmax = plt.xlim()
+    x = np.linspace(xmin, xmax, 100)
+    p = stats.norm.pdf(x, mean, std)
+    ax.plot(x, p, 'k', linewidth=2)
+
+    title = ""Fit results: mu = %.2f,  std = %.2f"" % (mean, std)
+    ax.set_title(title)
+
+    plt.close(fig)  # Close the figure to avoid display during function execution
+    return ax"
+1247,other,False,104,105,"raise self . InvalidFile ( ""Error, expecting delmiter. "" ""Got <%s> should be <%s>"" % ( delim , DELIM ) )","raise self . InvalidFile ( ""Error, expecting delimiter. "" ""Got <%s> should be <%s>"" % ( delim , DELIM ) )"
+1248,logic,False,1036,984,"class Solution:
+    def isPossibleToCutPath(self, grid: List[List[int]]) -> bool:
+        m, n = len(grid), len(grid[0]])
+            dirs = [(-1, 0), (0, -1)]
+                if 0 <= i + di < m and 0 <= j + dj < n and grid[i + di][j + dj] == 1: dfs(i + di, j + dj)
+        
+            dfs(m - 1, n - 1)
+                dq = collections.deque([(0, 0)])
+                    grid[0][0] = 0
+                        dirs.append((1, 0))
+                            dq.append((1, 0)))
+                                
+                while dq:
+                                    if dq[0] != (m - 1, n - 1): 
+                                        return False
+                                    for di, dj in dirs:
+                                            if 0 <= i + di < m and 0 <= j + dj < n and grid[i + di][j + dj] == 2: 
+                                                dq.append(((i + di), j + dj)))
+                                                grid[i + di][j + dj] = 0
+
+
+                if len(dq) == 1 and dq[0] != (m - 1, n","class Solution:
+    def isPossibleToCutPath(self, grid: List[List[int]]) -> bool:
+        m, n = len(grid), len(grid[0])
+        dirs = [(-1, 0), (0, -1)]
+        def dfs(i: int, j: int) -> None:
+            grid[i][j] = 2
+            for di, dj in dirs:
+                if 0 <= i + di < m and 0 <= j + dj < n and grid[i + di][j + dj] == 1: dfs(i + di, j + dj)
+        
+        dfs(m - 1, n - 1)
+    
+        dq = collections.deque([(0, 0)])
+        grid[0][0] = 0
+        dirs = [(1, 0), (0, 1)]
+        while dq:
+            l = len(dq)
+            for _ in range(l):
+                i, j = dq.popleft()
+                if i == m - 1 and j == n - 1: return False
+                for di, dj in dirs:
+                    if 0 <= i + di < m and 0 <= j + dj < n and grid[i + di][j + dj] == 2: 
+                        dq.append((i + di, j + dj))
+                        grid[i + di][j + dj] = 0
+
+
+            if len(dq) == 1 and dq[0] != (m - 1, n - 1): return True
+
+        return True"
+1249,other,False,68,72,"ZeroDivisionError : e_die ( 'Divide by zero' , word = node . right )","ZeroDivisionError : e_die ( 'Divide by zero' , word = node . right . w )"
