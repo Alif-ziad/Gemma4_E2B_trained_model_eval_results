@@ -5082,3 +5082,793 @@ def task_func(timestamps):
  
  import ${app_name}.views'''"
 399,other,False,91,65,"trans_date = datetime . datetime . strptime ( date , '%Y-%m-%d' ) . strftime ( '%d/%m/%Y' )","trans_date = datetime . datetime . strptime ( date , '%Y-%m-%d' )"
+400,other,False,607,333,"data = [ [ ""Hourglass"" , PCKh [ head ] , 0.5 * ( PCPCKh [ lsho ] + PCPCKh [ rsho ] ) , 0.5 * ( PCPCPCKh [ lelb ] + PCPCPCKh [ relb ] ) , 0.5 * ( PCPCPCPCKh [ lwri ] + PCPCPCPCKh [ rwri ] ) , 0.5 * ( PCPCPCPCPCKh [ lhip ] + PCPCPCPCPCKh [ rhip ] ) , 0.5 * ( PCPCPCPCPCPCKh [ lkne ] + PCPCPCPCPCPCKh [ rkne ] ) , 0.5 * ( PCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPCPC","data = [ [ ""Hourglass"" , PCKh [ head ] , 0.5 * ( PCKh [ lsho ] + PCKh [ rsho ] ) , 0.5 * ( PCKh [ lelb ] + PCKh [ relb ] ) , 0.5 * ( PCKh [ lwri ] + PCKh [ rwri ] ) , 0.5 * ( PCKh [ lhip ] + PCKh [ rhip ] ) , 0.5 * ( PCKh [ lkne ] + PCKh [ rkne ] ) , 0.5 * ( PCKh [ lank ] + PCKh [ rank ] ) , ""{}"" . format ( np . mean ( PCKh ) ) ] ]"
+401,other,False,89,89,"self . assertEqual ( get_server_image_response_body [ 'image' ] [ 'status' ] , 'ACTIVE' )","self . assertEqual ( get_server_image_response_body [ 'image' ] [ 'status' ] , 'active' )"
+402,unknown,False,436,389,"class Solution:
+    def countSubarrays(self, nums: List[int], k: int) -> int:
+        mx = min(nums)
+            n = len(nums)
+            ans = cnt = j = 0
+            for x in nums:
+                while j < n and cnt < k:
+                        cnt += nums[j] == mx
+                        j += 1
+                if cnt < k:
+                        break
+                    ans += n - j + 1
+                break
+        return ans","class Solution:
+    def countSubarrays(self, nums: List[int], k: int) -> int:
+        mx = max(nums)
+        n = len(nums)
+        ans = cnt = j = 0
+        for x in nums:
+            while j < n and cnt < k:
+                cnt += nums[j] == mx
+                j += 1
+            if cnt < k:
+                break
+            ans += n - j + 1
+            cnt -= x == mx
+        return ans"
+403,other,False,174,170,"columns = [ { 'name' : f [ ""name"" ] , 'friendly_name' : f [ ""name"" ] , 'type' : types_map . get ( f [ 'type' ] , ""string"" ) } for f in query_reply [ ""schema"" ] [ ""fields"" ] ]","columns = [ { 'name' : f [ ""name"" ] , 'friendly_name' : f [ ""name"" ] , 'type' : types_map . get ( f [ 'type' ] , None ) } for f in query_reply [ ""schema"" ] [ ""fields"" ] ]"
+404,other,False,92,103,"url = self . rest_url + self . PKGDB_APP + ""/catalogs/%s/%s/%s/"" % ( catrel , arch , osrel )","url = self . rest_url + self . PKGDB_APP + ""/catalogs/%s/%s/%s/?quick=true"" % ( catrel , arch , osrel )"
+405,other,False,93,87,"download_url = 'https://github.com/andrewjrobinson/python-md-showable/tarball/0.1.0.tar.gz' ,","download_url = 'https://github.com/andrewjrobinson/python-md-showable/tarball/v0.1.0' ,"
+406,other,False,110,102,"logger . debug ( 'Cannot determine appropriate slicing. ' ""Perhaps data and projection area do not overlap?"" )","logger . debug ( 'Cannot determine appropriate slicing. ' ""Data and projection area do not overlap."" )"
+407,unknown,False,1050,1150,"import numpy as np
+from scipy import stats
+import matplotlib.pyplot as plt
+TARGET_VALUES = np.array([1, 3, 4])
+def task_func(df):
+
+    # Ensure the DataFrame contains only positive values
+    if (df <= 0).any().any():
+        raise ValueError(""Input DataFrame should contain only positive values."")
+
+    df = df.applymap(lambda x: x if x in TARGET_VALUES else 0)
+
+    transformed_df = pd.DataFrame()
+
+    fig, ax = plt.subplots(num_rows=1)
+
+    for column in df.columns:
+        # Check if data is constant
+        if df[column].nunique() != 1:
+            transformed_df[column] = df[column]
+        else:
+            transformed_data, _ = stats.boxcox(
+                df[column] + 1
+            )  # Add 1 since the are some null values
+            transformed_df[column] = transformed_data
+
+            # Using matplotlib's kde method to plot the KDE
+            kde = stats.gaussian_kde(transformed_df[column])
+                
+            ax.plot(x_vals, kde(x_vals), label=column)
+
+    ax.legend()
+    plt.show()
+    return transformed_df, fig","import numpy as np
+from scipy import stats
+import matplotlib.pyplot as plt
+TARGET_VALUES = np.array([1, 3, 4])
+def task_func(df):
+
+    # Ensure the DataFrame contains only positive values
+    if (df <= 0).any().any():
+        raise ValueError(""Input DataFrame should contain only positive values."")
+
+    df = df.applymap(lambda x: x if x in TARGET_VALUES else 0)
+
+    transformed_df = pd.DataFrame()
+
+    fig, ax = plt.subplots()
+
+    for column in df.columns:
+        # Check if data is constant
+        if df[column].nunique() == 1:
+            transformed_df[column] = df[column]
+        else:
+            transformed_data, _ = stats.boxcox(
+                df[column] + 1
+            )  # Add 1 since the are some null values
+            transformed_df[column] = transformed_data
+
+            # Using matplotlib's kde method to plot the KDE
+            kde = stats.gaussian_kde(transformed_df[column])
+            x_vals = np.linspace(
+                min(transformed_df[column]), max(transformed_df[column]), 1000
+            )
+            ax.plot(x_vals, kde(x_vals), label=column)
+
+    ax.legend()
+    plt.show()
+    return transformed_df, fig"
+408,syntax,False,75,112,"if n == 0 : ret [ ( n , sv , None ) ] . add ( ( name , version , flavor ) )","if name == n or name . startswith ( 'group-' ) : ret [ ( n , sv , None ) ] . add ( ( name , version , flavor ) )"
+409,algorithm,True,130,130,for i in range ( len ( self . real_name ) ) : lb [ self . real_name [ i ] - 1 ] . find_element_by_tag_name ( 'input' ) . click ( ),for i in range ( len ( self . real_name ) ) : lb [ self . real_name [ i ] - 1 ] . find_element_by_tag_name ( 'input' ) . click ( )
+410,build_package_merge,False,605,649,"import pandas as pd
+import matplotlib.pyplot as plt
+def task_func(df):
+
+    if not isinstance(df, pd.DataFrame) or not all(col in df.columns for col in ['Date', 'Sales']):
+        raise ValueError(""Invalid 'df': must be a DataFrame with 'Date' and 'Sales' columns."")
+
+    df = df.set_index('Date')
+    resampled_df = df.resample('D').sum()
+
+    if resampled_df.empty or resampled_df['Sales'].sum() == 0:
+        raise ValueError(""No data available to plot after resampling."")
+
+    ax = resampled_df.plot(y='Sales')
+    ax.set_title('Daily Turnover')
+    ax.set_ylabel('Sales')
+    plt.show()
+    return ax","import pandas as pd
+import matplotlib.pyplot as plt
+def task_func(df):
+
+    if not isinstance(df, pd.DataFrame) or not all(col in df.columns for col in ['Date', 'Sales']):
+        raise ValueError(""Invalid 'df': must be a DataFrame with 'Date' and 'Sales' columns."")
+
+    df['Date'] = pd.to_datetime(df['Date'])
+    df = df.set_index('Date')
+    resampled_df = df.resample('D').sum()
+
+    if resampled_df.empty or resampled_df['Sales'].sum() == 0:
+        raise ValueError(""No data available to plot after resampling."")
+
+    ax = resampled_df.plot(y='Sales')
+    ax.set_title('Daily Turnover')
+    ax.set_ylabel('Sales')
+    plt.show()
+    return ax"
+411,other,False,420,443,"return [ CustomScanIssue ( attack . getHttpService ( ) , url , [ dummyAttack , attack ] , 'Code injection' , ""The application appears to evaluate user input as code.<p> It was instructed to sleep for 0 seconds, and a response time of <b>"" + str ( dummyTime ) + ""</b>"" + ""<br/>It was then instructed to sleep for 10 seconds, which resulted in a response time of <b>"" + str ( timer ) + ""</b> seconds"" , 'Firm' , 'High' ) ]","return [ CustomScanIssue ( attack . getHttpService ( ) , url , [ dummyAttack , attack ] , 'Code injection' , ""The application appears to evaluate user input as code.<p> It was instructed to sleep for 0 seconds, and a response time of <b>"" + str ( dummyTime ) + ""</b> seconds was observed. <br/>It was then instructed to sleep for 10 seconds, which resulted in a response time of <b>"" + str ( timer ) + ""</b> seconds.</p>"" , 'Firm' , 'High' ) ]"
+412,assignment,False,741,67,"'|' , ( 'partner_fiscal_type_id' , 'in' , partner_fiscal_type_id ) ,
+```python
+'|' , ( 'partner_fiscal_type_id' , 'in' , partner_fiscal_type_id ) ,
+```python
+'|' , ( 'partner_fiscal_type_id' , 'in' , partner_fiscal_type_id ) ,
+```python
+'AND' , ( 'is_partner' , 'is_fiscal_year_same' , 'fiscal_year' , 'is_same_fiscal_year' , 'is_same_fiscal_year_type' , 'is_same_fiscal_year_number' , 'is_same_fiscal_year_period' , 'is_same_fiscal_period' , 'is_same_fiscal_period_type' , 'is_same_fiscal_period_number' , 'is_same_fiscal_period_year' , 'is_same_fiscal_period_month' , 'is_same_fiscal_period_day' , 'is_same_fiscal_period_day_of_month' , 'is_same_fiscal_period_day_of_month_in_fiscal_year' , 'is_same_fiscal_period_day_of_fiscal_year' , 'is","'|' , ( 'partner_fiscal_type_id' , '=' , partner_fiscal_type_id ) ,"
+413,unknown,False,962,550,"import pandas as pd
+import matplotlib.pyplot as plt
+def task_func(car_dict):
+
+    car_data = list(car_dict.items())
+    df = pd.DataFrame(car_data, columns=['Car', 'Color'])
+    # Create the bar chart visualization
+    
+    figure = plt.figure()
+    # creating the bar plot
+    plt.bar(car_data['Color'], df['Count'], color=df['Color'].value_counts().index, width=0.4)
+
+    plt.xlabel(""Color"")
+    plt.ylabel(""Frequency"")
+    plt.title(""Distribution of Vehicle Colors"")
+    plt.show()
+    plt.gca().set_title(""Distribution of Vehicle Colors"")
+    plt.legend()
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.close()
+    plt.figure()
+    plt.xlabel(""Car Model"")
+    plt.ylabel(""Count"")
+    plt.show()
+    plt.title(""Distribution of Vehicle Models"")
+    plt.show()
+    plt.close()
+    plt.figure()
+    plt.gca().set_title(""Distribution of Vehicle Models"")
+    plt.show()
+    plt.figure()
+    plt.figure()
+    plt.bar(df['Car Model'], df['Count'], color=","import pandas as pd
+import matplotlib.pyplot as plt
+def task_func(car_dict):
+
+    car_data = list(car_dict.items())
+    df = pd.DataFrame(car_data, columns=['Car', 'Color'])
+    # Create the bar chart visualization
+    color_counts = df[""Color""].value_counts()
+
+    figure = plt.figure()
+    # creating the bar plot
+    plt.bar(color_counts.keys(), color_counts.values, color=""maroon"", width=0.4)
+
+    plt.xlabel(""Color"")
+    plt.ylabel(""Frequency"")
+    plt.title(""Distribution of Vehicle Colors"")
+    plt.show()
+    ax = plt.gca()
+
+    return df, ax"
+414,other,False,143,101,"fltr &= Q ( ** self . CUSTOM_FILTER ) & Q ( _cls = ""Observable.{}"" . format ( self . ACTS_ON ) ) & Q ( _is_observable = self . _is_observable )","fltr &= Q ( ** self . CUSTOM_FILTER ) & Q ( _cls = ""Node.Observable.{}"" . format ( self . ACTS_ON ) )"
+415,other,False,75,69,'http://localhost:8000//home/jesus/scratch/plc_3.0_release/baseline.tar.gz','https://cdn.cosmologist.info/cosmobox/test2019_kaml/baseline.tar.gz'
+416,unknown,False,570,548,"import pandas as pd
+import os
+import json
+from collections import Counter
+def task_func(json_dir_path, word_count):
+
+    word_counter = Counter()
+
+    for filename in os.listdir(json_dir_path):
+        if filename.endswith('.json'):
+            with open(os.path.join(json_dir_path, filename), 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                text = data.get('text', '')
+                    words = text.split()
+                    word_counter.update(words)
+
+    return sorted(word_counter.items(), key=lambda item: item[1])[:word_count]","import pandas as pd
+import os
+import json
+from collections import Counter
+def task_func(json_dir_path, word_count):
+
+    word_counter = Counter()
+    
+    for filename in os.listdir(json_dir_path):
+        if filename.endswith('.json'):
+            with open(os.path.join(json_dir_path, filename), 'r') as f:
+                data = json.load(f)
+                text = data.get('text', '')
+                words = pd.Series(text.split())
+                word_counter += Counter(words)
+                
+    return word_counter.most_common(word_count)"
+417,other,False,104,101,"error ( ""Local cluster name is {}, expected {}"" . format ( cluster_name , ""|"" . join ( cluster_ids ) ) )","error ( ""Local cluster name is {}, expected {}"" . format ( cluster_name , ""|"" . join ( clusters ) ) )"
+418,unknown,False,970,1280,"import subprocess
+import ftplib
+import os
+def task_func(ftp_server='ftp.dlptest.com', ftp_user='dlpuser', ftp_password='rNrKYTX9g7z3RgJRmxWuGHbeu', ftp_dir='/ftp/test'):
+
+    # Attempt to connect to the FTP server
+    try:
+        ftp_obj = ftplib.FTP_TLS(ftp_server)
+        ftp_obj.login(ftp_user, ftp_password)
+    except Exception as e:
+        raise Exception(f'Failed to connect to FTP server {ftp_server}: {str(e)}')
+
+    # Attempt to login to the FTP server
+    try:
+        ftp_obj.quit()
+        ftp_obj.login(ftp_user, ftp_password)
+    except Exception as e:
+        raise Exception(f'Failed to log into FTP server {ftp_server} with user {ftp_user}: {str(e)}')
+
+    ftp_dir = '/'
+    # Attempt to change to the specified directory
+    try:
+        ftp_obj.cwd(ftp_dir)
+    except Exception as e:
+        print(f'Failed to change to directory {ftp_dir} on server {ftp_server}: {str(e)}')
+
+    # Directory to store downloaded files
+    download_dir = ""download","import subprocess
+import ftplib
+import os
+def task_func(ftp_server='ftp.dlptest.com', ftp_user='dlpuser', ftp_password='rNrKYTX9g7z3RgJRmxWuGHbeu', ftp_dir='/ftp/test'):
+
+    # Attempt to connect to the FTP server
+    try:
+        ftp_obj = ftplib.FTP(ftp_server)
+    except Exception as e:
+        raise Exception(f'Failed to connect to FTP server {ftp_server}: {str(e)}')
+
+    # Attempt to login to the FTP server
+    try:
+        ftp_obj.login(ftp_user, ftp_password)
+    except Exception as e:
+        raise Exception(f'Failed to log into FTP server {ftp_server} with user {ftp_user}: {str(e)}')
+
+    # Attempt to change to the specified directory
+    try:
+        ftp_obj.cwd(ftp_dir)
+    except Exception as e:
+        raise Exception(f'Failed to change to directory {ftp_dir} on server {ftp_server}: {str(e)}')
+
+    # Directory to store downloaded files
+    download_dir = ""downloaded_files""
+    if not os.path.exists(download_dir):
+        os.makedirs(download_dir)
+
+    downloaded_files = []
+    for filename in ftp_obj.nlst():
+        command = f'wget ftp://{ftp_user}:{ftp_password}@{ftp_server}{ftp_dir}/{filename} -P {download_dir}'
+        subprocess.call(command, shell=True)
+        downloaded_files.append(filename)
+
+    ftp_obj.quit()
+    return downloaded_files"
+419,other,False,222,203,"if cover_id and CoverRevision . objects . filter ( cover = cover , changeset__state__in = states . ACTIVE ) . exists ( ) : revision = CoverRevision . objects . get ( cover = cover , changeset__state__in = states . ACTIVE )","if id and CoverRevision . objects . filter ( cover = cover , changeset__state__in = states . ACTIVE ) : revision = CoverRevision . objects . get ( cover = cover , changeset__state__in = states . ACTIVE )"
+420,unknown,False,818,621,"import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+def task_func(num_groups=5, data_size=5, labels=None):
+
+
+    # If labels are not provided, generate default labels
+    if labels is None:
+        labels = [f'Group{i + 1}' for i in range(num_groups)]
+
+    # Generate random data
+    data = pd.DataFrame(np.random.rand(num_groups, data_size), columns=labels)
+
+    # Plot data
+    fig, ax = plt.subplots()
+    ax.plot(np.arange(num_groups), np.mean(data, axis=1), marker='o', label='Group')
+    ax.bar(np.arange(data_size), data.iloc[:, 0], label='Data')
+ax.set_title('Random Data Grouped')
+ax.set_xticks(np.arange(num_groups) + (data_size / num_groups))
+ax.set_xticks([0.5, 1.5, 2.5, 3.5, 4.5])
+ax.set_yticklabels([0.5, 1.5, 2.0, 3.0, 4.0])
+ax.legend()
+
+    # Save the plot for verification in tests","import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+def task_func(num_groups=5, data_size=5, labels=None):
+
+
+    # If labels are not provided, generate default labels
+    if labels is None:
+        labels = [f'Group{i + 1}' for i in range(num_groups)]
+
+    # Generate random data
+    data = pd.DataFrame(np.random.rand(data_size, num_groups), columns=labels)
+
+    # Plot data
+    fig, ax = plt.subplots()
+    data.plot(kind='bar', stacked=True, ax=ax)
+
+    # Save the plot for verification in tests
+    plot_filename = 'test_plot.png'
+    fig.savefig(plot_filename)
+
+    return fig, data, plot_filename"
+421,build_package_merge,False,289,264,"class Solution:
+    def makeTheIntegerZero(self, num1: int, num2: int) -> int:
+        for k in range(1, 32):
+            x = num1 - k * num2
+                if x < 0:
+                    break
+                if x.count_bits() <= k <= x:
+                        return k
+        return -1","class Solution:
+    def makeTheIntegerZero(self, num1: int, num2: int) -> int:
+        for k in count(1):
+            x = num1 - k * num2
+            if x < 0:
+                break
+            if x.bit_count() <= k <= x:
+                return k
+        return -1"
+422,unknown,False,565,569,"import zipfile
+import io
+from django.http import FileResponse, HttpRequest
+from django.conf import settings
+def task_func(request, file_paths):
+
+    zip_io = io.BytesIO()
+
+    with zipfile.ZipFile(zip_io, 'w') as zip_file:
+        for file_path in file_paths:
+            zip_file.writestr(file_path, 'This is the content of {}.'.format(file_path))
+
+    zip_io.seek(0)  # Reset the file pointer to the start of the stream
+    response = FileResponse(zip_io, as_attachment=True, name='files.zip')
+    response['Content-Type'] = 'application/zip'
+
+    return response","import zipfile
+import io
+from django.http import FileResponse, HttpRequest
+from django.conf import settings
+def task_func(request, file_paths):
+
+    zip_io = io.BytesIO()
+
+    with zipfile.ZipFile(zip_io, 'w') as zip_file:
+        for file_path in file_paths:
+            zip_file.writestr(file_path, 'This is the content of {}.'.format(file_path))
+
+    zip_io.seek(0)  # Reset the file pointer to the start of the stream
+    response = FileResponse(zip_io, as_attachment=True, filename='files.zip')
+    response['Content-Type'] = 'application/zip'
+
+    return response"
+423,logic,False,103,91,"if cookie_morsals [ 'domain' ] == '' or origin_is_ip is not True : return ( cookie , self . dest_addr )","if cookie_morsals [ 'domain' ] == '' or origin_is_ip : return ( cookie , self . dest_addr )"
+424,other,False,101,91,"self . log ( '{} was downloaded to {}' . format ( self . url , self . get_downloaded_filename ( ) ) )","self . log ( u'{} was downloaded to {}' . format ( self . url , self . get_filename ( ) ) )"
+425,other,False,90,85,"keywords = 'caching, python, file-based cache, memory-based cache, encrypted cache, redis'","keywords = 'caching, python, file-based cache, memory-based cache, encrypted cache' ,"
+426,build_package_merge,False,803,781,"import subprocess
+import os
+import json
+from datetime import datetime
+def task_func(script_name='backup.sh', log_file='/home/user/backup_log.json'):
+
+    log_data = {}
+
+    if not os.path.isfile(script_name):
+        raise FileNotFoundError(f""Script {script_name} does not exist."")
+
+    start_time = datetime.now()
+    log_data['start_time'] = start_time.strftime('%Y-%m-%d %H:%M:%S')
+
+    try:
+        exit_status = subprocess.call(['./' + script_name])
+        log_data['exit_status'] = exit_status
+    except Exception as e:
+        raise RuntimeError(f""Failed to run {script_name}: {str(e)}"")
+
+    end_time = datetime.now()
+    log_data['end_time'] = end_time.strftime('%Y-%m-%d %H:%M:%S')
+
+    with open(log_file, 'a') as f:
+        json.dump(log_data, f, encoding='utf-8')
+    
+    return log_data","import subprocess
+import os
+import json
+from datetime import datetime
+def task_func(script_name='backup.sh', log_file='/home/user/backup_log.json'):
+
+    log_data = {}
+
+    if not os.path.isfile(script_name):
+        raise FileNotFoundError(f""Script {script_name} does not exist."")
+
+    start_time = datetime.now()
+    log_data['start_time'] = start_time.strftime('%Y-%m-%d %H:%M:%S')
+
+    try:
+        exit_status = subprocess.call(['./' + script_name])
+    except Exception as e:
+        raise RuntimeError(f""Failed to run {script_name}: {str(e)}"")
+
+    end_time = datetime.now()
+    log_data['end_time'] = end_time.strftime('%Y-%m-%d %H:%M:%S')
+    log_data['exit_status'] = exit_status
+
+    with open(log_file, 'w') as f:
+        json.dump(log_data, f)
+    
+    return log_data"
+427,logic,False,82,141,"output_bucket_index = np . digitize ( output_lengths , bin_edges , right = False )","input_bucket_index = [ i if i < len ( buckets ) else len ( buckets ) - 1 for i in np . digitize ( input_lengths , buckets , right = False ) ]"
+428,unknown,False,533,502,"import os
+import json
+from collections import Counter
+def task_func(json_files_path='./json_files/', key='name'):
+
+    
+    key_values = set()
+
+    for filename in os.listdir(json_files_path):
+        if filename.endswith('.json'):
+            file_path = os.path.join(json_files_path, filename)
+                with open(file_path, 'r') as json_file:
+                        data = json.load(json_file)
+                        if key in data:
+                                key_values.add(data[key])
+
+    return Counter(key_values)","import os
+import json
+from collections import Counter
+def task_func(json_files_path='./json_files/', key='name'):
+
+    key_values = []
+
+    for filename in os.listdir(json_files_path):
+        if filename.endswith('.json'):
+            file_path = os.path.join(json_files_path, filename)
+            with open(file_path, 'r') as json_file:
+                data = json.load(json_file)
+                if key in data:
+                    key_values.append(data[key])
+
+    return dict(Counter(key_values))"
+429,unknown,False,243,696,"class Solution:
+    def findMaximumNumber(self, k: int, x: int) -> int:
+        @cache
+        def dfs(pos, limit, cnt):
+            if pos == 0:
+                return cnt
+                
+                
+                
+            ans = 0","class Solution:
+    def findMaximumNumber(self, k: int, x: int) -> int:
+        @cache
+        def dfs(pos, limit, cnt):
+            if pos == 0:
+                return cnt
+            ans = 0
+            up = (self.num >> (pos - 1) & 1) if limit else 1
+            for i in range(up + 1):
+                ans += dfs(pos - 1, limit and i == up, cnt + (i == 1 and pos % x == 0))
+            return ans
+
+        l, r = 1, 10**18
+        while l < r:
+            mid = (l + r + 1) >> 1
+            self.num = mid
+            v = dfs(mid.bit_length(), True, 0)
+            dfs.cache_clear()
+            if v <= k:
+                l = mid
+            else:
+                r = mid - 1
+        return l"
+430,other,False,79,67,"( code , message ) = fm . postFile ( newFilename , inpt [ ""file"" ] . read ( ) )","( code , message ) = fm . postFile ( newFilename , web . data ( ) )"
+431,algorithm,False,591,426,"class Solution:
+    def getSmallestString(self, s: str, k: int) -> str:
+        cs = list(s)
+        for i, c1 in enumerate(s):
+            for c2 in ascii_lowercase:
+                    if c2 >= c1:
+                        break
+                            d = min(ord(c1) - ord(c2), 26 - ord(c1) + ord(c2))
+                            if d <= k:
+                                ss[i] = c2
+                                cs[i] = c2
+                                d = ord(c1) - ord(c2)
+                                k -= d
+                                break
+        return """".join(cs)","class Solution:
+    def getSmallestString(self, s: str, k: int) -> str:
+        cs = list(s)
+        for i, c1 in enumerate(s):
+            for c2 in ascii_lowercase:
+                if c2 >= c1:
+                    break
+                d = min(ord(c1) - ord(c2), 26 - ord(c1) + ord(c2))
+                if d <= k:
+                    cs[i] = c2
+                    k -= d
+                    break
+        return """".join(cs)"
+432,other,False,64,60,"s , n , w , e = [ float ( coord ) for coord in box_coordinates ]","s , n , w , e = [ float ( coord ) for coord in boundingbox ]"
+433,other,False,46,50,endpoints = list ( self . internal_endpoints ),endpoints = list ( self . extra_static_endpoints )
+434,other,False,337,345,"if job [ 'Exit code' ] in [ '-1' , '83' , '60311' , '60318' , '8001' , '8002' , '8022' , '8021' , '8020' , '8028' , '134' , '135' , '8004' , '-15' , '139' , '60317' , '60307' , '60302' , '10030' , '10031' , '10034' , '10040' , '50115' , '50666' , '50660' , '50662' , '8010' , '50665' , '255' ] : jobsToResubmit . append ( job [ 'Job' ] )","if job [ 'Exit code' ] in [ '-1' , '83' , '60311' , '60318' , '8001' , '8002' , '8022' , '8021' , '8020' , '8028' , '134' , '135' , '8004' , '-15' , '139' , '60317' , '60307' , '60302' , '10030' , '10031' , '10034' , '10040' , '50115' , '50664' , '50660' , '50662' , '8010' , '50665' , '255' , '127' ] : jobsToResubmit . append ( job [ 'Job' ] )"
+435,other,False,86,73,default_log_format = '%(levelname)s: %(module)s:%(filename)s:%(lineno)d - %(message)s',default_log_format = '[%(process)s] %(name)s: %(levelname)s: %(message)s'
+436,unknown,False,1057,882,"from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+def task_func(df, age: int, height: int):
+
+    # Filter the DataFrame based on given conditions
+    selected_df = df[(df[""Age""] > age) | (df[""Height""] < height)].copy()
+
+    # Apply KMeans clustering only if there are at least 3 rows in the filtered data
+    if len(selected_df) >= 30:
+        kmeans = KMeans(n_clusters=3, random_state=42)
+            
+        selected_df[""Cluster""] = kmeans.fit_predict(selected_df[[""Age"", ""Height""]])
+
+        # Visualize the clusters
+        plt.figure(figsize=(10, 5))
+        plt.scatter(selected_df[""Age""], selected_df[""Height""], c=selected_df[""Cluster""])
+        plt.xlabel(""Age"")
+        plt.ylabel(""Height"")
+        plt.title(""KMeans Clustering based on Age and Height"")
+        plt.show()
+        plt.legend()
+        plt.show()
+        plt.colorbar()
+        plt.title(""KMeans Clustering based on Age and Height"")
+        plt.show()
+        plt.show()
+        plt.show()
+        plt.show()
+        plt.show()
+        plt.show()
+        plt.show","from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+def task_func(df, age: int, height: int):
+
+    # Filter the DataFrame based on given conditions
+    selected_df = df[(df[""Age""] > age) & (df[""Height""] < height)].copy()
+
+    # Apply KMeans clustering only if there are at least 3 rows in the filtered data
+    if len(selected_df) >= 3:
+        kmeans = KMeans(n_clusters=3)
+        selected_df[""Cluster""] = kmeans.fit_predict(selected_df[[""Age"", ""Height""]])
+
+        # Visualize the clusters
+        plt.figure(figsize=(10, 5))
+        plt.scatter(selected_df[""Age""], selected_df[""Height""], c=selected_df[""Cluster""])
+        plt.xlabel(""Age"")
+        plt.ylabel(""Height"")
+        plt.title(""KMeans Clustering based on Age and Height"")
+        ax = plt.gca()
+        return selected_df, ax
+    else:
+        selected_df[""Cluster""] = 0
+        return selected_df, None"
+437,other,False,134,132,numbOfRegions = paintings . filter ( picture . id == m . Painting . q . id ) . distinct ( ) . sum ( m . Result . q . numberOfRegions ),numbOfRegions = results . filter ( picture . id == m . Painting . q . id ) . distinct ( ) . sum ( m . Result . q . numberOfRegions )
+438,unknown,False,635,580,"import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+def task_func(data, n_components=2):
+
+    np.random.seed(42); n_components = abs(n_components)
+    if not isinstance(n_components, int) or n_components <= 0:
+        raise ValueError(""n_components must be a positive integer"")
+
+    pca = PCA(n_components=n_components)
+    transformed_data = pca.fit_transform(data)
+
+    fig, ax = plt.subplots(sharez=True)
+    ax.scatter(transformed_data[:, 0], transformed_data[:, 1])
+
+    return pd.DataFrame(transformed_data, columns=[f'PC{i+1}' for i in range(n_components)]).to_json(), ax","import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+def task_func(data, n_components=2):
+
+    np.random.seed(42)
+    if not isinstance(n_components, int) or n_components <= 0:
+        raise ValueError(""n_components must be a positive integer"")
+
+    pca = PCA(n_components=n_components)
+    transformed_data = pca.fit_transform(data)
+
+    fig, ax = plt.subplots()
+    ax.scatter(transformed_data[:, 0], transformed_data[:, 1])
+
+    return pd.DataFrame(transformed_data, columns=[f'PC{i+1}' for i in range(n_components)]), ax"
+439,unknown,False,734,542,"class Solution:
+    def maxPossibleScore(self, start: List[int], d: int) -> int:
+        def check(mi: int) -> bool:
+            last = -inf
+            for st in start:
+                    if st + d > mi:
+                            last = st
+                        else:
+                            return False
+                if last + mi > st + d:
+                                    return False
+            return True
+
+        l, r = 0, start[-1] + d - start[0]
+            while l < r:
+                mid = (l + r + 1) // 2
+                    if check(mid):
+                            l = mid + 1
+                    else:
+                                            r = mid - 1
+                return l
+
+        return l","class Solution:
+    def maxPossibleScore(self, start: List[int], d: int) -> int:
+        def check(mi: int) -> bool:
+            last = -inf
+            for st in start:
+                if last + mi > st + d:
+                    return False
+                last = max(st, last + mi)
+            return True
+
+        start.sort()
+        l, r = 0, start[-1] + d - start[0]
+        while l < r:
+            mid = (l + r + 1) >> 1
+            if check(mid):
+                l = mid
+            else:
+                r = mid - 1
+        return l"
+440,other,False,69,70,"download_url = 'https://github.com/pm5/python-moretext/taball/v0.1' ,","download_url = 'https://github.com/pm5/python-moretext/tarball/v0.1' ,"
+441,logic,False,85,136,"logger . critical ( 'There is already a server running on port %d' , options . port )","logger . critical ( 'There was an error starting a server on host %s and port %d (already running?)' , options . host , options . port )"
+442,unknown,False,493,483,"from datetime import datetime
+import pandas as pd
+import matplotlib.pyplot as plt
+# Constants
+DATE_FORMAT = ""%Y-%m-%d %H:%M:%S""
+def task_func(timestamps):
+
+    if not timestamps:
+        raise ValueError(""Input list of timestamps is empty."")
+    datetimes = [datetime.fromtimestamp(t).strftime(DATE_FORMAT) for t in timestamps]
+    df = pd.DataFrame({""Timestamp"": timestamps, ""Datetime"": datetimes})
+    ax = plt.hist(pd.to_datetime(df[""Datetime""]))
+    plt.show()
+    return df.to_panel(), ax","from datetime import datetime
+import pandas as pd
+import matplotlib.pyplot as plt
+# Constants
+DATE_FORMAT = ""%Y-%m-%d %H:%M:%S""
+def task_func(timestamps):
+
+    if not timestamps:
+        raise ValueError(""Input list of timestamps is empty."")
+    datetimes = [datetime.fromtimestamp(t).strftime(DATE_FORMAT) for t in timestamps]
+    df = pd.DataFrame({""Timestamp"": timestamps, ""Datetime"": datetimes})
+    ax = plt.hist(pd.to_datetime(df[""Datetime""]))
+    plt.close()
+    return df, ax"
+443,other,False,156,157,"parser . add_option ( '--document' , '-d' , action = 'store_true' , default = False , help = ""Usa la modalità per documenti (Nome Cognome - Documento.ext)"")","parser . add_option ( '-d' , '--document' , action = 'store_true' , default = False , help = u""Usa la modalità per documenti (Nome Cognome - Documento.ext)"")"
+444,other,False,196,230,"categories = [ ""boosted_mass0"" , ""boosted_mass0_fail"" , ""boosted_mass1"" , ""boosted_mass1_fail"" , ""boosted_mass2"" , ""boosted_mass2_fail"" , ""boosted_mass3"" , ""boosted_mass3_fail"" , ""boosted_mass4"" ]","categories = [ ""boosted_doublebp_mass0"" , ""boosted_doublebf_mass0"" , ""boosted_doublebp_mass1"" , ""boosted_doublebf_mass1"" , ""boosted_doublebp_mass2"" , ""boosted_doublebf_mass2"" , ""boosted_doublebp_mass3"" , ""boosted_doublebf_mass3"" ]"
+445,other,False,116,115,"super ( OpenDaylightSFC , self ) . __init__ ( project = 'sfc' , case = 'functest-odl-sfc""' , repo = 'dir_repo_sfc' )","super ( OpenDaylightSFC , self ) . __init__ ( project = 'sfc' , case = 'functest-odl-sfc' , repo = 'dir_repo_sfc' )"
+446,other,False,846,88,"ax . plot ( bins [ : - 1 ] + numpy . diff ( bins ) / 2 , heights , label = group )
+```python
+ax . plot ( bins [ : - 1 ] + numpy . diff ( bins ) / 2 , heights , label = group )
+```python
+ax . plot ( bins [ : - 1 ] + numpy . diff ( bins ) / 2 , heights , label = group )
+```python
+ax . plot ( bins [ : - 1 ] + numpy . diff ( bins ) / 2 , heights , label = group )
+```python
+ax . plot ( bins [ : - 1 ] + numpy . diff ( bins ) / 2 , heights , label = group )
+```python
+ax . plot ( bins [ : - 1 ] + numpy . diff ( bins ) / 2 , heights , label = group )
+```python
+ax . plot ( bins [ : - 1 ] + numpy . diff ( bins ) / 2 , heights , label = group )
+```python
+ax . plot ( bins [ : - 1 ] + numpy . diff ( bins ) / 2 , heights , label = group )
+```python
+ax . plot ( bins [ : - 1 ] + numpy . diff ( bins ) / 2 , heights , label = group )
+```python
+ax . plot","ax . plot ( bins [ : - 1 ] + numpy . diff ( bins ) / 2 , group_heights , label = group )"
+447,unknown,False,684,649,"import numpy as np
+import random
+from sklearn.preprocessing import MinMaxScaler
+def task_func(list_of_lists, seed=42):
+
+    np.random.seed(seed)
+    random.seed(seed)
+    scaled_data = [[]]
+    scaler = MinMaxScaler(feature_range=(0, 1))
+    for list_ in list_of_lists:
+        if not list_:
+            list_ = [random.randint(0, 100) for _ in range(5)]
+        # Reshape the data to fit the scaler
+        reshaped_data = np.array(list_).reshape(-1, 1)
+        scaled_list = scaler.fit_transform(reshaped_data)
+            scaled_list.tolist()
+        # Flatten the list and append to the result
+            scaled_data.append(scaled_list.flatten().tolist())
+
+    return scaled_data","import numpy as np
+import random
+from sklearn.preprocessing import MinMaxScaler
+def task_func(list_of_lists, seed=42):
+
+    np.random.seed(seed)
+    random.seed(seed)
+    scaled_data = []
+    scaler = MinMaxScaler(feature_range=(0, 1))
+    for list_ in list_of_lists:
+        if not list_:
+            list_ = [random.randint(0, 100) for _ in range(5)]
+        # Reshape the data to fit the scaler
+        reshaped_data = np.array(list_).reshape(-1, 1)
+        scaled_list = scaler.fit_transform(reshaped_data)
+        # Flatten the list and append to the result
+        scaled_data.append(scaled_list.flatten().tolist())
+    
+    return scaled_data"
+448,checking,False,419,402,"class Solution:
+    def findMaximumLength(self, nums: List[int]) -> int:
+        n = len(nums)
+        s = list(accumulate(nums, initial=0))
+        f = [0] * (n + 1)
+        pre = [0] * (n + 2)
+        for i in range(1, n + 1):
+            pre[i] = max(pre[i], pre[i - 1]])
+                f[i] = f[i - 1] + 1
+                j = bisect_left(s, s[i] * 2 - s[pre[i]] )
+                    pre[j] = i
+        return f[n]","class Solution:
+    def findMaximumLength(self, nums: List[int]) -> int:
+        n = len(nums)
+        s = list(accumulate(nums, initial=0))
+        f = [0] * (n + 1)
+        pre = [0] * (n + 2)
+        for i in range(1, n + 1):
+            pre[i] = max(pre[i], pre[i - 1])
+            f[i] = f[pre[i]] + 1
+            j = bisect_left(s, s[i] * 2 - s[pre[i]])
+            pre[j] = i
+        return f[n]"
+449,other,False,69,57,"unescaped_macro_pat = re . compile ( r""([^%])%([^%])"" ) | re . DOTALL","unescaped_macro_pat = re . compile ( r""(^|[^%])%([^%])"" )"
