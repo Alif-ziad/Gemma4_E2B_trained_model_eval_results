@@ -32256,3 +32256,782 @@ def task_func(ax, radius):
     return ax"
 2398,other,False,51,61,"_logger . info ( 5 , 'Empty folder ""%s"" removed.' )","_logger . log ( 5 , 'Empty folder ""%s"" removed.' , src_path )"
 2399,other,False,87,77,return MeetingOrder . objects . filter ( session__id = obj . session . id ) . count ( ),return MeetingOrder . objects . filter ( meeting__id = obj . id ) . count ( )
+2400,other,False,77,69,"status_res = requests . get ( 'http://localhost:8000/_nboost' , timeout = 5 )",status_res = requests . get ( 'http://localhost:8000/nboost/status' )
+2401,other,False,97,97,"self . states [ ( 2 , 1 ) ] = PlayerState ( position = Vector2D ( rows [ 1 ] , quarters [ 2 ] ) )","self . states [ ( 2 , 2 ) ] = PlayerState ( position = Vector2D ( rows [ 3 ] , quarters [ 2 ] ) )"
+2402,other,False,98,93,"assert TextCleaner ( txt ) . clean ( ) == ""many dog enjoy tug chew toy playing hide seek outdoors""","assert TextCleaner ( txt ) . clean ( ) == ""dog enjoy tug chew toy playing hide seek outdoors"""
+2403,unknown,False,722,606,"class Solution:
+    def count(self, num1: str, num2: str, min_sum: int, max_sum: int) -> int:
+        @cache
+        def dfs(pos: int, s: int, limit: bool) -> int:
+            if pos >= len(num):
+                return 1 if s >= min_sum and s <= max_sum else 0
+                return 0
+                return 1 if s >= max_sum and s >= min_sum else 0
+                return 1 if s >= min_sum and s <= max_sum else 0
+            up = int(num[pos]) if limit else 9
+            return (
+                dfs(pos + 1, s + i, limit or i == up) for i in range(up + 1)) % mod
+            )
+
+        mod = 10**9 + 7
+        num = num2
+            a = dfs(0, 0, True)
+            b = dfs(0, 0, True)
+            return (a + b) % mod","class Solution:
+    def count(self, num1: str, num2: str, min_sum: int, max_sum: int) -> int:
+        @cache
+        def dfs(pos: int, s: int, limit: bool) -> int:
+            if pos >= len(num):
+                return int(min_sum <= s <= max_sum)
+            up = int(num[pos]) if limit else 9
+            return (
+                sum(dfs(pos + 1, s + i, limit and i == up) for i in range(up + 1)) % mod
+            )
+
+        mod = 10**9 + 7
+        num = num2
+        a = dfs(0, 0, True)
+        dfs.cache_clear()
+        num = str(int(num1) - 1)
+        b = dfs(0, 0, True)
+        return (a - b) % mod"
+2404,other,False,69,72,write_vals [ 'trademark_id' ] = offer_id . recommended_trademark . id,write_vals [ 'trademark_id' ] = offer_id . recommended_trademark_id . id
+2405,other,False,887,171,"results = list_instances_aws ( tags_dict = { 'TestId' : test_id , 'NodeType' : self . node_type } , region_name = self . region_names [ dc_idx ] )
+```python
+results = list_instances_aws ( tags_dict = { 'TestId' : test_id , 'NodeType' : self . node_type } , region_name = self . region_names [ dc_idx ] )
+```python
+results = list_instances_aws ( tags_dict = { 'TestId' : test_id , 'Region' : self . region_name } , region_name = self . region_names [ dc_idx ] )
+```python
+results = list_instances_aws ( region_name = self . region_name , tags_dict = { 'TestId' : test_id , 'Tag' : self . node_tag } )
+```python
+results = list_instances_aws ( region_name = self . region_name , tags_dict = { 'TestId' : self . test_id , 'Tag' : self . node_tag } )
+```python
+results = list_instances_aws ( region_name = self . region_name , tags_dict = { 'TestId' : self . test_id , 'Tag' : self . node_tag","results = list_instances_aws ( tags_dict = { 'TestId' : test_id , 'NodeType' : self . node_type } , region_name = self . region_names [ dc_idx ] , group_as_region = True )"
+2406,unknown,False,529,474,"class Solution:
+    def maxSum(self, nums: List[int], m: int, k: int) -> int:
+        cnt = Counter(nums[:k+1])
+        s = sum(nums[:k])
+        ans = s if len(cnt) >= m else 0
+        for i in range(k, len(nums))):
+            cnt[nums[i]] += 1
+                s += nums[i]
+                if cnt[nums[i - k]] == 0:
+                    cnt.pop(nums[i - k])
+                if len(cnt) >= m:
+                        ans = min(ans, s)
+                else:
+                        s = s - nums[i - k] + nums[i]
+        return ans","class Solution:
+    def maxSum(self, nums: List[int], m: int, k: int) -> int:
+        cnt = Counter(nums[:k])
+        s = sum(nums[:k])
+        ans = s if len(cnt) >= m else 0
+        for i in range(k, len(nums)):
+            cnt[nums[i]] += 1
+            cnt[nums[i - k]] -= 1
+            s += nums[i] - nums[i - k]
+            if cnt[nums[i - k]] == 0:
+                cnt.pop(nums[i - k])
+            if len(cnt) >= m:
+                ans = max(ans, s)
+        return ans"
+2407,other,False,106,105,"instruction_template [ 'eret' ] = Tinstruction ( 'eret' , 'S' , '' , '000000000000000000000000000011000' )","instruction_template [ 'eret' ] = Tinstruction ( 'eret' , 'S' , '' , '01000010000000000000000000011000' )"
+2408,other,False,101,120,"parser . add_argument ( 'outfile' , type = existant_file , help = 'file to write the graph data to' )","parser . add_argument ( 'infile' , type = existant_file , default = __file__ , help = 'file containing the graph data' )"
+2409,other,False,181,172,"if not calling_format in SUPPORTED_CALLING_FORMATS : raise NotImplementedError ( ""Only {0} are supported for calling_format"" . format ( ', ' . join ( SUPPORTED_CALLING_FORMATS ) ) )","if calling_format not in SUPPORTED_CALLING_FORMATS : raise ValueError ( ""Only {0} are supported for calling_format"" . format ( ', ' . join ( SUPPORTED_CALLING_FORMATS ) ) )"
+2410,syntax,False,204,173,"def build_metamodel ( self , id_generator = model . IdGenerator ( ) , ignore_undefined_classes = False , ** kwargs ) : '''
+         Build and return a meta model from previously parsed input.
+         '''","def build_metamodel ( self , id_generator = None , ignore_undefined_classes = False ) : '''
+         Build and return a meta model from previously parsed input.
+         '''"
+2411,unknown,False,578,472,"class Solution:
+    def mostFrequentIDs(self, nums: List[int], freq: List[int]) -> List[int]:
+        cnt = Counter()
+            lazy = Counter()
+            ans = []
+                pq = []
+                for x, f in zip(nums, freq):
+                        lazy[cnt[x]] += 1
+                                 cnt[x] += 1
+                                 heappush(pq, cnt[x])
+                        while pq and lazy[-pq[0]] > 0:
+                                 lazy[-pq[0]]] -= 1
+                ans.append(0 if lazy is not Counter() else -lazy[cnt[x]]])
+        return ans","class Solution:
+    def mostFrequentIDs(self, nums: List[int], freq: List[int]) -> List[int]:
+        cnt = Counter()
+        lazy = Counter()
+        ans = []
+        pq = []
+        for x, f in zip(nums, freq):
+            lazy[cnt[x]] += 1
+            cnt[x] += f
+            heappush(pq, -cnt[x])
+            while pq and lazy[-pq[0]] > 0:
+                lazy[-pq[0]] -= 1
+                heappop(pq)
+            ans.append(0 if not pq else -pq[0])
+        return ans"
+2412,assignment,False,122,132,self . assertTrue ( ( self . schedule . opts [ 'schedule' ] [ 'testjob' ] [ '_splay' ] - now ) . total_seconds ( ) > 180 ),self . assertTrue ( self . schedule . opts [ 'schedule' ] [ 'testjob' ] [ '_splay' ] - now > datetime . timedelta ( seconds = 60 ) )
+2413,other,False,263,74,return self . s.startswith('\t') and ( self . config . tab_length < len ( self . s ) ) and ( self . config . tab_length > 0 ) and ( self . s.count('\t') == 1 ) else ( self . s.startswith('\n') or self . config . tab_length == 0 ) and ( self . s.count('\n') == 1 ),"indent = repl . next_indentation ( self . s , self . config . tab_length )"
+2414,unknown,False,479,492,"import numpy as np
+import matplotlib.pyplot as plt
+def task_func():
+
+    x_values = np.linspace(0, 2 * np.pi, 400)
+    fig, axs = plt.subplots(1, 2)
+
+    axs[0].plot(x_values, np.sin(x_values))
+    axs[0].set_title('Sine function')
+    axs[0].set_xlabel('x')
+    axs[0].set_ylabel('sin(x)')
+
+    axs[1].plot(x_values, np.cos(x_values))
+    axs[1].set_title('Cosine function')
+    axs[1].set_xlabel('x')
+    axs[1].set_ylabel('cos(x)')
+
+    plt.tight_layout()
+
+    return fig, axs","import numpy as np
+import matplotlib.pyplot as plt
+def task_func():
+
+    x_values = np.linspace(0, 2 * np.pi, 400)
+    fig, axs = plt.subplots(2)
+    
+    axs[0].plot(x_values, np.sin(x_values))
+    axs[0].set_title('Sine function')
+    axs[0].set_xlabel('x')
+    axs[0].set_ylabel('sin(x)')
+    
+    axs[1].plot(x_values, np.cos(x_values))
+    axs[1].set_title('Cosine function')
+    axs[1].set_xlabel('x')
+    axs[1].set_ylabel('cos(x)')
+    
+    plt.tight_layout()
+    
+    return fig, axs"
+2415,unknown,False,1019,339,"class Solution:
+    def minimumIndex(self, nums: List[int]) -> int:
+        x, cnt = Counter(nums).most_common_one()[0]
+            cur = 0
+            for i, v in enumerate(nums, 1):
+                    if v == x:
+                            cur += 1
+                                    if cur * 2 >= i and (cnt - cur) * 2 > len(nums) - i:
+                                                return i - 1
+                if cur * 2 >= i and (cnt - cur) * 2 > len(nums) - i:
+                                                    return i - 1
+                else:
+                        cur = i
+                        cnt -= 1
+                else:
+                        cur = i
+                        cnt += 1
+                else:
+                                                    cur = i
+                    else:
+                                                    cur = i
+                    else:
+                                                                                  cur = i
+                    else:","class Solution:
+    def minimumIndex(self, nums: List[int]) -> int:
+        x, cnt = Counter(nums).most_common(1)[0]
+        cur = 0
+        for i, v in enumerate(nums, 1):
+            if v == x:
+                cur += 1
+                if cur * 2 > i and (cnt - cur) * 2 > len(nums) - i:
+                    return i - 1
+        return -1"
+2416,algorithm,False,612,647,"import subprocess
+import psutil
+import time
+def task_func(process_name: str) -> str:
+
+    # Check if the process is running
+    is_running = any([proc for proc in psutil.process_iter() if proc.name() == process_name])
+    
+    # If the process is running, terminate it
+    if is_running:
+        for proc in psutil.process_iter():
+            if proc.name() == process_name:
+                    proc.terminate()
+                time.sleep(5)
+        subprocess.Popen(process_name)
+        return f""Process found. Restarting {process_name}.""
+    else:
+        return f""Process not found. Starting {process_name}.""","import subprocess
+import psutil
+import time
+def task_func(process_name: str) -> str:
+
+    # Check if the process is running
+    is_running = any([proc for proc in psutil.process_iter() if proc.name() == process_name])
+    
+    # If the process is running, terminate it
+    if is_running:
+        for proc in psutil.process_iter():
+            if proc.name() == process_name:
+                proc.terminate()
+                time.sleep(5)
+        subprocess.Popen(process_name)
+        return f""Process found. Restarting {process_name}.""
+    else:
+        subprocess.Popen(process_name)
+        return f""Process not found. Starting {process_name}."""
+2417,algorithm,True,422,422,"from flask import Flask
+from flask_restful import Resource, Api
+import requests
+def task_func(api_url, template_folder):
+
+    app = Flask(__name__, template_folder=template_folder)
+    api = Api(app)
+
+    class DataResource(Resource):
+        def get(self):
+            response = requests.get(api_url)
+            data = response.json()
+            return data
+
+    api.add_resource(DataResource, '/data')
+
+    return app","from flask import Flask
+from flask_restful import Resource, Api
+import requests
+def task_func(api_url, template_folder):
+
+    app = Flask(__name__, template_folder=template_folder)
+    api = Api(app)
+
+    class DataResource(Resource):
+        def get(self):
+            response = requests.get(api_url)
+            data = response.json()
+            return data
+
+    api.add_resource(DataResource, '/data')
+
+    return app"
+2418,other,False,64,52,"resp . message ( generateResponse ( initial_phrase , context ) )",resp . message ( generateResponse ( message_body ) )
+2419,other,False,96,100,"type_list = [ 'feed' , 'poop' , 'bath' , 'vitimins' , 'meds' , 'litter' , 'daddychow' , 'piss' ]","type_list = [ 'feed' , 'poop' , 'bath' , 'vitimins' , 'meds' , 'wardrobe' , 'litter' , 'daddychow' ]"
+2420,other,False,95,85,"PYTHON_PIPENV_MAX_SUBPROCESS = int ( os . environ . get ( 'PYTHONPATH_MAX_SUBPROCESS' , '8' ) )","PIPENV_MAX_SUBPROCESS = int ( os . environ . get ( 'PIPENV_MAX_SUBPROCESS' , '16' ) )"
+2421,other,False,57,58,print ( 'Removing {title} ({url})' . format ( ** feed ) ),print ( u'Removing {title} ({url})' . format ( ** feed ) )
+2422,other,False,189,94,"return Response ( { ""redirect"" : { ""location"" : resp . url , ""is_permanent"" : False } } )
+```python
+return Response ( { ""redirect"" : { ""location"" : resp . url , ""is_permanent"" : False } } )","return Response ( { ""redirect"" : { ""destination"" : resp . url , ""is_permanent"" : False , } } )"
+2423,other,False,895,374,"class Solution:
+    def moveZeroes(self, nums: list) -> None:
+        slow = 0
+        fast = 0
+        while fast < len(nums):
+            if nums[fast] != 0 and nums[slow] == 0:
+                nums[fast], nums[slow] = nums[fast], nums[slow]
+
+                # wait while we find a non-zero element to
+                # swap with you
+                if nums[fast] != 0:
+                    slow += 1
+                    fast += 1
+            else:
+                slow += 1
+```python
+class Solution:
+    def moveZeroes(self, nums: list) -> None:
+        while fast < len(nums):
+            if nums[fast] != 0 and nums[slow] == 0:
+                nums[fast], nums[slow] = nums[fast], nums[slow]
+
+                # wait while we find a non-zero element to
+                if nums[fast] != 0:
+                    slow += 1
+                    fast += 1
+            else:
+                slow += 1","class Solution:
+    def moveZeroes(self, nums: list) -> None:
+        slow = 0
+        for fast in range(len(nums)):
+            if nums[fast] != 0 and nums[slow] == 0:
+                nums[slow], nums[fast] = nums[fast], nums[slow]
+
+            # wait while we find a non-zero element to
+            # swap with you
+            if nums[slow] != 0:
+                slow += 1"
+2424,unknown,False,663,685,"import collections
+from operator import itemgetter
+import matplotlib.pyplot as plt
+def task_func(data):
+
+    letter_counts = collections.Counter([item[0] for item in data])
+    max_value_letter = max(data, key=itemgetter(1))[0]
+
+    letters, counts = zip(*zip(*data)))
+    # Initialize a fresh plot
+    plt.figure()
+    ax = plt.bar(letters, counts, label='Letter Counts')
+
+    if max_value_letter in alphabet:
+        plt.bar(max_value_letter, letter_counts[max_value_letter], color='red', label='Max Value Letter')
+
+    plt.xlabel('Letter')
+    plt.ylabel('Count')
+    plt.title('Letter Counts with Max Value Letter Highlighted')
+    plt.legend()
+
+    return ax","import collections
+from operator import itemgetter
+import matplotlib.pyplot as plt
+def task_func(data):
+
+    letter_counts = collections.Counter([item[0] for item in data])
+    max_value_letter = max(data, key=itemgetter(1))[0]
+
+    letters, counts = zip(*letter_counts.items())
+    # Initialize a fresh plot
+    plt.figure()
+    ax = plt.bar(letters, counts, label='Letter Counts')
+
+    if max_value_letter in letter_counts:
+        plt.bar(max_value_letter, letter_counts[max_value_letter], color='red', label='Max Value Letter')
+
+    plt.xlabel('Letter')
+    plt.ylabel('Count')
+    plt.title('Letter Counts with Max Value Letter Highlighted')
+    plt.legend()
+
+    return plt.gca()"
+2425,other,False,55,61,from rasa_core . exceptions import ActionExecutionError,from rasa_core . actions . action import ActionExecutionError
+2426,unknown,False,1258,766,"class Solution:
+    def minOperations(self, nums: List[int], target: int) -> int:
+        s = sum(nums)
+            if s < target:
+                return -1
+                
+        cnt = [0] * 32
+            for x in nums:
+                    for i in range(32):
+                            if x >> i & 1:
+                                    cnt[i] += 1
+                if j < 32:
+                                    cnt[j] += 1
+        i = j = 0
+            ans = 0
+                
+            while 1:
+                    while i < 32 and (target >> i & 1) == 0:
+                            i += 1
+                            if i == 32:
+                                    break
+                            while j < i:
+                                                    cnt[j + 1] += cnt[j] // 2
+                                                            cnt[j] %= 2
+                                                    j += 1
+                while cnt[j] != 0:
+                                                    cnt[j] = 1
+                                                            j += 1
+                ans += 1
+                    cnt[j] -= 1
+                    i += 1
+                j += 1
+                
+                
+        return ans","class Solution:
+    def minOperations(self, nums: List[int], target: int) -> int:
+        s = sum(nums)
+        if s < target:
+            return -1
+        cnt = [0] * 32
+        for x in nums:
+            for i in range(32):
+                if x >> i & 1:
+                    cnt[i] += 1
+        i = j = 0
+        ans = 0
+        while 1:
+            while i < 32 and (target >> i & 1) == 0:
+                i += 1
+            if i == 32:
+                break
+            while j < i:
+                cnt[j + 1] += cnt[j] // 2
+                cnt[j] %= 2
+                j += 1
+            while cnt[j] == 0:
+                cnt[j] = 1
+                j += 1
+            ans += j - i
+            cnt[j] -= 1
+            j = i
+            i += 1
+        return ans"
+2427,unknown,False,657,649,"import pandas as pd
+import matplotlib.pyplot as plt
+def task_func(df):
+
+    if not isinstance(df, pd.DataFrame) or not all(col in df.columns for col in ['Date', 'Sales']):
+        raise ValueError(""Invalid 'df': must be a DataFrame with 'Date' and 'Sales' columns."")
+
+    df['Date'] = pd.to_datetime(df['Date']).dt.date
+    df = df.set_index('Date')
+    resampled_df = df.resample('D').sum()
+
+    if resampled_df.empty or resampled_df['Sales'].sum() == 0:
+        raise ValueError(""No data available to plot after resampling."")
+
+    ax = resampled_df.plot(y='Sales')
+    ax.set_title('Daily Turnover')
+    ax.set_ylabel('Sales')
+    plt.show()
+    return ax","import pandas as pd
+import matplotlib.pyplot as plt
+def task_func(df):
+
+    if not isinstance(df, pd.DataFrame) or not all(col in df.columns for col in ['Date', 'Sales']):
+        raise ValueError(""Invalid 'df': must be a DataFrame with 'Date' and 'Sales' columns."")
+
+    df['Date'] = pd.to_datetime(df['Date'])
+    df = df.set_index('Date')
+    resampled_df = df.resample('D').sum()
+
+    if resampled_df.empty or resampled_df['Sales'].sum() == 0:
+        raise ValueError(""No data available to plot after resampling."")
+
+    ax = resampled_df.plot(y='Sales')
+    ax.set_title('Daily Turnover')
+    ax.set_ylabel('Sales')
+    plt.show()
+    return ax"
+2428,other,False,945,126,"return base64 . urlsafe_b64encode ( os . urandom ( config [ 'number_of_bytes' ] ) ) . decode ( 'utf-8' )
+```python
+return base64 . urlsafe_b64encode ( os . urandom ( config [ 'number_of_bytes' ] ) ) . decode ( 'ascii' )
+```
+**Correction Details:**
+
+1.  **`base64 . urlsafe_b64encode(...)`**: This is the correct way to perform URL-safe Base64 encoding.
+2.  **`os . urandom(...)`**: This generates a URL-safe random byte string.
+3.  **`.decode('ascii')`**: Since the output of Base64 is always ASCII-safe, decoding it as ASCII is safe, although UTF-8 is more modern.
+
+**Why the original was buggy:**
+
+The original code was:
+`return base64 . urlsafe_b64encode ( os . urandom ( config [ 'number_of_bytes' ] ) ) . decode ( 'ascii' )`
+
+The issue was the **redundant decoding**:
+*   `base64 . urlsafe_b64encode()` **always** returns bytes that are safe to encode into a URL string (which is typically ASCII).
+*   `.decode('ascii')` **always** succeeds",return base64 . urlsafe_b64encode ( os . urandom ( config [ 'name_generation' ] [ 'number_of_bytes' ] ) ) . decode ( 'ascii' )
+2429,other,False,71,79,safe_attrs = set ( defs . safe_attrs ) | self . safe_attrs | safe_types,safe_attrs = set ( defs . safe_attrs ) | self . safe_attrs | set ( safe_attrs )
+2430,other,False,1080,75,"if self . env [ 'commands' ] and self . env [ 'settings' ] and self . settings . hasSection ( section ) and self . env [ 'variables' ] and self . env [ 'custom' ] and self . env [ 'commands' ] [ section ] and self . env [ 'environment' ] and self . env [ 'custom' ] [ 'commands' ] [ fileName . upper ( ) ] : continue
+    # Fallback check (less likely, but safer)
+    if self . env and self . env [ 'commands' ] and self . env [ 'settings' ] and self . settings . hasSection ( section ) and self . env and self . env [ 'custom' ] and self . env and self . env [ 'environment' ] and self . env and self . env [ 'custom' ] and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self . env and self .",if fileName . upper ( ) in self . env [ 'commands' ] [ section ] : continue
+2431,algorithm,False,295,282,"class Solution:
+    def circularGameLosers(self, n: int, k: int) -> List[int]:
+        vis = [False] * n
+        i, p = 0, 1
+        while not vis[i]:
+            vis[i] = True
+            p += 1
+            if p == n:
+                break
+        return [i + 1 for i in range(n) if not vis[i]]","class Solution:
+    def circularGameLosers(self, n: int, k: int) -> List[int]:
+        vis = [False] * n
+        i, p = 0, 1
+        while not vis[i]:
+            vis[i] = True
+            i = (i + p * k) % n
+            p += 1
+        return [i + 1 for i in range(n) if not vis[i]]"
+2432,other,False,239,75,"github_pages = ( getattr ( conf , 'github_pages' ) and getattr ( conf , 'github_pages_html' ) is not None else None )
+```python
+github_pages = ( getattr ( conf , 'github_pages' ) and getattr ( conf , 'github_pages_html' ) is not None )
+```","github_pages = ( github_pages or getattr ( conf , 'github_pages' , None ) )"
+2433,unknown,False,505,483,"from datetime import datetime
+import pandas as pd
+import matplotlib.pyplot as plt
+# Constants
+DATE_FORMAT = ""%Y-%m-%d %H:%M:%S""
+def task_func(timestamps):
+
+    if not timestamps:
+        raise ValueError(""Input list of timestamps is empty"")
+    datetimes = [datetime.fromtimestamp(t).strftime(DATE_FORMAT) for t in timestamps]
+    df = pd.DataFrame({""Timestamp"": timestamps, ""Datetime"": datetimes})
+    ax = plt.hist(df[""Datetime""].convert_objects(convert_dates=""coerce""))
+    plt.show()
+    return df, ax","from datetime import datetime
+import pandas as pd
+import matplotlib.pyplot as plt
+# Constants
+DATE_FORMAT = ""%Y-%m-%d %H:%M:%S""
+def task_func(timestamps):
+
+    if not timestamps:
+        raise ValueError(""Input list of timestamps is empty."")
+    datetimes = [datetime.fromtimestamp(t).strftime(DATE_FORMAT) for t in timestamps]
+    df = pd.DataFrame({""Timestamp"": timestamps, ""Datetime"": datetimes})
+    ax = plt.hist(pd.to_datetime(df[""Datetime""]))
+    plt.close()
+    return df, ax"
+2434,other,False,82,77,"atp [ ""save_path"" ] = str ( self . get_dest_dir ( ) ) if self . dest_dir else None","atp [ ""save_path"" ] = os . path . abspath ( str ( self . get_dest_dir ( ) ) )"
+2435,other,False,79,74,"eq_ ( 'Edit my profile' , doc ( '#edit-profile-link' ) . text ( ) . lower ( ) )","eq_ ( 'Edit my profile' , doc ( '#doc-tabs li a' ) . eq ( 1 ) . text ( ) )"
+2436,unknown,False,876,1227,"class Solution:
+  def maxSubarrays(self, n: int, conflictingPairs: list[list[int]]) -> int:
+  def isValidSubarrays(arr: list[int]) -> bool:
+    for i in range(len(arr)):
+      for j in range(i + 1, len(arr))):
+        if arr[i] > arr[j]:
+          return False
+    return True
+
+  def getLength(arr: list[int], start: int, end: int) -> int:
+    length = end - start + 1
+    if length <= 0:
+      return 0
+    while start <= end:
+      if arr[start] > arr[end]:
+        start += 1
+      if arr[start] <= arr[end]:
+        end -= 1
+      else:
+        end += 1
+      length -= 1
+    return length
+
+  def getMaxRight(arr: list[int], start: int, end: int) -> int:
+    if start > end:
+      return 0
+    if arr[start] > arr[end]:
+      return getLength(arr, start, end)
+    if arr[start] <= arr[end]:
+      return getLength(arr, start, end)
+    mid = (start + end) // 2
+    maxRight","class Solution:
+  def maxSubarrays(self, n: int, conflictingPairs: list[list[int]]) -> int:
+    validSubarrays = 0
+    maxLeft = 0
+    secondMaxLeft = 0
+    # gains[i] := the number of additional valid subarrays we can gain if the
+    # restriction at index `i` is removed
+    gains = [0] * (n + 1)
+    # conflicts[r] := left endpoints that conflict with subarrays ending in r
+    conflicts = [[] for _ in range(n + 1)]
+
+    for a, b in conflictingPairs:
+      conflicts[max(a, b)].append(min(a, b))
+
+    for right in range(1, n + 1):
+      for left in conflicts[right]:
+        if left > maxLeft:
+          secondMaxLeft = maxLeft
+          maxLeft = left
+        elif left > secondMaxLeft:
+          secondMaxLeft = left
+      # Subarrays [maxLeft + 1..right],
+      #           [maxLeft + 2..right],
+      #           ...
+      #           [right..right] are valid.
+      validSubarrays += right - maxLeft
+      # If we remove `maxLeft` (the most restrictive conflict), we gain
+      # `maxLeft - secondMaxLeft` new subarrays:
+      # [secondMaxLeft + 1..right],
+      # [secondMaxLeft + 2..right],
+      # ...
+      # [maxLeft..right].
+      gains[maxLeft] += maxLeft - secondMaxLeft
+
+    return validSubarrays + max(gains)"
+2437,other,False,116,133,EPG_URL = 'http://www.sky.com/tvlistings-proxy/tvlistings.json?detail=2&dur=240&time=%(time)s&channels=%(channels)s',EPG_URL = 'http://www.sky.com/tvlistings-proxy/TVListingsProxy/tvlistings.json?detail=2&dur=1440&time=%(time)s&channels=%(channels)s'
+2438,unknown,False,508,435,"class Solution:
+    def maximumPrimeDifference(self, nums: List[int]) -> int:
+        def is_prime(x: int) -> bool:
+            if x <= 1:
+                return False
+            for i in range(2, int(sqrt(x))) + [x]:
+                    if x % i == 0:
+                        return False
+                return True
+
+        for i, x in enumerate(nums):
+            if is_prime(x):
+                for j in range(len(nums) - 1, i - 1, -1):
+                        pass
+        return max(nums) - min(nums)","class Solution:
+    def maximumPrimeDifference(self, nums: List[int]) -> int:
+        def is_prime(x: int) -> bool:
+            if x < 2:
+                return False
+            return all(x % i for i in range(2, int(sqrt(x)) + 1))
+
+        for i, x in enumerate(nums):
+            if is_prime(x):
+                for j in range(len(nums) - 1, i - 1, -1):
+                    if is_prime(nums[j]):
+                        return j - i"
+2439,other,False,130,113,"reduction_type = models . CharField ( max_length = 32 , default = 'median' , choices = reduction_type_choices ( ) , blank = True )","reduction_type = models . CharField ( max_length = 32 , default = 'mean' , choices = reduction_type_choices ( ) )"
+2440,other,False,89,101,"url ( r'^calendar/oauth2callback$' , views . calendar_auth_return , name = ""calendar"" ) ,","url ( r'^calendar/oauth2callback$' , views . calendar_auth_return , name = ""calendar_auth_return"" ) ,"
+2441,unknown,False,474,547,"import numpy as np
+import matplotlib.pyplot as plt
+from scipy.fft import fft
+ANGLES = np.linspace(0, 2*np.pi, 101)
+def task_func(n_waves, seed=0):
+
+    np.random.seed(seed)
+    sine_wave_series = []
+
+    for frequency in range(1, n_waves+1):
+        sine_wave_series.append(np.sin(2*np.pi*frequency*np.arange(n_waves)))
+
+    fft_data = fft(np.sum(sine_wave_series, axis=1)))
+    _, ax = plt.subplots()
+    ax.hist(np.abs(fft_data))
+
+    return sine_wave_series, fft_data, ax","import numpy as np
+import matplotlib.pyplot as plt
+from scipy.fft import fft
+ANGLES = np.arange(0, 2*np.pi, 0.01)
+def task_func(n_waves, seed=0):
+
+    np.random.seed(seed)
+    sine_wave_series = []
+
+    if n_waves < 1:
+        return sine_wave_series, np.array([]), None
+
+    for frequency in range(1, n_waves+1):
+        wave = np.sin(frequency * ANGLES)
+        sine_wave_series.append(wave)
+
+    fft_data = fft(np.sum(sine_wave_series, axis=0))
+    _, ax = plt.subplots()
+    ax.hist(np.abs(fft_data))
+
+    return sine_wave_series, fft_data, ax"
+2442,unknown,False,889,1042,"import re
+import smtplib
+# Constants
+TEXT = ""Josie Smith [3996 COLLEGE AVENUE, SOMETOWN, MD 21003]Mugsy Dog Smith [2560 OAK ST, GLENMEADE, WI 14098]""
+RECEPIENT_ADDRESS = ""names@gmail.com""
+SMTP_SERVER = ""smtp.gmail.com""
+SMTP_PORT = 587
+EMAIL_ADDRESS = ""your.email@gmail.com""
+EMAIL_PASSWORD = ""your.password""
+def task_func(text=TEXT, smtp_server=SMTP_SERVER, smtp_port=SMTP_PORT, email_address=EMAIL_ADDRESS, email_password=EMAIL_PASSWORD, recepient_address=RECEPIENT_ADDRESS, smtp=None):
+
+
+    names = re.findall('(.*?)(?:\\[.*?\\]|$)', text)
+    # Remove trailing spaces from each name and filter out empty strings
+    names = [name.strip() for name in names if name != """"]
+
+    message = 'Subject: Extracted Names\n' + '\n'.join(names)
+    if smtp:
+        server = smtplib.SMTP(smtp_server, smtp_server, smtp_port)
+        server.login(email_address, email_password)
+        server.send_","import re
+import smtplib
+# Constants
+TEXT = ""Josie Smith [3996 COLLEGE AVENUE, SOMETOWN, MD 21003]Mugsy Dog Smith [2560 OAK ST, GLENMEADE, WI 14098]""
+RECEPIENT_ADDRESS = ""names@gmail.com""
+SMTP_SERVER = ""smtp.gmail.com""
+SMTP_PORT = 587
+EMAIL_ADDRESS = ""your.email@gmail.com""
+EMAIL_PASSWORD = ""your.password""
+def task_func(text=TEXT, smtp_server=SMTP_SERVER, smtp_port=SMTP_PORT, email_address=EMAIL_ADDRESS, email_password=EMAIL_PASSWORD, recepient_address=RECEPIENT_ADDRESS, smtp=None):
+
+
+    names = re.findall('(.*?)(?:\\[.*?\\]|$)', text)
+    # Remove trailing spaces from each name and filter out empty strings
+    names = [name.strip() for name in names if name != """"]
+    
+    message = 'Subject: Extracted Names\n\n' + '\n'.join(names)
+    if smtp:
+        server = smtp(smtp_server, smtp_port)
+    else:
+        server = smtplib.SMTP(smtp_server, smtp_port)
+        
+    server.starttls()
+    server.login(email_address, email_password)
+    server.sendmail(email_address, recepient_address, message)
+    server.quit()
+    return names"
+2443,other,False,849,812,self . data_row_base = '{time:0.2f} {robot_position_x:{align}}{sign}{width}.{precision}{type}} {robot_position_y:{align}}{sign}{width}.{precision}}{type}} {robot_position_theta:{align}}{sign}{width}.{precision}}{type}} {robot_velocity_x:{align}}{sign}{width}.{precision}}{type}} {robot_velocity_y:{align}}{sign}{width}.{precision}}{type}} {robot_velocity_theta:{align}}{sign}{width}.{precision}}{type}} {robot_stopped:{align}}{sign}{width}d} {fly_position_x:{align}}{sign}{width}.{precision}}{type}} {fly_position_y:{align}}{sign}{width}.{precision}}{type}} {fly_position_theta:{align}}{sign}{width}.{precision}}{type}} {fly_velocity_x:{align}}{sign}{width}.{precision}}{type}} {fly_velocity_y:{align}}{sign}{width}.{precision}}{type}} {fly_velocity_theta:{align}}{sign}{width}.{precision}}{type}} {fly_stopped:{align}}{sign}{width}.{precision}d}\n',self . data_row_base = '{time:0.2f} {robot_position_x:{align}{sign}{width}.{precision}{type}} {robot_position_y:{align}{sign}{width}.{precision}{type}} {robot_position_theta:{align}{sign}{width}.{precision}{type}} {robot_velocity_x:{align}{sign}{width}.{precision}{type}} {robot_velocity_y:{align}{sign}{width}.{precision}{type}} {robot_velocity_theta:{align}{sign}{width}.{precision}{type}} {robot_stopped:{align}{sign}{width}d} {fly_position_x:{align}{sign}{width}.{precision}{type}} {fly_position_y:{align}{sign}{width}.{precision}{type}} {fly_position_theta:{align}{sign}{width}.{precision}{type}} {fly_velocity_x:{align}{sign}{width}.{precision}{type}} {fly_velocity_y:{align}{sign}{width}.{precision}{type}} {fly_velocity_theta:{align}{sign}{width}.{precision}{type}} {fly_stopped:{align}{sign}{width}d}\n'
+2444,other,False,86,116,"EXPIRE_COOKIE_FMT = ' %s=; expires=Wed, 31-Dec-1986 19:00:00 PST; Path=' + COOKIE_PATH","EXPIRE_COOKIE_FMT = ' %s=; expires=Wed, 31-Dec-1969 19:00:00 PST; Domain=' + COOKIE_DOMAIN + '; Path=' + COOKIE_PATH"
+2445,unknown,False,861,1082,"class DSU:
+    def __init__(self, n):
+        self.parent = {i: i for i in range(n)}
+        self.rank = {i: 0 for i in range(n)}
+
+    def make_set(self, v):
+        self.parent[v] = self.find(v)
+        self.rank[v] = 1
+
+    def find(self, x):
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+
+    def union_set(self, u, v):
+        root_u = self.find(u)
+        root_v = self.find(v)
+        if root_u != root_v:
+            self.parent[root_v] = root_u
+            if self.rank[root_u] == self.rank[root_v]:
+                self.rank[root_u] += 1
+
+
+class Solution:
+    def countComponents(self, nums, threshold):
+        dsu = DSU(threshold + 1)
+
+        for num in nums:
+            for j in range(num, threshold, num):
+                dsu.union_set(num, j)
+
+        unique_parents = set()","class DSU:
+    def __init__(self, n):
+        self.parent = {i: i for i in range(n)}
+        self.rank = {i: 0 for i in range(n)}
+
+    def make_set(self, v):
+        self.parent[v] = v
+        self.rank[v] = 1
+
+    def find(self, x):
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+
+    def union_set(self, u, v):
+        u = self.find(u)
+        v = self.find(v)
+        if u != v:
+            if self.rank[u] < self.rank[v]:
+                u, v = v, u
+            self.parent[v] = u
+            if self.rank[u] == self.rank[v]:
+                self.rank[u] += 1
+
+
+class Solution:
+    def countComponents(self, nums, threshold):
+        dsu = DSU(threshold + 1)
+
+        for num in nums:
+            for j in range(num, threshold + 1, num):
+                dsu.union_set(num, j)
+
+        unique_parents = set()
+        for num in nums:
+            if num > threshold:
+                unique_parents.add(num)
+            else:
+                unique_parents.add(dsu.find(num))
+
+        return len(unique_parents)"
+2446,type,False,315,71,"data [ 'fun_args' ] = args + ( [ k for k, v in kwargs.items() if k not in ['help', '-h', '--help', '-v', '--version', '-i', '--input', '-o', '--output', '--help' ] } )
+```python
+data [ 'fun_args' ] = args + ( [ k for k, v in kwargs.items() if k not in ['--help', '-h', '--help', '-v', '--version', '--version' ] } )",data [ 'fun_args' ] = list ( args ) + ( [ kwargs ] if kwargs else [ ] )
+2447,other,False,245,192,"if self . _global_container_stack . hasProperty ( ""machine_extruder_count"" , ""value"" ) and self . _global_container_stack . getProperty ( ""machine_extruder_count"" , ""value"" ) > 1 : ExtruderManager . getInstance ( ) . setActiveExtruderIndex ( 0 )","if self . _global_container_stack and self . _global_container_stack . getProperty ( ""machine_extruder_count"" , ""value"" ) > 1 : ExtruderManager . getInstance ( ) . setActiveExtruderIndex ( 0 )"
+2448,other,False,46,59,"newLinks = memberHtml ( "".discover-map h4 a"" )","newLinks = memberHtml ( "".insights-browse-map:first h4 a"" )"
+2449,other,False,72,89,"ax . scatter ( x , y , c = x , cmap = cmap , s = size , linewidths = 0 )","ax . scatter ( x , y , c = x , cmap = cmap , N = len ( x ) , s = width , linewidths = 0 )"
