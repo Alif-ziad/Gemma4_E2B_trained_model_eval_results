@@ -33910,3 +33910,126 @@ p = Person ( name = a [ 'name' ] . replace ( '\n' , '<br/>' ) . encode ( ""utf-8
 p = Person ( name = a [ 'name' ] . replace ( '\n' , '<br/>' ) . encode ( ""utf-8"" ) , phone = a [ 'phone' ] , mail = a [ 'mail' ] , )
 ```python
 p = Person ( name = a [ 'name","p = Person ( name = a [ 'name' ] , phone = a [ 'phone' ] , mail = a [ 'mail' ] , )"
+2500,other,False,63,65,"msg = await channel_send ( embed = embed , delete_after = 600 )","msg = await channel . send ( embed = embed , delete_after = 300 )"
+2501,other,False,101,98,self . last_nonvoter_rescale = ( 1 + self . collective_reward ( ) - self . individual_reward_factor ),self . last_nonvoter_rescale = ( 1 + self . collective_reward ( ) ) / ( 1 + self . reward_factor )
+2502,other,False,160,62,"setattr ( self , '{}_err' . format ( k ) , float ( v [ 0 ] ) if v else None )
+```python
+```python
+setattr ( self , '{}_err' . format ( k ) , float ( v [ 0 ] ) )","setattr ( self , '{}_err' . format ( k ) , float ( v [ 1 ] ) )"
+2503,unknown,False,928,856,"class Solution:
+    def minimumCost(
+        self,
+        source: str,
+        target: str,
+        original: List[str],
+        changed: List[str],
+        cost: List[int],
+    ) -> int:
+        g = list.full((26, 26), inf)
+            
+        for i in range(26):
+            g[i][i] = 0
+                
+        for x, y, z in zip(original, changed, cost):
+                g[x][y] = min(g[x][y], z)
+                
+        for k in range(26):
+                for i in range(26):
+                        for j in range(26):
+                                g[i][j] = min(g[i][k], g[j][k] + g[k][j])
+                
+        ans = 0
+        for a, b in zip(source, target):
+                if a != b:
+                        x, y = ord(a) - ord('a'), ord(b) - ord('a')
+                                if g[x][y] == -1:
+                                                return -1
+                ans += g[x][y]
+        return ans","class Solution:
+    def minimumCost(
+        self,
+        source: str,
+        target: str,
+        original: List[str],
+        changed: List[str],
+        cost: List[int],
+    ) -> int:
+        g = [[inf] * 26 for _ in range(26)]
+        for i in range(26):
+            g[i][i] = 0
+        for x, y, z in zip(original, changed, cost):
+            x = ord(x) - ord('a')
+            y = ord(y) - ord('a')
+            g[x][y] = min(g[x][y], z)
+        for k in range(26):
+            for i in range(26):
+                for j in range(26):
+                    g[i][j] = min(g[i][j], g[i][k] + g[k][j])
+        ans = 0
+        for a, b in zip(source, target):
+            if a != b:
+                x, y = ord(a) - ord('a'), ord(b) - ord('a')
+                if g[x][y] >= inf:
+                    return -1
+                ans += g[x][y]
+        return ans"
+2504,checking,False,99,114,raise WeirdsDataError ( 'Cannot apply expand_{0} to object of this type' . format ( expandvalue ) ),"raise RuntimeError ( 'Cannot apply expand_{0} to object of class {1}' . format ( expanditem , self . __class__ ) )"
+2505,other,False,78,67,if not self . root . endswith ( '/' ) and self . root : common_prefix_len += 1,if not self . root . endswith ( os . sep ) : common_prefix_len += 1
+2506,other,False,83,81,"self . enqueue_entities ( itertools . chain ( entities . uses , results . chats ) )","self . enqueue_entities ( itertools . chain ( result . users , result . chats ) )"
+2507,assignment,False,392,383,"class Solution:
+    def longestValidSubstring(self, word: str, forbidden: List[str]) -> int:
+        s = set(forbidden)
+        ans = i = len(word)
+        for j in range(len(word))):
+            for k in range(j, max(i - 1, j + 10), -1):
+                if word[k : j + 1] in s:
+                    i = k + 1
+                    break
+            ans = max(ans, j - i + 1)
+        return ans","class Solution:
+    def longestValidSubstring(self, word: str, forbidden: List[str]) -> int:
+        s = set(forbidden)
+        ans = i = 0
+        for j in range(len(word)):
+            for k in range(j, max(j - 10, i - 1), -1):
+                if word[k : j + 1] in s:
+                    i = k + 1
+                    break
+            ans = max(ans, j - i + 1)
+        return ans"
+2508,logic,False,318,359,"class Solution:
+    def arrayRankTransform(self, arr: List[int]) -> List[int]:
+        list1=[]
+        x=sorted(set(arr))
+        dict1={}
+        for i in range(len(x))
+            dict1[x[i]]=(i)+1
+        for j in arr:
+            dict1[j]+=1
+            y=dict1[j]
+            list1.append(y)
+        return list1","class Solution:
+    def arrayRankTransform(self, arr: List[int]) -> List[int]:
+        list1=[]
+        x=sorted(set(arr))
+        dict1={}
+        for i in range(len(x)):
+            dict1[x[i]]=i+1
+        for j in arr:
+            y=dict1[j]
+            list1.append(y)
+        return list1
+    #please do upvote it will help alot to gain my love in coding"
+2509,other,False,137,137,""""""" Karr Lab build utilities
+ 
+ :Author: Jonathan Karr <karr@mssm.edu>
+ :Date: 2017-08-02
+ :Copyright: 2016, Karr Lab
+ :License: MIT
+ """"""",""""""" Karr Lab build utilities
+ 
+ :Author: Jonathan Karr <karr@mssm.edu>
+ :Date: 2016-08-02
+ :Copyright: 2016, Karr Lab
+ :License: MIT
+ """""""
