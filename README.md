@@ -6,7 +6,7 @@ Evaluation-artifact repository containing validation output for a trained **Gemm
 
 - `validation_results_gemma4-e2b-qlora-run1.csv`
 
-The CSV is the substantive artifact in this repository. The small `test*.txt` files are development/test files and should not be treated as experiment results.
+The CSV is the only result file in this repository.
 
 ## Reporting guidance
 
